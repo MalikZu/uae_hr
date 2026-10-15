@@ -18,16 +18,25 @@ Status: **v0.1, early.** Built and tested on Frappe 16 / ERPNext 16 / HRMS 16. N
   type (the 12 types of CR 6(1)), skill category, visa designation, MOHRE person code, probation in months,
   second contract language (DL 66), accommodation (DL 13(4)), death-entitlements nominee (DL 15(2)), bank / IBAN /
   salary card, and a table of company property issued to the worker.
+- Who sponsors the visa and how the worker is engaged: **UAE Establishment** (the visa sponsor, often not the ERP
+  company), visa emirate, engagement type (salaried, visa only, daily wage on another sponsor's visa, absconded,
+  left with the visa still active, not salaried) and payment method (WPS bank account or salary card, cash, on
+  hold, not paid by us).
 - **UAE Employee Document**: one record per passport, visa, Emirates ID, work permit, contract, insurance and so on,
   with a private scan. **Verify** (HR Manager) makes it current, supersedes the previous one of that type and
   copies its values to the Employee (passport number and dates, Emirates ID, visa and permit expiry). Those
-  Employee fields become read-only: they are only ever set from a verified document.
+  Employee fields become read-only: they are only ever set from a verified document. A verified document is locked;
+  an HR Manager can **Reopen** it to correct a mistake and verify it again. Renewals that keep their number (an
+  Emirates ID does) are recorded as a new document with the new expiry date. The MOHRE contract document carries
+  the contract salary, and a Salary Structure Assignment below it is warned.
 - Expiry reminders as standard Frappe Notifications to the **UAE PRO** role (HR Manager in copy), with lead times
   per document type, plus an **Expiring Documents** report for the next 90 days and anything overdue.
 - **UAE HR Letter**: a submittable register of salary certificates, experience certificates, warnings, NOCs. Print
   formats are left to you, on your letterhead.
 - Salary components **Basic, Housing, Transport, Other** that read amounts from the Salary Structure Assignment, so
-  one salary structure fits everyone and the basic wage stays separate (gratuity is calculated on it, DL 51(5)).
+  one salary structure fits everyone and the basic wage stays separate (gratuity is calculated on it, DL 51(5)). An
+  empty base is filled with their sum.
+- The Exit tab lists issued items not yet returned, and leaving with items still out is warned.
 
 **Checks, each with its article**
 
@@ -68,8 +77,9 @@ bench --site <site> install-app uae_hr
 ```
 
 Then, in **UAE HR Settings**: list your companies (jurisdiction, emirate, MOHRE establishment ID, WPS agent bank) and
-check the reminder days. Add your banks to **UAE Bank** (3-digit IBAN code, SWIFT, 9-digit WPS routing code from your
-WPS agent). Give your PRO the **UAE PRO** role.
+check the reminder days. Check **UAE Bank** (3-digit IBAN code, SWIFT) and add the 9-digit WPS routing codes from
+your WPS agent. Add the establishments that sponsor your workers' visas to **UAE Establishment**. Give your PRO the
+**UAE PRO** role.
 
 Uninstalling removes the app's doctypes, fields, permission rows, notifications, report and workspace, and gives the
 standard Employee passport fields their normal behaviour back. As with any Frappe app, the data columns of the

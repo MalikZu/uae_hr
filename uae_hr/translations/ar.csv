@@ -1,0 +1,506 @@
+0 = no maximum,0 = بلا حد أقصى
+"14 digits, from the work permit. Needed for WPS",14 رقماً، من تصريح العمل. مطلوب لنظام حماية الأجور
+9-digit routing code used in WPS salary files. Take it from your WPS agent bank,رمز توجيه من 9 أرقام يُستخدم في ملفات رواتب نظام حماية الأجور. اطلبه من البنك الوكيل
+"A company not listed here is treated as mainland if its country is United Arab Emirates, and is ignored otherwise",الشركة غير المدرجة هنا تُعامل كشركة في البر الرئيسي إذا كانت دولتها الإمارات، وتُتجاهل خلاف ذلك
+A disciplinary warning needs the {0} (CR 24(3)-(4)),يحتاج الإنذار التأديبي إلى: {0} (CR 24(3)-(4))
+A penalty cannot be issued before the investigation has closed,لا يجوز توقيع الجزاء قبل انتهاء التحقيق
+A person who has reached 15 years of age but is not over 18 years,من أتم 15 سنة من عمره ولم يتجاوز 18 سنة
+"A student already in the State, from 15 years of age",طالب مقيم في الدولة، من سن 15 سنة
+ADGM (not covered),سوق أبوظبي العالمي (غير مشمول)
+Absence report to the Ministry after consecutive days (more than),إبلاغ الوزارة عن الانقطاع بعد أيام متصلة (أكثر من)
+Abu Dhabi,أبوظبي
+Access Card,بطاقة دخول
+Accommodation,السكن
+Accommodation is Provided or Allowance in wage,السكن إما مُوفَّر أو بدل ضمن الأجر
+Account Name,اسم الحساب
+Add a row under Education,أضف سطراً في قسم التعليم
+Add an Address linked to the company,أضف عنواناً مرتبطاً بالشركة
+Addressed To,موجه إلى
+Ajman,عجمان
+All deductions combined cap (% of wage),الحد الأقصى لمجموع الاقتطاعات (% من الأجر)
+Allowance in wage,بدل ضمن الأجر
+"Allowances are set but the basic wage is empty. Gratuity, overtime and leave pay are calculated on the basic wage",البدلات محددة لكن الأجر الأساسي فارغ. تُحسب مكافأة نهاية الخدمة والعمل الإضافي وبدل الإجازة على الأجر الأساسي
+Already expired on {0},منتهي منذ {0}
+Always stored as a private file. The original stays with the worker: DL 13(2) forbids withholding official documents,تُحفظ دائماً كملف خاص. يبقى الأصل مع العامل: تحظر DL 13(2) حجز الوثائق الرسمية
+Amended From,معدَّل من
+Amendment Reference,مرجع التعديل
+Amendment reference needed,مرجع التعديل مطلوب
+An experience certificate must state the {0} (DL 13(11)),يجب أن تذكر شهادة الخبرة: {0} (DL 13(11))
+An official document cannot be an issued item: the employer may not withhold the worker's official documents. Keep a scan as a UAE Employee Document instead,لا يمكن أن تكون الوثيقة الرسمية عهدة: لا يجوز لصاحب العمل حجز الوثائق الرسمية للعامل. احفظ نسخة ممسوحة كمستند موظف بدلاً من ذلك
+Annual leave between 6 and 12 months of service (days per month),الإجازة السنوية بين 6 و12 شهراً من الخدمة (أيام عن كل شهر)
+Annual leave carry-forward cap (% of annual leave),الحد الأقصى لترحيل الإجازة السنوية (% من الإجازة)
+Annual leave entitlement,استحقاق الإجازة السنوية
+Annual leave per year of service (days),الإجازة السنوية عن كل سنة خدمة (بالأيام)
+"Article that creates this permit type, e.g. CR 6(1)(a)",المادة التي تنشئ هذا النوع من التصاريح، مثل CR 6(1)(a)
+As Printed on the Document,كما هو مطبوع على المستند
+Assign a Leave Policy,عيّن سياسة إجازات
+"At most 6 months (DL 9(1)), and only once per employer (DL 9(2)). Sets the Final Confirmation Date. To end it early the employer gives at least 14 days' written notice (DL 9(1))",ستة أشهر كحد أقصى (DL 9(1))، ومرة واحدة فقط لدى صاحب العمل نفسه (DL 9(2)). يحدد تاريخ التثبيت النهائي. لإنهائها مبكراً يُخطر صاحب العمل العامل كتابياً قبل 14 يوماً على الأقل (DL 9(1))
+Attested,مُصدَّقة
+Attested On,تاريخ التصديق
+Bank,البنك
+Bank Name,اسم البنك
+Bank account number {0} is not the account inside the IBAN ({1}),رقم الحساب {0} لا يطابق الحساب الوارد في الآيبان ({1})
+Banks,البنوك
+Base {0} is neither the basic wage nor the total of the UAE components ({1}),الأساس {0} لا يساوي الأجر الأساسي ولا مجموع مكونات الأجر ({1})
+Basic,الأجر الأساسي
+Basic Wage,الأجر الأساسي
+Basic wage is empty,الأجر الأساسي فارغ
+"Bereavement leave, parent, child, sibling, grandchild, grandparent (days)",إجازة الحداد، وفاة الأب أو الأم أو الابن أو الأخ أو الحفيد أو الجد (بالأيام)
+"Bereavement leave, spouse (days)",إجازة الحداد، وفاة الزوج أو الزوجة (بالأيام)
+CR 24(3): the worker is told the charge in writing and heard before any penalty,CR 24(3): يُبلغ العامل بالاتهام كتابياً ويُسمع دفاعه قبل توقيع أي جزاء
+"CR 3 classifies workers by skill, qualification, productivity and salary level, but names no levels: they are set by a separate Cabinet resolution. Record the categories your establishment uses.",تصنف CR 3 العمال حسب المهارة والمؤهل والإنتاجية ومستوى الأجر دون أن تسمي المستويات، إذ يحددها قرار مستقل من مجلس الوزراء. سجّل الفئات التي تعتمدها منشأتك.
+Calendar and age,التقويم والسن
+Cancelled,ملغى
+Cancelled: {0},أُلغي: {0}
+Charge a violation within (days of detection),توجيه الاتهام بالمخالفة خلال (أيام من اكتشافها)
+Checked against the employee's current passport,يُطابق مع جواز السفر الساري للموظف
+Checks,الفحوصات
+Commencement date,تاريخ مباشرة العمل
+Companies,الشركات
+Company,الشركة
+Company property in the worker's hands. Official documents are never listed here (DL 13(2)),ممتلكات الشركة التي في عهدة العامل. لا تُدرج الوثائق الرسمية هنا أبداً (DL 13(2))
+Company {0} is listed twice,الشركة {0} مدرجة مرتين
+Contract,العقد
+Contract Readiness,جاهزية العقد
+Contract term (end date),مدة العقد (تاريخ الانتهاء)
+Contracts are fixed-term,العقود محددة المدة
+Copied from the document type (or the settings default); drives the expiry notifications,منسوخة من نوع المستند (أو القيمة الافتراضية في الإعدادات)؛ تتحكم في تنبيهات الانتهاء
+Copy HR Manager,نسخة إلى مدير الموارد البشرية
+"Court-judgment debt cap (% of wage, alimony excepted)",الحد الأقصى لديون الأحكام القضائية (% من الأجر، عدا النفقة)
+Currency,العملة
+Current,ساري
+DIFC (not covered),مركز دبي المالي العالمي (غير مشمول)
+DIFC and ADGM have their own employment laws: the app's checks are switched off for those companies,لمركز دبي المالي العالمي وسوق أبوظبي العالمي قوانين توظيف خاصة بهما، لذا تتوقف فحوصات التطبيق لهذه الشركات
+DL 13(11): the certificate is free and must not contain anything harmful to the worker,DL 13(11): تُمنح الشهادة دون رسوم ولا يجوز أن تتضمن ما يسيء إلى العامل
+"DL 1: the worker's family is the spouse, sons and daughters",DL 1: أسرة العامل هم الزوج والأبناء والبنات
+Damage deduction cap (days' wage per month),الحد الأقصى للاقتطاع عن الأضرار (أجر أيام شهرياً)
+Date of Birth,تاريخ الميلاد
+Date of birth,تاريخ الميلاد
+Date of birth {0} differs from the employee's {1},تاريخ الميلاد {0} يختلف عن تاريخ ميلاد الموظف {1}
+Date of birth {0} on the {1} differs from the Employee record ({2}),تاريخ الميلاد {0} في {1} يختلف عن سجل الموظف ({2})
+Daughter,الابنة
+Days Left,الأيام المتبقية
+"Days before expiry to remind the PRO, comma separated, e.g. 60,30,7. Empty = the default in UAE HR Settings","عدد الأيام قبل الانتهاء لتذكير المندوب، مفصولة بفواصل مثل 60,30,7. إن تُركت فارغة تُستخدم القيمة الافتراضية في الإعدادات"
+Days in a month for calculations,عدد أيام الشهر في الحسابات
+Days in a year for calculations,عدد أيام السنة في الحسابات
+Death Entitlements Nominee,المستفيد من المستحقات عند الوفاة
+Default Reminder Days,أيام التذكير الافتراضية
+"Default reminder days are whole numbers separated by commas, e.g. 60,30,7","أيام التذكير الافتراضية أعداد صحيحة مفصولة بفواصل، مثل 60,30,7"
+Degree Certificate,الشهادة الدراسية
+Description,الوصف
+Designation differs from the employee's other permit documents,المهنة تختلف عن مستندات التصاريح الأخرى للموظف
+Designation on Document,المهنة في المستند
+Designation {0} differs from {1},المهنة {0} تختلف عن {1}
+Details,التفاصيل
+Disciplinary Warning (CR 24),الإنذار التأديبي (CR 24)
+Disciplinary fines cap (% of wage),الحد الأقصى للغرامات التأديبية (% من الأجر)
+Disciplinary time limits,المهل التأديبية
+Dismissal for absence: consecutive days (more than),الفصل بسبب الغياب: أيام متصلة (أكثر من)
+Dismissal for absence: intermittent days in a year (more than),الفصل بسبب الغياب: أيام متقطعة في السنة (أكثر من)
+Document,المستند
+Document Field,حقل المستند
+Document Number,رقم المستند
+Document Type,نوع المستند
+Document Types,أنواع المستندات
+Document: {0},مستند: {0}
+Documents,المستندات
+Driving Licence,رخصة القيادة
+Dubai,دبي
+Due,مستحق
+Dues on a worker's death paid within (days),صرف مستحقات العامل المتوفى خلال (أيام)
+Emirate,الإمارة
+Emirates ID,بطاقة الهوية الإماراتية
+Emirates ID Expiry,تاريخ انتهاء الهوية
+Emirates ID {0} is not in the format 784-YYYY-NNNNNNN-C,رقم الهوية {0} ليس بالصيغة 784-YYYY-NNNNNNN-C
+Emirates ID {0}: the check digit does not match,رقم الهوية {0}: رقم التحقق غير مطابق
+Emirates ID {0}: year {1} does not match the date of birth {2},رقم الهوية {0}: السنة {1} لا تطابق تاريخ الميلاد {2}
+Employee,الموظف
+Employee Documents,مستندات الموظفين
+Employee Field,حقل الموظف
+Employee ID is missing,رقم الموظف مفقود
+Employee Name,اسم الموظف
+Employee {0} does not exist,الموظف {0} غير موجود
+Employer name and address,اسم صاحب العمل وعنوانه
+Employer notice to end probation (days),إشعار صاحب العمل لإنهاء فترة التجربة (بالأيام)
+Employment Certificate,شهادة عمل
+Enabled,مُفعّل
+End of Service,نهاية الخدمة
+End of service,نهاية الخدمة
+Entry Permit,إذن الدخول
+Everything CR 10(1) asks for is on the record.,كل ما تتطلبه CR 10(1) مسجل.
+Experience Certificate,شهادة خبرة
+Experience Certificate (DL 13(11)),شهادة الخبرة (DL 13(11))
+Expired,منتهي
+Expiring Documents,المستندات قريبة الانتهاء
+Expiring Within (days),تنتهي خلال (أيام)
+Expiry Date,تاريخ الانتهاء
+Expiry Reminders,تذكيرات الانتهاء
+Family-Sponsored Resident Permit,تصريح عمل للمقيم على إقامة ذويه
+Field Map,ربط الحقول
+Fieldname on Employee that mirrors this value when the document is verified,اسم الحقل في سجل الموظف الذي يأخذ هذه القيمة عند التحقق من المستند
+Final settlement paid within (days of contract end),صرف المستحقات النهائية خلال (أيام من انتهاء العقد)
+For Arabic certificates and government letters,للشهادات العربية والمخاطبات الحكومية
+For SIM cards,لشرائح الاتصال
+For documents collected before the Employee record exists,للمستندات المستلمة قبل إنشاء سجل الموظف
+For relative permits: the sponsoring family member,لتصاريح الأقارب: فرد الأسرة الكفيل
+"For workers paid by card through a WPS agent, with no IBAN",للعمال الذين تُصرف رواتبهم ببطاقة عبر وكيل نظام حماية الأجور دون آيبان
+Free zone under the federal law,منطقة حرة خاضعة للقانون الاتحادي
+Freelance Permit,تصريح عمل حر
+Fuel Card,بطاقة وقود
+Fujairah,الفجيرة
+Give the nominee's relation to the worker,حدد صلة قرابة المستفيد بالعامل
+Golden Visa Holder Permit,تصريح عمل لحاملي الإقامة الذهبية
+"Gratuity, overtime and end-of-service leave pay use the basic wage (DL 1, DL 51(5))",تُحسب مكافأة نهاية الخدمة والعمل الإضافي وبدل الإجازات عند انتهاء الخدمة على الأجر الأساسي (DL 1، DL 51(5))
+Gratuity: cap (years of wage),مكافأة نهاية الخدمة: الحد الأقصى (أجر سنوات)
+"Gratuity: days of basic wage per year, after that",مكافأة نهاية الخدمة: أيام الأجر الأساسي عن كل سنة بعد ذلك
+"Gratuity: days of basic wage per year, first years",مكافأة نهاية الخدمة: أيام الأجر الأساسي عن كل سنة، السنوات الأولى
+Gratuity: minimum continuous service (years),مكافأة نهاية الخدمة: الحد الأدنى للخدمة المتصلة (بالسنوات)
+Gratuity: years paid at the lower rate,مكافأة نهاية الخدمة: السنوات المحسوبة بالمعدل الأدنى
+HR Letters,خطابات الموارد البشرية
+Has Expiry Date,له تاريخ انتهاء
+Health Insurance,التأمين الصحي
+Health Insurance Regulator,جهة تنظيم التأمين الصحي
+Home,الرئيسية
+Housing Allowance,بدل السكن
+IBAN Bank Code,رمز البنك في الآيبان
+IBAN {0}: a UAE IBAN is AE followed by 21 digits,الآيبان {0}: الآيبان الإماراتي يبدأ بـ AE يليه 21 رقماً
+"IBAN {0}: the check digits are wrong, the number has a typo",الآيبان {0}: رقما التحقق غير صحيحين، في الرقم خطأ كتابي
+ICP unified number. Permanent for the person,الرقم الموحد لدى الهيئة الاتحادية للهوية والجنسية. ثابت للشخص
+Identity,الهوية
+Impose a penalty within (days of the investigation ending),توقيع الجزاء خلال (أيام من انتهاء التحقيق)
+"In probation until {0}. To end it early, give at least {1} days' written notice (DL 9(1)).",في فترة التجربة حتى {0}. لإنهائها مبكراً يلزم إشعار كتابي قبل {1} يوماً على الأقل (DL 9(1)).
+Include Inactive Employees,تضمين الموظفين غير النشطين
+Include Overdue,تضمين المتأخرة
+Investigation Closed On,تاريخ انتهاء التحقيق
+Issue Date,تاريخ الإصدار
+Issued By,أصدره
+Issued Items,العهد المسلَّمة
+Issued On,تاريخ التسليم
+Issuing Country,دولة الإصدار
+Issuing Emirate,إمارة الإصدار
+Item Type,نوع العهدة
+Job (visa designation),المهنة (كما في التأشيرة)
+Job Applicant,المتقدم للوظيفة
+Job Title,المسمى الوظيفي
+Jurisdiction,الاختصاص
+Juvenile Permit,تصريح عمل حدث
+Keep the worker file after end of service (years),حفظ ملف العامل بعد انتهاء الخدمة (بالسنوات)
+Laptop,حاسوب محمول
+Last Wage,آخر أجر
+Law Parameters,القيم القانونية
+"Law default 1. DL 43(5): ""one working day without pay per week, in order to search for another job"" (used from v0.4)",القيمة الافتراضية في القانون 1. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 43(5). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 1. DL 51(2)-(3): ""provided that he completed one year of continuous service"" (used from v0.4)",القيمة الافتراضية في القانون 1. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 51(2)-(3). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 1. DL 9(3): ""notify the original employer of the same in writing within not less than one month"" (used from v0.4)",القيمة الافتراضية في القانون 1. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 9(3). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 10. DL 15(1): ""within a period not exceeding (10) ten days from the date of death"" (used from v0.4)",القيمة الافتراضية في القانون 10. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 15(1). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 10. DL 32(2): ""a study leave for a period of (10) ten working days per year"" (used from v0.3)",القيمة الافتراضية في القانون 10. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 32(2). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 14. DL 39(1)(d): ""Suspension from work for a period not exceeding (14) fourteen days"" (used from v0.4)",القيمة الافتراضية في القانون 14. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 39(1)(d). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 14. DL 53: ""within (14) fourteen days from the end date of the contract term"" (used from v0.4)",القيمة الافتراضية في القانون 14. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 53. (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 14. DL 9(1): ""in writing fourteen (14) days at least before the date specified""",القيمة الافتراضية في القانون 14. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 9(1).
+"Law default 14. DL 9(4): ""notify the employer of the same in writing not less than fourteen (14) days"" (used from v0.4)",القيمة الافتراضية في القانون 14. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 9(4). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 144. CR 15(3): ""shall not exceed (144) one hundred and forty four hours every (3) three weeks"" (used from v0.3)",القيمة الافتراضية في القانون 144. قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 15(3). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 15. DL 1, CR 6(1)(g): ""a person who has reached 15 years of age but is not over 18 years"" (used from v0.2)",القيمة الافتراضية في القانون 15. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 1؛ قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 6(1)(g). (تُستخدم ابتداءً من الإصدار 0.2)
+"Law default 15. DL 30(1): ""The following (15) fifteen days with half wage"" (used from v0.3)",القيمة الافتراضية في القانون 15. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 30(1). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 15. DL 31(3)(a): ""The first (15) fifteen days with full pay"" (used from v0.3)",القيمة الافتراضية في القانون 15. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 31(3)(a). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 18. CR 7(1): ""the worker should be at least 18 years old"" (used from v0.2)",القيمة الافتراضية في القانون 18. قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 7(1). (تُستخدم ابتداءً من الإصدار 0.2)
+"Law default 2. CR 15(2): ""reduced by two hours during the holy month of Ramadan"" (used from v0.3)",القيمة الافتراضية في القانون 2. قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 15(2). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 2. DL 10(1), CR 12(1): ""shall not be more than two years from the expiry date of the contract"" (used from v0.4)",القيمة الافتراضية في القانون 2. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 10(1)؛ قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 12(1). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 2. DL 13(1): ""shall not be less than two years after the date of the worker's end of service""",القيمة الافتراضية في القانون 2. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 13(1).
+Law default 2. DL 19(1). (used from v0.3),القيمة الافتراضية في القانون 2. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 19(1). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 2. DL 29(1)(b): ""Two days for each month if his service term is more than six months"" (used from v0.3)",القيمة الافتراضية في القانون 2. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 29(1)(b). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 2. DL 32(2): ""the service term at the employer is not less than two years"" (used from v0.3)",القيمة الافتراضية في القانون 2. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 32(2). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 2. DL 51(6): ""in its entirety does not exceed two years' wage"" (used from v0.4)",القيمة الافتراضية في القانون 2. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 51(6). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 20. DL 25(1)(b): ""does not exceed (20%) twenty percent of the wage"" (used from v0.5)",القيمة الافتراضية في القانون 20. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 25(1)(b). (تُستخدم ابتداءً من الإصدار 0.5)
+"Law default 20. DL 44(8): ""more than (20) twenty intermittent days during one year"" (used from v0.4)",القيمة الافتراضية في القانون 20. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 44(8). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 21. DL 51(2)(a): ""A wage of (21) twenty-one days for each year"" (used from v0.4)",القيمة الافتراضية في القانون 21. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 51(2)(a). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 25. DL 19(2): ""an increase of not less than (25 %) twenty five percent"" (used from v0.3)",القيمة الافتراضية في القانون 25. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 19(2). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 25. DL 25(1)(g): ""without exceeding a quarter of the wage payable to the worker"" (used from v0.5)",القيمة الافتراضية في القانون 25. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 25(1)(g). (تُستخدم ابتداءً من الإصدار 0.5)
+"Law default 3. DL 32(1)(a): ""(3) three days in case of death of the mother, father"" (used from v0.3)",القيمة الافتراضية في القانون 3. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 32(1)(a). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 30. CR 24(4): ""detected more than (30) thirty days ago""",القيمة الافتراضية في القانون 30. قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 24(4).
+"Law default 30. DL 16(10): ""within a period not exceeding (30) thirty days from the date of end of his service"" (used from v0.4)",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 16(10). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 30. DL 29(1)(a): ""Thirty days for each year of extended service"" (used from v0.3)",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 29(1)(a). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 30. DL 31(3)(b): ""The following (30) thirty days with half pay"" (used from v0.3)",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 31(3)(b). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 30. DL 40(1): ""for a period not exceeding (30) thirty days"" (used from v0.4)",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 40(1). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 30. DL 43(1): ""not less than (30) thirty days and not more than (90) ninety days""",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 43(1).
+"Law default 30. DL 51(2)(b): ""A wage of (30) thirty days for each year exceeding such period"" (used from v0.4)",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 51(2)(b). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 30. DL 67: ""the month represents (30) thirty days"" (used from v0.4)",القيمة الافتراضية في القانون 30. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 67. (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 365. DL 67: ""shall include (365) three hundred and sixty-five days"" (used from v0.4)",القيمة الافتراضية في القانون 365. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 67. (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 45. DL 30(1): ""The first (45) forty-five days with full wage"" (used from v0.3)",القيمة الافتراضية في القانون 45. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 30(1). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 48. DL 17(1): ""(8) eight hours per day or (48) forty-eight hours per week"" (used from v0.3)",القيمة الافتراضية في القانون 48. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 17(1). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 5. DL 25(1)(f): ""shall not exceed (5%) five percent of the wage"" (used from v0.5)",القيمة الافتراضية في القانون 5. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 25(1)(f). (تُستخدم ابتداءً من الإصدار 0.5)
+"Law default 5. DL 25(1)(h): ""do not exceed the wage of (5) five days per month"" (used from v0.5)",القيمة الافتراضية في القانون 5. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 25(1)(h). (تُستخدم ابتداءً من الإصدار 0.5)
+"Law default 5. DL 32(1)(a): ""(5) five days, in case of death of the husband or wife"" (used from v0.3)",القيمة الافتراضية في القانون 5. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 32(1)(a). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 5. DL 32(1)(b): ""A parental leave for a period of (5) five working days"" (used from v0.3)",القيمة الافتراضية في القانون 5. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 32(1)(b). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 5. DL 51(2)(a): ""for each year of the first five years of service"" (used from v0.4)",القيمة الافتراضية في القانون 5. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 51(2)(a). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 50. DL 13(3), CR 14: ""establishments that employ 50 or more workers"" (used from v0.4)",القيمة الافتراضية في القانون 50. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 13(3)؛ قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 14. (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 50. DL 19(3): ""between 10 pm and 4 am … plus an increase of not less than (50 %) fifty percent of that wage"" (used from v0.3)",القيمة الافتراضية في القانون 50. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 19(3). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 50. DL 19(4), DL 28(2): ""not less than (50 %) fifty percent of the basic wage for that day"" (used from v0.3)",القيمة الافتراضية في القانون 50. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 19(4)؛ المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 28(2). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 50. DL 25(2): ""may not exceed (50%) fifty percent of the wage"" (used from v0.5)",القيمة الافتراضية في القانون 50. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 25(2). (تُستخدم ابتداءً من الإصدار 0.5)
+"Law default 50. DL 29(5): ""may carry forward not more than half of the annual leave"" (used from v0.3)",القيمة الافتراضية في القانون 50. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 29(5). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 6. DL 32(1)(b): ""within (6) six months from the date of the child birth"" (used from v0.3)",القيمة الافتراضية في القانون 6. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 32(1)(b). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 6. DL 9(1): ""a probationary period not exceeding (6) six months""",القيمة الافتراضية في القانون 6. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 9(1).
+"Law default 60. CR 24(4): ""no disciplinary sanction may be imposed more than (60) days after""",القيمة الافتراضية في القانون 60. قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 24(4).
+"Law default 60. DL 30(1): ""a maternity leave of (60) sixty days"" (used from v0.3)",القيمة الافتراضية في القانون 60. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 30(1). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 7. DL 44(8): ""or more than (7) seven consecutive days"" (used from v0.4)",القيمة الافتراضية في القانون 7. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 44(8). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 7. DL 50(3), CR 28(1): ""The absence from work shall have exceeded 7 consecutive days"" (used from v0.4)",القيمة الافتراضية في القانون 7. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 50(3)؛ قرار مجلس الوزراء رقم 1 لسنة 2022، المادة 28(1). (تُستخدم ابتداءً من الإصدار 0.4)
+"Law default 8. DL 17(1): ""(8) eight hours per day or (48) forty-eight hours per week"" (used from v0.3)",القيمة الافتراضية في القانون 8. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 17(1). (تُستخدم ابتداءً من الإصدار 0.3)
+Law default 90. DL 31(3). (used from v0.3),القيمة الافتراضية في القانون 90. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 31(3). (تُستخدم ابتداءً من الإصدار 0.3)
+"Law default 90. DL 43(1): ""not less than (30) thirty days and not more than (90) ninety days""",القيمة الافتراضية في القانون 90. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 43(1).
+Leave,الإجازات
+Leave 0 when the general minimum applies (CR 7(1): 18),اتركه 0 إذا انطبق الحد الأدنى العام (CR 7(1): 18 سنة)
+Legal Reference,المرجع القانوني
+Letter Type,نوع الخطاب
+Link the document to an Employee before verifying it,اربط المستند بموظف قبل التحقق منه
+Link the document to an Employee or a Job Applicant,اربط المستند بموظف أو بمتقدم للوظيفة
+Listed as missing on the contract readiness check for employees on these permit types,يظهر كناقص في فحص جاهزية العقد للموظفين على هذه الأنواع من التصاريح
+MOHRE Employment Contract,عقد العمل لدى الوزارة
+MOHRE Establishment ID,رقم المنشأة لدى الوزارة
+MOHRE Person Code,الرقم الشخصي لدى الوزارة
+MOHRE occupation exactly as on the work permit. The internal job title stays in Designation,المهنة لدى الوزارة كما في تصريح العمل حرفياً. يبقى المسمى الوظيفي الداخلي في حقل المسمى
+MOHRE person code is empty; WPS payroll needs it,الرقم الشخصي لدى الوزارة فارغ، ويحتاجه صرف الرواتب عبر نظام حماية الأجور
+MOHRE person code {0} should be 14 digits,الرقم الشخصي لدى الوزارة {0} يجب أن يكون 14 رقماً
+Mainland (MOHRE),البر الرئيسي (وزارة الموارد البشرية والتوطين)
+Mark Cancelled,تعليم كملغى
+Marriage Certificate,عقد الزواج
+Masters,البيانات الأساسية
+Maternity leave (days),إجازة الوضع (بالأيام)
+Maternity leave on full wage (days),إجازة الوضع بأجر كامل (بالأيام)
+Maternity leave on half wage (days),إجازة الوضع بنصف أجر (بالأيام)
+Maximum Age,الحد الأقصى للسن
+Maximum non-compete after contract end (years),الحد الأقصى لعدم المنافسة بعد انتهاء العقد (بالسنوات)
+Maximum normal hours per day,الحد الأقصى لساعات العمل العادية يومياً
+Maximum normal hours per week,الحد الأقصى لساعات العمل العادية أسبوعياً
+Maximum notice period (days),الحد الأقصى لفترة الإشعار (بالأيام)
+Maximum overtime per day (hours),الحد الأقصى للعمل الإضافي يومياً (بالساعات)
+Maximum probation (months),الحد الأقصى لفترة التجربة (بالأشهر)
+Maximum suspension pending investigation (days),الحد الأقصى للإيقاف على ذمة التحقيق (بالأيام)
+Maximum total hours per 3 weeks,الحد الأقصى لإجمالي الساعات كل 3 أسابيع
+Maximum unpaid suspension as a penalty (days),الحد الأقصى للإيقاف دون أجر كجزاء (بالأيام)
+May work for more than one employer with a Ministry permit,يجوز له العمل لدى أكثر من صاحب عمل بتصريح من الوزارة
+Minimum Age,الحد الأدنى للسن
+Minimum age for a juvenile permit,الحد الأدنى للسن لتصريح الحدث
+Minimum age for a standard work permit,الحد الأدنى للسن لتصريح العمل العادي
+Minimum notice period (days),الحد الأدنى لفترة الإشعار (بالأيام)
+Mirror to Employee,النسخ إلى سجل الموظف
+Mission Permit,تصريح مهمة
+Mobile Number,رقم الهاتف
+Mobile Phone,هاتف متحرك
+"Monthly amounts. Salary structures read them in formulas as uae_basic, uae_housing, uae_transport, uae_other",مبالغ شهرية. تقرؤها هياكل الرواتب في المعادلات باسم uae_basic و uae_housing و uae_transport و uae_other
+NDA,اتفاقية عدم الإفصاح
+NOC,شهادة عدم ممانعة
+Name as on Passport,الاسم كما في جواز السفر
+Name exactly as on the bank account,الاسم كما في الحساب البنكي حرفياً
+Name in Arabic,الاسم بالعربية
+Name on Document,الاسم في المستند
+National Trainee Permit,تصريح مواطن متدرب
+Nationality,الجنسية
+No UAE Bank has IBAN bank code {0}. Add it to the UAE Bank list,لا يوجد بنك برمز الآيبان {0}. أضفه إلى قائمة البنوك
+Nominee,المستفيد
+Nominee Relation,صلة القرابة
+Notes,ملاحظات
+Notice and termination,الإشعار وإنهاء العقد
+Notice of {0} days is outside the legal range of {1} to {2} days,إشعار مدته {0} يوماً خارج النطاق القانوني من {1} إلى {2} يوماً
+Notice period,فترة الإشعار
+"Occupation as printed; must match across work permit, residence visa and Emirates ID",المهنة كما هي مطبوعة؛ يجب أن تتطابق في تصريح العمل والإقامة والهوية
+Only an HR Manager can verify documents,التحقق من المستندات لمدير الموارد البشرية فقط
+Only an unverified document can be verified; this one is {0},لا يُتحقق إلا من مستند غير مُتحقق منه؛ وهذا المستند {0}
+Other,أخرى
+Other Allowance,بدلات أخرى
+Overdue,متأخر
+Overpayment recovery cap (% of wage),الحد الأقصى لاسترداد المبالغ المصروفة بالزيادة (% من الأجر)
+Overtime premium 22:00-04:00 on basic wage (%),زيادة أجر العمل الإضافي بين 22:00 و04:00 على الأجر الأساسي (%)
+Overtime premium on basic wage (%),زيادة أجر العمل الإضافي على الأجر الأساسي (%)
+PPE,معدات الوقاية الشخصية
+Parental leave (working days),إجازة الوالدية (أيام عمل)
+Parental leave taken within (months of the birth),تُؤخذ إجازة الوالدية خلال (أشهر من الولادة)
+Part-Time Work Permit,تصريح عمل بدوام جزئي
+Passport,جواز السفر
+Passport Issuing Country,دولة إصدار الجواز
+Passport Number on Document,رقم الجواز في المستند
+Passport {0} on the visa is not the passport in this workbook ({1}),الجواز {0} في التأشيرة ليس الجواز الوارد في هذا الملف ({1})
+Pay components cannot be negative,لا يمكن أن تكون مكونات الأجر سالبة
+Pension Fund for UAE Nationals,صندوق المعاشات للمواطنين
+People,الموظفون
+Permit Type,نوع التصريح
+Permit Types,أنواع التصاريح
+Permit type {0},نوع التصريح {0}
+Place of Issue,مكان الإصدار
+Probation,فترة التجربة
+Probation (months),فترة التجربة (بالأشهر)
+Probation cannot be negative,لا يمكن أن تكون فترة التجربة سالبة
+"Probation ends on {0}, later than {1} months after joining ({2})",تنتهي فترة التجربة في {0}، بعد أكثر من {1} أشهر من المباشرة ({2})
+Probation of {0} months is longer than the legal maximum of {1} months,فترة تجربة مدتها {0} أشهر تتجاوز الحد القانوني الأقصى وهو {1} أشهر
+Proof of identity (verified passport or Emirates ID),إثبات الهوية (جواز سفر أو هوية مُتحقق منها)
+Provided,مُوفَّر
+Qualification,المؤهل
+Ramadan reduction of daily hours,تخفيض ساعات العمل اليومية في رمضان
+Ras Al Khaimah,رأس الخيمة
+Reason,السبب
+Reason for End of Service,سبب انتهاء الخدمة
+Records and discipline,السجلات والتأديب
+Recruiting a worker from outside the State,استقدام عامل من خارج الدولة
+Reference Series,سلسلة المرجع
+Remarks,ملاحظات
+Reminder Days,أيام التذكير
+"Reminder days are whole numbers separated by commas, e.g. 60,30,7","أيام التذكير أعداد صحيحة مفصولة بفواصل، مثل 60,30,7"
+Reminders go to role UAE PRO; tick to also send them to HR Manager,تُرسل التذكيرات إلى دور مندوب العلاقات الحكومية؛ اختر هذا لإرسالها أيضاً إلى مدير الموارد البشرية
+Required For,مطلوب لـ
+Required for Permit Types,مطلوب لأنواع التصاريح
+"Required when a value below is less favourable to workers than the 2022 text, or when a value without a direction changes: name the resolution that changed it (DL 70(7))",مطلوب إذا كانت إحدى القيم أدناه أقل فائدة للعامل من نص 2022، أو إذا تغيرت قيمة لا اتجاه لها: اذكر القرار الذي عدّلها (DL 70(7))
+Reset Law Values to the Law,إعادة القيم القانونية إلى نص القانون
+Residence Visa,تأشيرة الإقامة
+Residence Visa Expiry,تاريخ انتهاء الإقامة
+Residents sponsored by their families,المقيمون على كفالة ذويهم
+Rest days (holiday list),أيام الراحة (قائمة العطلات)
+Returned On,تاريخ الإرجاع
+Row {0}: Employee has no field {1},السطر {0}: لا يوجد في سجل الموظف حقل {1}
+SIM Card,شريحة اتصال
+SWIFT / BIC,رمز السويفت
+Safety Certificate,شهادة السلامة
+Salary Card Agent,وكيل بطاقة الراتب
+Salary Card Number,رقم بطاقة الراتب
+Salary Certificate,شهادة راتب
+Salary Payment (UAE),صرف الراتب
+Salary Revision,تعديل الراتب
+Salary Transfer Letter,خطاب تحويل راتب
+Salary mode is Bank but there is no IBAN,طريقة الصرف عبر البنك لكن لا يوجد آيبان
+Same document as row {0},المستند نفسه في السطر {0}
+Scan,النسخة الممسوحة
+Scan (private),النسخة الممسوحة (خاصة)
+Second Contract Language,لغة العقد الثانية
+Second contract language beside Arabic,لغة العقد الثانية إلى جانب العربية
+Serial / Asset No,الرقم التسلسلي / رقم الأصل
+Set by verifying a UAE Employee Document. Not typed by hand,يُعبأ عند التحقق من مستند الموظف، ولا يُكتب يدوياً
+Set by verifying a UAE Employee Document. Not typed by hand (Passport),يُعبأ عند التحقق من مستند الموظف، ولا يُكتب يدوياً (جواز السفر)
+Set every law parameter back to the value in the 2022 law?,إعادة كل القيم القانونية إلى ما ورد في قانون 2022؟
+Set from the IBAN when it is entered,يُحدد تلقائياً من رقم الآيبان
+"Set per emirate, e.g. the emirate's health authority",تختلف حسب الإمارة، مثل هيئة الصحة في الإمارة
+Set the Branch the worker reports to,حدد الفرع الذي يتبعه العامل
+Settings,الإعدادات
+Sharjah,الشارقة
+Short Name,الاسم المختصر
+Sick leave on full pay (days),الإجازة المرضية بأجر كامل (بالأيام)
+Sick leave on half pay (days),الإجازة المرضية بنصف أجر (بالأيام)
+Sick leave per year after probation (days),الإجازة المرضية سنوياً بعد فترة التجربة (بالأيام)
+Signed Copy,النسخة الموقعة
+Signed Undertaking,التعهد الموقّع
+Site Access Pass,تصريح دخول الموقع
+Skill Category,فئة المهارة
+Son,الابن
+Sponsor Emirates ID,هوية الكفيل
+Sponsor Name,اسم الكفيل
+Sponsor Visa,إقامة الكفيل
+Spouse,الزوج أو الزوجة
+Start of Service,بداية الخدمة
+State,الوضع
+Stated in the contract text; check it by hand,مذكورة في نص العقد؛ تُراجع يدوياً
+Status,الحالة
+Student Training and Employment Permit,تصريح تدريب وتشغيل طالب
+Study leave after service of (years),إجازة الدراسة بعد خدمة (سنوات)
+Study leave per year (working days),إجازة الدراسة سنوياً (أيام عمل)
+Submit a Salary Structure Assignment with the basic wage,اعتمد تعيين هيكل الراتب مع الأجر الأساسي
+Superseded,مستبدل
+Superseded By,استُبدل بـ
+Temporary Work Permit,تصريح عمل مؤقت
+Termination procedures,إجراءات إنهاء العقد
+The 3 digits after AE and the check digits in a UAE IBAN (AEkk BBB ...),الأرقام الثلاثة بعد AE ورقمي التحقق في الآيبان الإماراتي (AEkk BBB ...)
+The IBAN bank code is 3 digits,رمز البنك في الآيبان 3 أرقام
+"The IBAN belongs to {0}, but the bank is set to {1}",الآيبان يخص {0}، لكن البنك المحدد {1}
+"The IBAN belongs to {0}, not {1}",الآيبان يخص {0} وليس {1}
+The WPS routing code is 9 digits,رمز التوجيه في نظام حماية الأجور 9 أرقام
+The charge date is before the violation was detected,تاريخ الاتهام يسبق تاريخ اكتشاف المخالفة
+The charge was given {0} days after the violation was detected; the limit is {1} days,وُجه الاتهام بعد {0} يوماً من اكتشاف المخالفة؛ والحد {1} يوماً
+The contract is in Arabic plus a language the worker understands; the Arabic prevails (DL 66),يُحرر العقد باللغة العربية مع لغة يفهمها العامل، ويُعتد بالنص العربي عند الاختلاف (DL 66)
+The employer provides accommodation or pays an allowance for it (DL 13(4)),يوفر صاحب العمل السكن أو يدفع بدلاً عنه (DL 13(4))
+The expiry date must be after the issue date,يجب أن يكون تاريخ الانتهاء بعد تاريخ الإصدار
+The investigation closed before the charge was given,انتهى التحقيق قبل توجيه الاتهام
+"The nominee must be a member of the worker's family: spouse, son or daughter",يجب أن يكون المستفيد من أسرة العامل: الزوج أو الزوجة أو الابن أو الابنة
+The warning is issued {0} days after the investigation closed; the limit is {1} days,صدر الإنذار بعد {0} يوماً من انتهاء التحقيق؛ والحد {1} يوماً
+"The worker file must be kept until {0}, {1} years after the end of service",يجب حفظ ملف العامل حتى {0}، أي {1} سنوات بعد انتهاء الخدمة
+The worker may name in writing a family member to receive their rights on death (DL 15(2)),يجوز للعامل أن يحدد كتابياً أحد أفراد أسرته لاستلام مستحقاته عند الوفاة (DL 15(2))
+"The {0} carries passport {1}, but the current passport is {2}",يحمل {0} رقم الجواز {1}، بينما الجواز الساري هو {2}
+"These values are less favourable to workers than the law, or change a value the law fixes. Name the resolution that amended them in Amendment Reference:",هذه القيم أقل فائدة للعامل من القانون، أو تغيّر قيمة يحددها القانون. اذكر القرار الذي عدّلها في حقل مرجع التعديل:
+"This employee has left but has no relieving date, so the {0}-year retention period cannot be checked",ترك هذا الموظف العمل دون تاريخ إخلاء طرف، فلا يمكن التحقق من مدة الحفظ البالغة {0} سنوات
+Tools,أدوات
+Total Service,مدة الخدمة
+Total Wage,إجمالي الأجر
+Transfer Work Permit,تصريح عمل انتقال
+Transport Allowance,بدل المواصلات
+UAE,الإمارات
+UAE Bank,بنك في الإمارات
+UAE Company Setup,إعداد الشركة في الإمارات
+UAE Document Field Map,ربط حقول المستند
+UAE Document Type,نوع المستند
+UAE Document Type Permit,التصريح المرتبط بنوع المستند
+UAE Documents and Letters,المستندات والخطابات
+UAE Employee Document,مستند الموظف
+UAE HR,الموارد البشرية - الإمارات
+UAE HR Letter,خطاب الموارد البشرية
+UAE HR Settings,إعدادات الموارد البشرية - الإمارات
+"UAE HR checks are off for this company (DIFC, ADGM or outside the UAE).",فحوصات الموارد البشرية الإماراتية متوقفة لهذه الشركة (مركز دبي المالي العالمي أو سوق أبوظبي العالمي أو خارج الدولة).
+UAE Issued Item,عهدة مسلَّمة
+UAE Issued Item Type,نوع العهدة
+UAE PRO,مندوب العلاقات الحكومية
+UAE Pay Components,مكونات الأجر
+UAE Permit Type,نوع تصريح العمل
+UAE Skill Category,فئة المهارة
+UAE and GCC National Permit,تصريح عمل لمواطني الدولة ودول مجلس التعاون
+UAE labour law check,فحص قانون العمل الإماراتي
+UID Number,الرقم الموحد
+Umm Al Quwain,أم القيوين
+Unpaid job-search days per week during employer notice,أيام البحث عن عمل دون أجر أسبوعياً خلال إشعار صاحب العمل
+Unverified,غير مُتحقق منه
+Unverified Documents,مستندات غير مُتحقق منها
+Used for document types with no reminder days of their own,تُستخدم لأنواع المستندات التي ليس لها أيام تذكير خاصة
+Vehicle,مركبة
+Verification,التحقق
+Verified By,تحقق منه
+Verified On,تاريخ التحقق
+"Verified, with warnings",تم التحقق، مع تنبيهات
+Verify,تحقق
+Violation,المخالفة
+Violation Detected On,تاريخ اكتشاف المخالفة
+Visa Cancellation,إلغاء التأشيرة
+Visa Designation,المهنة في التأشيرة
+WPS Agent Bank,البنك الوكيل لنظام حماية الأجور
+WPS Agent Routing Code,رمز توجيه البنك الوكيل
+WPS Routing Code,رمز التوجيه في نظام حماية الأجور
+Wage deductions,الاقتطاع من الأجر
+"Wage, with allowances",الأجر مع البدلات
+Warning,إنذار
+Weekend or public-holiday work premium on basic wage (%),زيادة أجر العمل في يوم الراحة أو العطلة الرسمية على الأجر الأساسي (%)
+"When a document of this type is verified, these Employee fields are set from it. Mirrored fields are never typed by hand",عند التحقق من مستند من هذا النوع تُعبأ حقول الموظف هذه منه. الحقول المنسوخة لا تُكتب يدوياً
+"Which built-in checks run for this type (Emirates ID format, passport number on a visa, ...)",الفحوصات المدمجة التي تُطبق على هذا النوع (صيغة الهوية، رقم الجواز في التأشيرة، ...)
+Work Permit,تصريح عمل
+Work Permit Expiry,تاريخ انتهاء تصريح العمل
+Work Permit Type,نوع تصريح العمل
+Work regulations mandatory from (workers),لائحة تنظيم العمل إلزامية ابتداءً من (عدد العمال)
+Worker name,اسم العامل
+"Worker notice, resigning in probation to join another UAE employer (months)",إشعار العامل عند الاستقالة أثناء التجربة للانتقال إلى صاحب عمل آخر في الدولة (بالأشهر)
+"Worker notice, resigning in probation to leave the UAE (days)",إشعار العامل عند الاستقالة أثناء التجربة لمغادرة الدولة (بالأيام)
+Worker vacates employer accommodation within (days),إخلاء العامل لسكن صاحب العمل خلال (أيام)
+Working hours (default shift),ساعات العمل (الوردية الافتراضية)
+Working hours and overtime,ساعات العمل والعمل الإضافي
+Workplace (branch),مكان العمل (الفرع)
+Written Charge Given On,تاريخ إبلاغ الاتهام كتابياً
+date of the written charge,تاريخ الاتهام الكتابي
+date the investigation closed,تاريخ انتهاء التحقيق
+date the violation was detected,تاريخ اكتشاف المخالفة
+"e.g. To whom it may concern, a bank, an embassy",مثل: إلى من يهمه الأمر، بنك، سفارة
+end of service,نهاية الخدمة
+job title,المسمى الوظيفي
+last wage,آخر أجر
+law,القانون
+reason for end of service,سبب انتهاء الخدمة
+start of service,بداية الخدمة
+violation,المخالفة
+"{0} errors, {1} warnings",{0} أخطاء، {1} تنبيهات
+{0} is not a date (use YYYY-MM-DD),{0} ليس تاريخاً (استخدم YYYY-MM-DD)
+{0} is not a valid SWIFT / BIC code,{0} ليس رمز سويفت صحيحاً
+{0} items missing before the MOHRE contract can be prepared.,{0} بنود ناقصة قبل إعداد العقد لدى الوزارة.
+{0} must be greater than zero,يجب أن تكون {0} أكبر من صفر
+{0} needs an expiry date,{0} يحتاج إلى تاريخ انتهاء
+{0} verified.,تم التحقق من {0}.
+{0} was already employed by this company with a probation period ({1}). A worker may be put on probation only once by the same employer,سبق أن عمل {0} لدى هذه الشركة مع فترة تجربة ({1}). لا يجوز تعيين العامل تحت التجربة أكثر من مرة لدى صاحب العمل نفسه
+"{0} years, {1} months, {2} days",{0} سنوات، {1} أشهر، {2} أيام
+{0} {1} does not exist,{0} {1} غير موجود
+{0} {1} is already recorded for this employee in {2},{0} {1} مسجل مسبقاً لهذا الموظف في {2}

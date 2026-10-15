@@ -5,7 +5,14 @@ from frappe.utils import add_days, today
 
 from uae_hr.setup import run_setup
 from uae_hr.setup.notifications import PREFIX, sync_notifications
-from uae_hr.tests.utils import MAINLAND, UAETestCase, make_company, make_document, make_employee
+from uae_hr.tests.utils import (
+	MAINLAND,
+	UAETestCase,
+	make_company,
+	make_document,
+	make_employee,
+	use_default_reminders,
+)
 
 
 class TestSeeds(UAETestCase):
@@ -105,6 +112,10 @@ def snapshot():
 
 
 class TestNotifications(UAETestCase):
+	def setUp(self):
+		super().setUp()
+		use_default_reminders()
+
 	def test_one_notification_per_lead_time(self):
 		names = frappe.get_all(
 			"Notification", filters={"name": ("like", PREFIX + "%"), "enabled": 1}, pluck="name"

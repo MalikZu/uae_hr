@@ -9,6 +9,7 @@ from uae_hr.tests.utils import (
 	make_document,
 	make_employee,
 	reset_warnings,
+	use_default_reminders,
 	warnings,
 )
 from uae_hr.uae_hr.doctype.uae_employee_document.uae_employee_document import mark_expired, verify_many
@@ -23,6 +24,7 @@ class TestEmployeeDocument(UAETestCase):
 	def setUp(self):
 		super().setUp()
 		reset_warnings()
+		use_default_reminders()
 		self.emp = make_employee()
 
 	def test_verify_mirrors_to_employee(self):

@@ -72,6 +72,21 @@ def make_document(employee, document_type="Passport", **kw):
 	return frappe.get_doc(values).insert(ignore_permissions=True)
 
 
+def use_default_reminders(default="60,30,7"):
+	"""Reminder days as on a fresh install: no document type has its own, the settings default applies.
+
+	A site in use sets per-type reminder days, which changes which notifications exist. Tests that
+	count lead times call this in setUp so they pass on any site; the test rollback restores the values.
+	"""
+	from uae_hr.setup.notifications import refresh_reminder_days
+
+	for name in frappe.get_all("UAE Document Type", filters={"reminder_days": ("is", "set")}, pluck="name"):
+		frappe.db.set_value("UAE Document Type", name, "reminder_days", None, update_modified=False)
+		frappe.clear_document_cache("UAE Document Type", name)
+	frappe.db.set_single_value("UAE HR Settings", "default_reminder_days", default)
+	refresh_reminder_days()
+
+
 def warnings():
 	return [f.code for f in (frappe.flags.uae_hr_warnings or [])]
 

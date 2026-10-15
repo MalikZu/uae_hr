@@ -63,7 +63,7 @@ and need a native speaker's review; corrections are very welcome.
 cd frappe-bench
 bench get-app erpnext --branch version-16
 bench get-app hrms --branch version-16
-bench get-app <this repository URL> --branch main
+bench get-app https://github.com/MalikZu/uae_hr --branch main
 bench --site <site> install-app uae_hr
 ```
 

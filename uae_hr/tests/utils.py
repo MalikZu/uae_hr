@@ -36,6 +36,10 @@ def make_company(name=MAINLAND, country="United Arab Emirates", currency="AED", 
 
 
 def make_bank(code="033", name="Test Bank Alpha"):
+	"""The bank with this IBAN code: the seeded one if the site has it, else an invented one."""
+	existing = frappe.db.get_value("UAE Bank", {"bank_code": code}, "name")
+	if existing:
+		return existing
 	if not frappe.db.exists("UAE Bank", name):
 		frappe.get_doc(
 			{"doctype": "UAE Bank", "bank_name": name, "bank_code": code, "wps_routing_code": "123456789"}

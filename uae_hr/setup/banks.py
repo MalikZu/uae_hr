@@ -1,30 +1,38 @@
-"""UAE banks: IBAN bank code, name and SWIFT, seeded insert-only by bank code.
+"""UAE banks seeded from uae_banks.csv: IBAN bank code, name, SWIFT, WPS routing code.
 
-Only codes verified against a primary source go here (the bank's own published IBAN / SWIFT
-details, or the UAE Central Bank). Name the source on each row. WPS routing codes are not seeded:
-they come from each company's WPS agent.
-
-A site's own edits are never overwritten: a code that already exists, or a bank name that already
-exists, is skipped.
+Insert-only by IBAN bank code: a code or a bank name already on the site is skipped, so a
+company's own edits are never overwritten. Merged banks are kept, disabled, so old IBANs still
+decode. Where the data comes from and how each row was checked: docs/banks.md.
 """
+
+import csv
+import os
 
 import frappe
 
-# (IBAN bank code, bank name, short name, SWIFT / BIC, source)
-BANKS: list[tuple[str, str, str, str, str]] = []
+DATA = os.path.join(os.path.dirname(__file__), "uae_banks.csv")
+
+
+def load_banks():
+	with open(DATA, newline="", encoding="utf-8") as fh:
+		return list(csv.DictReader(fh))
 
 
 def seed_banks(banks=None):
-	for code, name, short_name, swift, _source in BANKS if banks is None else banks:
+	for row in load_banks() if banks is None else banks:
+		code, name = row["bank_code"], row["bank_name"]
 		if frappe.db.exists("UAE Bank", {"bank_code": code}) or frappe.db.exists("UAE Bank", name):
 			continue
 		doc = frappe.get_doc(
 			{
 				"doctype": "UAE Bank",
 				"bank_name": name,
-				"short_name": short_name,
+				"short_name": row.get("short_name") or "",
 				"bank_code": code,
-				"swift_code": swift,
+				"swift_code": row.get("swift_code") or "",
+				"wps_routing_code": row.get("wps_routing_code") or "",
+				"enabled": int(row.get("enabled", 1)),
+				"notes": row.get("notes") or "",
 			}
 		)
 		doc.flags.ignore_permissions = True

@@ -201,3 +201,12 @@ class TestExitClearance(UnitTestCase):
 		self.assertEqual(
 			checks.check_unreturned_items([{"item_type": "PPE", "returned_on": "2026-01-01"}]), []
 		)
+
+
+class TestIBANBankCode(UnitTestCase):
+	ADCB = "AE370030012345678901234"  # bank code 003; one character off reads 030 (InvestBank)
+
+	def test_code_is_characters_5_to_7(self):
+		self.assertEqual(checks.check_iban(self.ADCB), [])
+		self.assertEqual(checks.uae_iban_parts(self.ADCB)[0], "003")
+		self.assertNotEqual(checks.uae_iban_parts(self.ADCB)[0], "030")

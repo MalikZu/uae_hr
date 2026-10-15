@@ -300,8 +300,13 @@ class TestPayAgainstContract(UAETestCase):
 
 class TestBankSeed(UAETestCase):
 	SAMPLE = (
-		("901", "Invented Test Bank One", "ITB1", "TESTAEAA", "invented for the test"),
-		("902", "Invented Test Bank Two", "ITB2", "TESTAEBBXXX", "invented for the test"),
+		{"bank_code": "901", "bank_name": "Invented Test Bank One", "swift_code": "TESTAEAA", "enabled": "1"},
+		{
+			"bank_code": "902",
+			"bank_name": "Invented Test Bank Two",
+			"swift_code": "TESTAEBBXXX",
+			"enabled": "1",
+		},
 	)
 
 	def test_inserts_missing_by_code_and_keeps_edits(self):
@@ -318,14 +323,51 @@ class TestBankSeed(UAETestCase):
 		seed_banks(self.SAMPLE)
 		self.assertEqual(frappe.db.get_value("UAE Bank", {"bank_code": "901"}, "modified"), before)
 
-	def test_shipped_rows_are_valid_and_sourced(self):
+	def test_user_edits_survive_migrate(self):
+		from uae_hr.setup.banks import seed_banks
+
+		name = frappe.db.get_value("UAE Bank", {"bank_code": "003"}, "name")
+		frappe.db.set_value("UAE Bank", name, "wps_routing_code", "999999999")
+		seed_banks()
+		self.assertEqual(frappe.db.get_value("UAE Bank", name, "wps_routing_code"), "999999999")
+
+	def test_shipped_data(self):
 		import re
 
-		from uae_hr.setup.banks import BANKS
+		from uae_hr.setup.banks import load_banks
 
-		codes = [b[0] for b in BANKS]
+		rows = load_banks()
+		codes = [r["bank_code"] for r in rows]
 		self.assertEqual(len(codes), len(set(codes)))
-		for code, name, _short, swift, source in BANKS:
-			self.assertRegex(code, r"^\d{3}$", name)
-			self.assertRegex(swift, r"^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$", name)
-			self.assertTrue(source, name)
+		self.assertEqual(len(rows), 51)
+		for r in rows:
+			self.assertRegex(r["bank_code"], r"^\d{3}$", r["bank_name"])
+			if r["swift_code"]:
+				self.assertRegex(r["swift_code"], r"^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$", r["bank_name"])
+			if r["wps_routing_code"]:
+				self.assertRegex(r["wps_routing_code"], r"^\d{9}$", r["bank_name"])
+				# the routing code carries the IBAN code in digits 2 to 4
+				self.assertEqual(r["wps_routing_code"][1:4], r["bank_code"], r["bank_name"])
+		merged = {r["bank_code"] for r in rows if r["enabled"] == "0"}
+		self.assertEqual(merged, {"027", "045", "051", "052"})
+
+	def test_seeded_on_this_site(self):
+		self.assertEqual(frappe.db.get_value("UAE Bank", {"bank_code": "003"}, "swift_code"), "ADCBAEAA")
+		self.assertEqual(frappe.db.get_value("UAE Bank", {"bank_code": "030"}, "swift_code"), "IBTFAEAS")
+		self.assertFalse(frappe.db.get_value("UAE Bank", {"bank_code": "045"}, "enabled"))
+
+	def test_sources_are_documented(self):
+		import os
+
+		path = os.path.join(frappe.get_app_path("uae_hr"), "..", "docs", "banks.md")
+		if not os.path.exists(path):
+			self.skipTest("docs/ not shipped with this install")
+		text = open(path).read()
+		for source in (
+			"hsbc.ae",
+			"emiratesislamic.ae",
+			"nbf.ae",
+			"ruyabank.ae",
+			"Central Bank of the UAE register",
+		):
+			self.assertIn(source, text)

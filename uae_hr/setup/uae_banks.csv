@@ -1,0 +1,52 @@
+bank_code,bank_name,swift_code,wps_routing_code,enabled,notes
+003,Abu Dhabi Commercial Bank P.J.S.C. (ADCB),ADCBAEAA,600310101,1,"on CBUAE register Aug 2026. Code agrees in HSBC 2022 and EI 2021 lists; routing digits 2-4 = 003. Own site (adcb.com) blocked by bot check, not read"
+004,Al Ahli Bank of Kuwait,ABKKAEAD,200420101,1,on CBUAE register Aug 2026
+005,Rafidain Bank,RAFBAEAD,400510101,1,on CBUAE register Aug 2026
+007,Arab African International Bank,ARAIAEAD,,1,"on CBUAE register Aug 2026. Routing differs between lists (HSBC 900720101, EI 500710102)"
+008,Al Masraf (Arab Bank for Investment & Foreign Trade),ABINAEAA,100810101,1,on CBUAE register Aug 2026 as Arab Bank for Inv. & Foreign Trade
+009,Arab Bank PLC,ARABAEAD,000910101,1,on CBUAE register Aug 2026
+011,Bank of Baroda,BARBAEAD,801120101,1,on CBUAE register Aug 2026
+012,Bank of Sharjah P.J.S.C.,SHARAEAS,401230101,1,on CBUAE register Aug 2026
+014,Banque Banorient France,BLOMAEAD,001420151,1,"on CBUAE register Aug 2026. Listed as Blom Bank France (HSBC) / Banque Banorabe (EI); SWIFT from HSBC 2022, may have changed with the rename"
+015,Banque Misr,BMISAEAA,001510102,1,on CBUAE register Aug 2026. SWIFT conflict: HSBC BMISAEAA vs masarif BCAIAEAA
+016,Credit Agricole Corporate and Investment Bank,BSUIAEAD,301620101,1,on CBUAE register Aug 2026
+017,Al Khaliji (France) S.A.,LICOAEAD,201720101,1,on CBUAE register Aug 2026
+018,BNP Paribas,BNPAAEAA,401810101,1,on CBUAE register Aug 2026
+019,Barclays Bank PLC,BARCAEAD,401920110,1,on CBUAE register Aug 2026 (wholesale licence now)
+020,HSBC Bank Middle East Limited,BBMEAEAD,302020120,1,"on CBUAE register Aug 2026. HSBC's own list; 302020120 = WPS payments, 302020175 = non-WPS"
+021,Citibank N.A.,CITIAEAD,102120101,1,on CBUAE register Aug 2026
+022,Commercial Bank International P.J.S.C.,CLBIAEAD,002220101,1,on CBUAE register Aug 2026
+023,Commercial Bank of Dubai P.J.S.C.,CBDUAEAD,102320150,1,on CBUAE register Aug 2026. Routing per HSBC list and CBD's own WPS guide (EI list has 502320103)
+024,Dubai Islamic Bank P.J.S.C.,DUIBAEAD,802420101,1,on CBUAE register Aug 2026. Also the surviving entity for Noor Bank (052)
+025,El Nilein Bank,NILBAEAA,002510101,1,on CBUAE register Aug 2026
+026,Emirates NBD Bank P.J.S.C.,EBILAEAD,302620122,1,on CBUAE register Aug 2026. Routing 302620122 per EI (same group) guide; HSBC list has 202620103
+027,First Gulf Bank (legacy),FGBMAEAA,,0,NOT on CBUAE register Aug 2026. Merged into First Abu Dhabi Bank (035) 2017; keep only to decode old IBANs
+028,Habib Bank Ltd.,HABBAEAD,102820111,1,on CBUAE register Aug 2026
+029,Habib Bank AG Zurich,HBZUAEAD,302920101,1,on CBUAE register Aug 2026
+030,InvestBank P.J.S.C.,IBTFAEAS,503030102,1,on CBUAE register Aug 2026. Sharjah. Own site not checked
+031,Janata Bank PLC,JANBAEAA,103110110,1,on CBUAE register Aug 2026
+033,Mashreq Bank P.S.C.,BOMLAEAD,203320101,1,on CBUAE register Aug 2026
+034,Emirates Islamic Bank P.J.S.C.,MEBLAEAD,703420114,1,"on CBUAE register Aug 2026. Own WPS guide (sample IBAN AE02 034..., routing 703420114); also surviving entity for Dubai Bank (051)"
+035,First Abu Dhabi Bank P.J.S.C.,NBADAEAA,,1,"on CBUAE register Aug 2026. Listed as National Bank of Abu Dhabi; routing differs (HSBC 803510106, EI 603510102)"
+036,National Bank of Bahrain,NBOBAEAA,203610101,1,on CBUAE register Aug 2026
+038,National Bank of Fujairah PSC,NBFUAEAF,703820101,1,"on CBUAE register Aug 2026. Routing differs (HSBC 703820101, EI 503870102). Routing 703820101 from the bank's own contact page"
+039,National Bank of Oman S.A.O.G.,NBOMAEAD,903910101,1,on CBUAE register Aug 2026
+040,National Bank of Ras Al Khaimah P.J.S.C. (RAKBANK),NRAKAEAK,,1,"on CBUAE register Aug 2026. SWIFT confirmed on rakbank.ae; routing conflicts (HSBC 104060106, EI 604060101, masarif 804020101)"
+041,Sharjah Islamic Bank P.J.S.C.,NBSHAEAS,404130101,1,on CBUAE register Aug 2026
+042,National Bank of Umm Al Qaiwain PSC,UMMQAEAD,104251001,1,on CBUAE register Aug 2026
+044,Standard Chartered Bank,SCBLAEAD,504420120,1,on CBUAE register Aug 2026. Own IBAN FAQ states identifier 044
+045,Union National Bank (legacy),UNBEAEAA,,0,NOT on CBUAE register Aug 2026. Merged into ADCB (003) 2019; SWIFT UNBEAEAA withdrawn; routing differs between lists
+046,United Arab Bank P.J.S.C.,UARBAEAA,904630101,1,on CBUAE register Aug 2026
+047,United Bank Ltd.,UNILAEAD,604720106,1,on CBUAE register Aug 2026
+049,Deutsche Bank AG,DEUTAEAA,204910101,1,on CBUAE register Aug 2026
+050,Abu Dhabi Islamic Bank P.J.S.C.,ABDIAEAD,405010101,1,on CBUAE register Aug 2026
+051,Dubai Bank (legacy),DBXPAEAD,,0,"NOT on CBUAE register Aug 2026. Taken over by Emirates NBD 2011, portfolio migrated to Emirates Islamic (034) 2012"
+052,Noor Bank (legacy),NISLAEAD,,0,"NOT on CBUAE register Aug 2026. Merged into Dubai Islamic Bank (024), integration completed Nov 2020"
+053,Al Hilal Bank P.J.S.C.,HLALAEAA,105310101,1,on CBUAE register Aug 2026 (separately licensed; ADCB group)
+054,Doha Bank,DOHBAEAD,705420101,1,on CBUAE register Aug 2026
+055,The Saudi National Bank,SAMBAEAD,605520101,1,on CBUAE register Aug 2026. Listed as SAMBA Financial Group in both lists (SAMBA merged into SNB)
+056,National Bank of Kuwait,NBOKAEAD,505620101,1,on CBUAE register Aug 2026
+057,Ajman Bank P.J.S.C.,AJMNAEAJ,805740101,1,on CBUAE register Aug 2026
+086,Wio Bank P.J.S.C.,WIOBAEAD,808610001,1,"on CBUAE register Aug 2026. Own salary page: WPS routing 808610001, FTS WIOBAEADXXX"
+097,Al Maryah Community Bank L.L.C. (Mbank),,009710001,1,"on CBUAE register Aug 2026. Own site: routing 009710001, SWIFT E097AEXX (local-only pseudo BIC, not a real 8-char SWIFT)"
+132,Ruya Bank,,413240101,1,Routing from the bank's own salary page; the IBAN code is digits 2 to 4 of the routing code. SWIFT not confirmed

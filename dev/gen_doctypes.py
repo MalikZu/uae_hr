@@ -46,7 +46,7 @@ def f(fieldname, fieldtype, label=None, **kw):
 	return d
 
 
-def perm(role, submit=0, delete=1, create=1, write=1):
+def perm(role, submit=0, delete=1, create=1, write=1, imp=0):
 	p = {
 		"role": role,
 		"read": 1,
@@ -61,6 +61,8 @@ def perm(role, submit=0, delete=1, create=1, write=1):
 	}
 	if submit:
 		p.update(submit=1, cancel=1, amend=1)
+	if imp:
+		p["import"] = 1
 	return p
 
 
@@ -476,10 +478,13 @@ write(
 		search_fields="employee_name,document_type,document_number",
 		show_title_field_in_link=0,
 		naming_rule="Expression (old style)",
+		# the Documents sheet of uae_hr.importer arrives through standard Data Import; the same HR
+		# roles that may import Employee may import their documents
+		allow_import=1,
 		permissions=[
-			perm("System Manager"),
-			perm("HR Manager"),
-			perm("HR User", delete=0),
+			perm("System Manager", imp=1),
+			perm("HR Manager", imp=1),
+			perm("HR User", delete=0, imp=1),
 			perm("UAE PRO", delete=0),
 		],
 	)

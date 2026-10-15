@@ -155,3 +155,43 @@ class TestImporter(UAETestCase):
 
 		header = [c.value for c in load_workbook(written["Employees"]["file"]).active[1]]
 		self.assertEqual(header, ["ID", "Probation (months)"])
+
+	def test_documents_sheet_validates_in_data_import(self):
+		"""The split Documents file is accepted by standard Data Import (allow_import was off in 0.1.0)."""
+		self.fill(
+			"Documents",
+			[{"employee": self.emp.name, "document_type": "NDA", "document_number": "N1", "notes": "Signed"}],
+		)
+		docs = {w["sheet"]: w for w in importer.split(self.path, os.path.join(self.dir, "out"))}["Documents"]
+		with open(docs["file"], "rb") as fh:
+			file_doc = frappe.get_doc(
+				{"doctype": "File", "file_name": "uae_documents.xlsx", "content": fh.read(), "is_private": 1}
+			).insert(ignore_permissions=True)
+		# the rollback removes the File row, not the file on disk
+		on_disk = file_doc.get_full_path()
+		self.addCleanup(lambda: os.path.exists(on_disk) and os.remove(on_disk))
+
+		user = "uae.import.test@example.com"
+		if not frappe.db.exists("User", user):
+			frappe.get_doc(
+				{
+					"doctype": "User",
+					"email": user,
+					"first_name": "Import",
+					"roles": [{"role": "System Manager"}],
+				}
+			).insert(ignore_permissions=True)
+		with self.set_user(user):
+			di = frappe.get_doc(
+				{
+					"doctype": "Data Import",
+					"reference_doctype": docs["doctype"],
+					"import_type": docs["import_type"],
+					"import_file": file_doc.file_url,
+				}
+			).insert()
+			preview = di.get_preview_from_template()
+		self.assertEqual(di.payload_count, 1)
+		self.assertEqual([w for w in preview.warnings if w.get("type") != "info"], [])
+		mapped = [c.df["fieldname"] for c in preview.columns if c.get("df") and not c.skip_import]
+		self.assertEqual(sorted(mapped), sorted(["employee", "document_type", "document_number", "notes"]))

@@ -2,7 +2,7 @@
 
 Each entry names the article behind the change. Versions follow semantic versioning.
 
-## 0.1.2 (unreleased)
+## 0.1.2 (2026-10-16)
 
 Fixes and additions from the first HR test.
 
@@ -22,7 +22,8 @@ Fixes and additions from the first HR test.
   Current MOHRE contract is warned (DL 22(1)). The "base is neither basic nor total" warning is removed.
 - Contract Readiness also from a button inside the Employee UAE tab.
 - Exit tab lists unreturned issued items; setting the status to Left with items out is warned.
-- UAE Bank seeding by IBAN bank code, insert-only, from verified sources.
+- UAE Bank list seeded with 51 banks (IBAN code, SWIFT, WPS routing code where the sources agree), insert-only;
+  merged banks kept disabled so old IBANs decode, and warned on an Employee. Sources: docs/banks.md.
 - Import workbook and checker cover the new fields.
 
 ## 0.1.1 (2026-10-15)

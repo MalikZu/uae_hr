@@ -1,0 +1,322 @@
+{
+ "autoname": "UAE-DOC-.YYYY.-.#####",
+ "creation": "2026-10-15 01:58:03.672037",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "company",
+  "job_applicant",
+  "cb1",
+  "document_type",
+  "status",
+  "check_profile",
+  "has_expiry",
+  "reminder_days",
+  "details_sb",
+  "document_number",
+  "issue_date",
+  "expiry_date",
+  "cb2",
+  "issuing_country",
+  "issuing_emirate",
+  "place_of_issue",
+  "holder_sb",
+  "name_on_document",
+  "date_of_birth",
+  "passport_number",
+  "cb3",
+  "designation_on_document",
+  "sponsor_name",
+  "file_sb",
+  "file",
+  "verify_sb",
+  "verified_by",
+  "verified_on",
+  "cb4",
+  "superseded_by",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "description": "For documents collected before the Employee record exists",
+   "fieldname": "job_applicant",
+   "fieldtype": "Link",
+   "label": "Job Applicant",
+   "options": "Job Applicant"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Type",
+   "options": "UAE Document Type",
+   "reqd": 1
+  },
+  {
+   "default": "Unverified",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Unverified\nCurrent\nSuperseded\nExpired\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document_type.check_profile",
+   "fieldname": "check_profile",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Checks",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "document_type.has_expiry",
+   "fieldname": "has_expiry",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Expiry Date",
+   "read_only": 1
+  },
+  {
+   "description": "Copied from the document type (or the settings default); drives the expiry notifications",
+   "fieldname": "reminder_days",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reminder Days",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "details_sb",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "document_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Number",
+   "search_index": 1
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date",
+   "mandatory_depends_on": "eval:doc.has_expiry",
+   "search_index": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuing_country",
+   "fieldtype": "Link",
+   "label": "Issuing Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "issuing_emirate",
+   "fieldtype": "Select",
+   "label": "Issuing Emirate",
+   "options": "\nAbu Dhabi\nDubai\nSharjah\nAjman\nUmm Al Quwain\nRas Al Khaimah\nFujairah"
+  },
+  {
+   "fieldname": "place_of_issue",
+   "fieldtype": "Data",
+   "label": "Place of Issue"
+  },
+  {
+   "fieldname": "holder_sb",
+   "fieldtype": "Section Break",
+   "label": "As Printed on the Document"
+  },
+  {
+   "fieldname": "name_on_document",
+   "fieldtype": "Data",
+   "label": "Name on Document"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "depends_on": "eval:['Entry Permit','Residence Visa'].includes(doc.check_profile)",
+   "description": "Checked against the employee's current passport",
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport Number on Document"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Occupation as printed; must match across work permit, residence visa and Emirates ID",
+   "fieldname": "designation_on_document",
+   "fieldtype": "Data",
+   "label": "Designation on Document"
+  },
+  {
+   "description": "For relative permits: the sponsoring family member",
+   "fieldname": "sponsor_name",
+   "fieldtype": "Data",
+   "label": "Sponsor Name"
+  },
+  {
+   "fieldname": "file_sb",
+   "fieldtype": "Section Break",
+   "label": "Scan"
+  },
+  {
+   "description": "Always stored as a private file. The original stays with the worker: DL 13(2) forbids withholding official documents",
+   "fieldname": "file",
+   "fieldtype": "Attach",
+   "label": "Scan (private)"
+  },
+  {
+   "fieldname": "verify_sb",
+   "fieldtype": "Section Break",
+   "label": "Verification"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "no_copy": 1,
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_on",
+   "fieldtype": "Datetime",
+   "label": "Verified On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "superseded_by",
+   "fieldtype": "Link",
+   "label": "Superseded By",
+   "no_copy": 1,
+   "options": "UAE Employee Document",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "modified": "2026-10-15 01:58:03.672037",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Employee Document",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAE PRO",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "employee_name,document_type,document_number",
+ "show_title_field_in_link": 0,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

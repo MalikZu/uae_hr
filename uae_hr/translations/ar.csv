@@ -7,6 +7,7 @@ A penalty cannot be issued before the investigation has closed,لا يجوز ت�
 A person who has reached 15 years of age but is not over 18 years,من أتم 15 سنة من عمره ولم يتجاوز 18 سنة
 "A student already in the State, from 15 years of age",طالب مقيم في الدولة، من سن 15 سنة
 ADGM (not covered),سوق أبوظبي العالمي (غير مشمول)
+Absconded,منقطع عن العمل
 Absence report to the Ministry after consecutive days (more than),إبلاغ الوزارة عن الانقطاع بعد أيام متصلة (أكثر من)
 Abu Dhabi,أبوظبي
 Access Card,بطاقة دخول
@@ -53,6 +54,7 @@ CR 24(3): the worker is told the charge in writing and heard before any penalty,
 Calendar and age,التقويم والسن
 Cancelled,ملغى
 Cancelled: {0},أُلغي: {0}
+Cash,نقداً
 Charge a violation within (days of detection),توجيه الاتهام بالمخالفة خلال (أيام من اكتشافها)
 Checked against the employee's current passport,يُطابق مع جواز السفر الساري للموظف
 Checks,الفحوصات
@@ -74,6 +76,7 @@ DIFC (not covered),مركز دبي المالي العالمي (غير مشمو�
 DIFC and ADGM have their own employment laws: the app's checks are switched off for those companies,لمركز دبي المالي العالمي وسوق أبوظبي العالمي قوانين توظيف خاصة بهما، لذا تتوقف فحوصات التطبيق لهذه الشركات
 DL 13(11): the certificate is free and must not contain anything harmful to the worker,DL 13(11): تُمنح الشهادة دون رسوم ولا يجوز أن تتضمن ما يسيء إلى العامل
 "DL 1: the worker's family is the spouse, sons and daughters",DL 1: أسرة العامل هم الزوج والأبناء والبنات
+Daily wage (other sponsor's visa),أجر يومي (على تأشيرة كفيل آخر)
 Damage deduction cap (days' wage per month),الحد الأقصى للاقتطاع عن الأضرار (أجر أيام شهرياً)
 Date of Birth,تاريخ الميلاد
 Date of birth,تاريخ الميلاد
@@ -128,6 +131,8 @@ Employment Certificate,شهادة عمل
 Enabled,مُفعّل
 End of Service,نهاية الخدمة
 End of service,نهاية الخدمة
+Engagement,طبيعة الارتباط
+Engagement Type,نوع الارتباط
 Entry Permit,إذن الدخول
 Establishment Name,اسم المنشأة
 Everything CR 10(1) asks for is on the record.,كل ما تتطلبه CR 10(1) مسجل.
@@ -250,6 +255,7 @@ Law default 90. DL 31(3). (used from v0.3),القيمة الافتراضية ف�
 "Law default 90. DL 43(1): ""not less than (30) thirty days and not more than (90) ninety days""",القيمة الافتراضية في القانون 90. المرسوم بقانون اتحادي رقم 33 لسنة 2021، المادة 43(1).
 Leave,الإجازات
 Leave 0 when the general minimum applies (CR 7(1): 18),اتركه 0 إذا انطبق الحد الأدنى العام (CR 7(1): 18 سنة)
+"Left, visa still active",ترك العمل والتأشيرة ما زالت سارية
 Legal Reference,المرجع القانوني
 Letter Type,نوع الخطاب
 Link the document to an Employee before verifying it,اربط المستند بموظف قبل التحقق منه
@@ -300,11 +306,14 @@ Nationality,الجنسية
 No UAE Bank has IBAN bank code {0}. Add it to the UAE Bank list,لا يوجد بنك برمز الآيبان {0}. أضفه إلى قائمة البنوك
 Nominee,المستفيد
 Nominee Relation,صلة القرابة
+Not paid by us,لا نصرف راتبه
+Not salaried,بلا راتب
 Notes,ملاحظات
 Notice and termination,الإشعار وإنهاء العقد
 Notice of {0} days is outside the legal range of {1} to {2} days,إشعار مدته {0} يوماً خارج النطاق القانوني من {1} إلى {2} يوماً
 Notice period,فترة الإشعار
 "Occupation as printed; must match across work permit, residence visa and Emirates ID",المهنة كما هي مطبوعة؛ يجب أن تتطابق في تصريح العمل والإقامة والهوية
+On hold,موقوف مؤقتاً
 Only an HR Manager can reopen documents,إعادة فتح المستندات لمدير الموارد البشرية فقط
 Only an HR Manager can verify documents,التحقق من المستندات لمدير الموارد البشرية فقط
 Only an unverified document can be verified; this one is {0},لا يُتحقق إلا من مستند غير مُتحقق منه؛ وهذا المستند {0}
@@ -323,6 +332,7 @@ Passport Issuing Country,دولة إصدار الجواز
 Passport Number on Document,رقم الجواز في المستند
 Passport {0} on the visa is not the passport in this workbook ({1}),الجواز {0} في التأشيرة ليس الجواز الوارد في هذا الملف ({1})
 Pay components cannot be negative,لا يمكن أن تكون مكونات الأجر سالبة
+Payment Method,طريقة صرف الراتب
 Pension Fund for UAE Nationals,صندوق المعاشات للمواطنين
 People,الموظفون
 Permit Type,نوع التصريح
@@ -363,6 +373,7 @@ Row {0}: Employee has no field {1},السطر {0}: لا يوجد في سجل ا�
 SIM Card,شريحة اتصال
 SWIFT / BIC,رمز السويفت
 Safety Certificate,شهادة السلامة
+Salaried,براتب
 Salary Card Agent,وكيل بطاقة الراتب
 Salary Card Number,رقم بطاقة الراتب
 Salary Certificate,شهادة راتب
@@ -419,11 +430,13 @@ The charge date is before the violation was detected,تاريخ الاتهام �
 The charge was given {0} days after the violation was detected; the limit is {1} days,وُجه الاتهام بعد {0} يوماً من اكتشاف المخالفة؛ والحد {1} يوماً
 The contract is in Arabic plus a language the worker understands; the Arabic prevails (DL 66),يُحرر العقد باللغة العربية مع لغة يفهمها العامل، ويُعتد بالنص العربي عند الاختلاف (DL 66)
 The employer provides accommodation or pays an allowance for it (DL 13(4)),يوفر صاحب العمل السكن أو يدفع بدلاً عنه (DL 13(4))
+The establishment that sponsors the visa; it may not be the company the worker works for,المنشأة الكفيلة للتأشيرة؛ قد لا تكون الشركة التي يعمل لديها العامل
 The expiry date must be after the issue date,يجب أن يكون تاريخ الانتهاء بعد تاريخ الإصدار
 The investigation closed before the charge was given,انتهى التحقيق قبل توجيه الاتهام
 "The nominee must be a member of the worker's family: spouse, son or daughter",يجب أن يكون المستفيد من أسرة العامل: الزوج أو الزوجة أو الابن أو الابنة
 The warning is issued {0} days after the investigation closed; the limit is {1} days,صدر الإنذار بعد {0} يوماً من انتهاء التحقيق؛ والحد {1} يوماً
 "The worker file must be kept until {0}, {1} years after the end of service",يجب حفظ ملف العامل حتى {0}، أي {1} سنوات بعد انتهاء الخدمة
+The worker is salaried but has no payment method,العامل يتقاضى راتباً لكن لا توجد طريقة لصرفه
 The worker may name in writing a family member to receive their rights on death (DL 15(2)),يجوز للعامل أن يحدد كتابياً أحد أفراد أسرته لاستلام مستحقاته عند الوفاة (DL 15(2))
 "The {0} carries passport {1}, but the current passport is {2}",يحمل {0} رقم الجواز {1}، بينما الجواز الساري هو {2}
 "These values are less favourable to workers than the law, or change a value the law fixes. Name the resolution that amended them in Amendment Reference:",هذه القيم أقل فائدة للعامل من القانون، أو تغيّر قيمة يحددها القانون. اذكر القرار الذي عدّلها في حقل مرجع التعديل:
@@ -474,9 +487,14 @@ Violation,المخالفة
 Violation Detected On,تاريخ اكتشاف المخالفة
 Visa Cancellation,إلغاء التأشيرة
 Visa Designation,المهنة في التأشيرة
+Visa Emirate,إمارة التأشيرة
+Visa Establishment,المنشأة الكفيلة
+Visa only (works for another employer),تأشيرة فقط (يعمل لدى صاحب عمل آخر)
 WPS Agent Bank,البنك الوكيل لنظام حماية الأجور
 WPS Agent Routing Code,رمز توجيه البنك الوكيل
 WPS Routing Code,رمز التوجيه في نظام حماية الأجور
+WPS bank account,حساب بنكي عبر نظام حماية الأجور
+WPS salary card,بطاقة راتب عبر نظام حماية الأجور
 Wage deductions,الاقتطاع من الأجر
 "Wage, with allowances",الأجر مع البدلات
 Warning,إنذار

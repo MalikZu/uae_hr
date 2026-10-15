@@ -135,3 +135,35 @@ class TestPermissions(UAETestCase):
 			"uae_work_permit_expiry",
 		):
 			self.assertTrue(meta.get_field(field).read_only, field)
+
+
+class TestEngagement(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def test_fields_and_options(self):
+		meta = frappe.get_meta("Employee")
+		self.assertEqual(meta.get_field("uae_visa_establishment").options, "UAE Establishment")
+		self.assertIn(
+			"Visa only (works for another employer)",
+			meta.get_field("uae_engagement_type").options.split("\n"),
+		)
+		self.assertIn("WPS salary card", meta.get_field("uae_payment_method").options.split("\n"))
+		self.assertIn("Fujairah", meta.get_field("uae_visa_emirate").options.split("\n"))
+
+	def test_salaried_without_payment_method_warns(self):
+		make_employee(uae_engagement_type="Salaried")
+		self.assertIn("no_payment_method", warnings())
+		reset_warnings()
+		make_employee(uae_engagement_type="Salaried", uae_payment_method="WPS bank account")
+		make_employee(uae_engagement_type="Visa only (works for another employer)")
+		self.assertNotIn("no_payment_method", warnings())
+
+	def test_visa_establishment_link(self):
+		est = frappe.get_doc(
+			{"doctype": "UAE Establishment", "establishment_name": "Invented Visa Sponsor"}
+		).insert()
+		emp = make_employee(uae_visa_establishment=est.name, uae_visa_emirate="Ajman")
+		self.assertEqual(emp.uae_visa_establishment, est.name)

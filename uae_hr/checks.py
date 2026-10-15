@@ -397,3 +397,20 @@ def check_pay_split(basic, housing, transport, other) -> list[Finding]:
 	if any(v and v < 0 for v in (basic, housing, transport, other)):
 		return [Finding(BLOCK, "negative_pay", _("Pay components cannot be negative"))]
 	return []
+
+
+# ---------------------------------------------------------------- engagement
+
+
+def check_engagement(engagement_type, payment_method) -> list[Finding]:
+	"""A salaried worker needs a way to be paid; wages go through WPS (CR 16(1)(b))."""
+	if engagement_type == "Salaried" and not payment_method:
+		return [
+			Finding(
+				WARN,
+				"no_payment_method",
+				_("The worker is salaried but has no payment method"),
+				"CR 16(1)(b)",
+			)
+		]
+	return []

@@ -12,6 +12,21 @@ MIRRORED_STANDARD_FIELDS = ("passport_number", "valid_upto", "date_of_issue", "p
 MIRROR_NOTE = "Set by verifying a UAE Employee Document. Not typed by hand"
 
 
+EMIRATES = "\nAbu Dhabi\nDubai\nSharjah\nAjman\nUmm Al Quwain\nRas Al Khaimah\nFujairah"
+ENGAGEMENT_TYPES = "\n".join(
+	[
+		"",
+		"Salaried",
+		"Visa only (works for another employer)",
+		"Daily wage (other sponsor's visa)",
+		"Absconded",
+		"Left, visa still active",
+		"Not salaried",
+	]
+)
+PAYMENT_METHODS = "\nWPS bank account\nWPS salary card\nCash\nOn hold\nNot paid by us"
+
+
 def get_custom_fields():
 	def cf(fieldname, fieldtype, label=None, **kw):
 		d = dict(fieldname=fieldname, fieldtype=fieldtype, module=MODULE)
@@ -52,6 +67,14 @@ def get_custom_fields():
 			length=14,
 			description="14 digits, from the work permit. Needed for WPS",
 		),
+		cf(
+			"uae_visa_establishment",
+			"Link",
+			"Visa Establishment",
+			options="UAE Establishment",
+			description="The establishment that sponsors the visa; it may not be the company the worker works for",
+		),
+		cf("uae_visa_emirate", "Select", "Visa Emirate", options=EMIRATES),
 		cf("uae_permit_cb", "Column Break"),
 		cf("uae_residency_expiry", "Date", "Residence Visa Expiry", read_only=1, description=MIRROR_NOTE),
 		cf("uae_work_permit_expiry", "Date", "Work Permit Expiry", read_only=1, description=MIRROR_NOTE),
@@ -95,6 +118,12 @@ def get_custom_fields():
 			options="\nSpouse\nSon\nDaughter",
 			description="DL 1: the worker's family is the spouse, sons and daughters",
 		),
+		cf("uae_engagement_sb", "Section Break", "Engagement"),
+		cf(
+			"uae_engagement_type", "Select", "Engagement Type", options=ENGAGEMENT_TYPES, in_standard_filter=1
+		),
+		cf("uae_engagement_cb", "Column Break"),
+		cf("uae_payment_method", "Select", "Payment Method", options=PAYMENT_METHODS),
 		cf("uae_pay_sb", "Section Break", "Salary Payment (UAE)"),
 		cf(
 			"uae_bank",

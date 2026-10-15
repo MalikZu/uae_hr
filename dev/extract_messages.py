@@ -54,6 +54,14 @@ def from_custom_fields(out):
 					out.add(kw.value.value)
 				if kw.arg == "options" and isinstance(kw.value, ast.Constant) and "\n" in kw.value.value:
 					out.update(o for o in kw.value.value.split("\n") if o)
+		# module-level Select options such as ENGAGEMENT_TYPES = "\n".join([...]) or "\nA\nB"
+		if isinstance(node, ast.Assign) and getattr(node.targets[0], "id", "").isupper():
+			value = node.value
+			if isinstance(value, ast.Call) and getattr(value.func, "attr", None) == "join" and value.args:
+				options = [e.value for e in value.args[0].elts if isinstance(e, ast.Constant)]
+				out.update(o for o in options if o)
+			elif isinstance(value, ast.Constant) and isinstance(value.value, str) and "\n" in value.value:
+				out.update(o for o in value.value.split("\n") if o)
 		if isinstance(node, ast.Assign) and getattr(node.targets[0], "id", None) == "MIRROR_NOTE":
 			out.add(node.value.value)
 			out.add(node.value.value + " (Passport)")

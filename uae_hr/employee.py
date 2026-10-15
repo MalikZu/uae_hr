@@ -33,6 +33,7 @@ def validate(doc, method=None):
 	findings += checks.check_person_code(doc.uae_person_code)
 	findings += checks.check_nominee(doc.uae_death_nominee, doc.uae_death_nominee_relation)
 	findings += check_probation_once(doc)
+	findings += checks.check_engagement(doc.uae_engagement_type, doc.uae_payment_method)
 	apply_findings(findings)
 
 

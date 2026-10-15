@@ -37,7 +37,7 @@
    "fieldname": "check_profile",
    "fieldtype": "Select",
    "label": "Checks",
-   "options": "\nPassport\nEntry Permit\nResidence Visa\nEmirates ID\nWork Permit"
+   "options": "\nPassport\nEntry Permit\nResidence Visa\nEmirates ID\nWork Permit\nMOHRE Employment Contract"
   },
   {
    "fieldname": "cb1",
@@ -86,7 +86,7 @@
    "label": "Description"
   }
  ],
- "modified": "2026-10-15 01:58:03.671655",
+ "modified": "2026-10-16 02:01:45.270543",
  "modified_by": "Administrator",
  "module": "UAE HR",
  "name": "UAE Document Type",

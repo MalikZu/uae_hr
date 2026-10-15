@@ -15,7 +15,7 @@ verifies it again.
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import get_link_to_form, getdate, now_datetime, today
+from frappe.utils import flt, get_link_to_form, getdate, now_datetime, today
 
 from uae_hr import checks
 from uae_hr.law import get_param
@@ -34,7 +34,12 @@ LOCKED_FIELDS = (
 	"name_on_document",
 	"date_of_birth",
 	"passport_number",
+	"contract_basic",
+	"contract_housing",
+	"contract_transport",
+	"contract_other",
 )
+CONTRACT_PARTS = ("contract_basic", "contract_housing", "contract_transport", "contract_other")
 
 
 class UAEEmployeeDocument(Document):
@@ -55,6 +60,9 @@ class UAEEmployeeDocument(Document):
 			if self.check_profile == "Emirates ID":
 				self.document_number = checks.format_eid(self.document_number) or self.document_number
 		self.validate_duplicate()
+		self.contract_total = sum(flt(self.get(f)) for f in CONTRACT_PARTS)
+		if any(flt(self.get(f)) < 0 for f in CONTRACT_PARTS):
+			frappe.throw(_("Contract amounts cannot be negative"))
 		findings = []
 		if self.check_profile == "Emirates ID":
 			findings += checks.check_emirates_id(self.document_number, self.date_of_birth)
@@ -296,8 +304,11 @@ class UAEEmployeeDocument(Document):
 
 
 def _norm(value):
-	if value in (None, ""):
+	# an empty amount and 0.0 are the same value; dates compare as text
+	if value in (None, "") or value == 0:
 		return None
+	if isinstance(value, float):
+		return repr(round(value, 6))
 	return str(value).strip()
 
 

@@ -515,6 +515,9 @@ AR = {
 	"Visa only (works for another employer)": "تأشيرة فقط (يعمل لدى صاحب عمل آخر)",
 	"WPS bank account": "حساب بنكي عبر نظام حماية الأجور",
 	"WPS salary card": "بطاقة راتب عبر نظام حماية الأجور",
+	"Contract Salary (MOHRE)": "الأجر في العقد (الوزارة)",
+	"Contract amounts cannot be negative": "لا يمكن أن تكون مبالغ العقد سالبة",
+	"Monthly amounts as registered in the MOHRE contract. Pay below them is warned on the Salary Structure Assignment": "المبالغ الشهرية كما سُجلت في عقد العمل لدى الوزارة. يظهر تنبيه في تعيين هيكل الراتب إذا كان الأجر أقل منها",
 }
 
 CITE_AR = {

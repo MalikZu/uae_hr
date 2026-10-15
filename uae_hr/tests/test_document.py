@@ -330,3 +330,44 @@ class TestRenewal(UAETestCase):
 			document_number="N9",
 			expiry_date=None,
 		)
+
+
+class TestContractSalary(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def test_total_is_computed_and_locked(self):
+		emp = make_employee()
+		doc = make_document(
+			emp.name,
+			"MOHRE Employment Contract",
+			contract_basic=4000,
+			contract_housing=1500,
+			contract_transport=300,
+			contract_other=200,
+		)
+		self.assertEqual(doc.check_profile, "MOHRE Employment Contract")
+		self.assertEqual(doc.contract_total, 6000)
+		doc.verify()
+		doc.reload()
+		doc.contract_basic = 3000
+		self.assertRaises(frappe.ValidationError, doc.save)
+
+	def test_negative_amount_refused(self):
+		emp = make_employee()
+		self.assertRaises(
+			frappe.ValidationError, make_document, emp.name, "MOHRE Employment Contract", contract_basic=-1
+		)
+
+	def test_patch_sets_the_profile_on_older_sites(self):
+		from uae_hr.patches.v0_1_2.mohre_contract_check_profile import NAME, execute
+
+		emp = make_employee()
+		doc = make_document(emp.name, NAME)
+		frappe.db.set_value("UAE Document Type", NAME, "check_profile", "")
+		frappe.db.set_value("UAE Employee Document", doc.name, "check_profile", "")
+		execute()
+		self.assertEqual(frappe.db.get_value("UAE Document Type", NAME, "check_profile"), NAME)
+		self.assertEqual(frappe.db.get_value("UAE Employee Document", doc.name, "check_profile"), NAME)

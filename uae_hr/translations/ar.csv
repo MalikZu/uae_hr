@@ -65,6 +65,8 @@ Company property in the worker's hands. Official documents are never listed here
 Company {0} is listed twice,الشركة {0} مدرجة مرتين
 Contract,العقد
 Contract Readiness,جاهزية العقد
+Contract Salary (MOHRE),الأجر في العقد (الوزارة)
+Contract amounts cannot be negative,لا يمكن أن تكون مبالغ العقد سالبة
 Contract term (end date),مدة العقد (تاريخ الانتهاء)
 Contracts are fixed-term,العقود محددة المدة
 Copied from the document type (or the settings default); drives the expiry notifications,منسوخة من نوع المستند (أو القيمة الافتراضية في الإعدادات)؛ تتحكم في تنبيهات الانتهاء
@@ -294,6 +296,7 @@ Mirror to Employee,النسخ إلى سجل الموظف
 Mission Permit,تصريح مهمة
 Mobile Number,رقم الهاتف
 Mobile Phone,هاتف متحرك
+Monthly amounts as registered in the MOHRE contract. Pay below them is warned on the Salary Structure Assignment,المبالغ الشهرية كما سُجلت في عقد العمل لدى الوزارة. يظهر تنبيه في تعيين هيكل الراتب إذا كان الأجر أقل منها
 "Monthly amounts. Salary structures read them in formulas as uae_basic, uae_housing, uae_transport, uae_other",مبالغ شهرية. تقرؤها هياكل الرواتب في المعادلات باسم uae_basic و uae_housing و uae_transport و uae_other
 NDA,اتفاقية عدم الإفصاح
 NOC,شهادة عدم ممانعة

@@ -21,7 +21,9 @@ law = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(law)
 
 EMIRATES = "\nAbu Dhabi\nDubai\nSharjah\nAjman\nUmm Al Quwain\nRas Al Khaimah\nFujairah"
-CHECK_PROFILES = "\nPassport\nEntry Permit\nResidence Visa\nEmirates ID\nWork Permit"
+CHECK_PROFILES = (
+	"\nPassport\nEntry Permit\nResidence Visa\nEmirates ID\nWork Permit\nMOHRE Employment Contract"
+)
 DOC_FIELDS = "\n".join(
 	[
 		"document_number",
@@ -113,6 +115,10 @@ LOCKS = {
 			"name_on_document",
 			"date_of_birth",
 			"passport_number",
+			"contract_basic",
+			"contract_housing",
+			"contract_transport",
+			"contract_other",
 		),
 		"eval:doc.status && doc.status!='Unverified'",
 	),
@@ -503,6 +509,19 @@ write(
 				"Sponsor Name",
 				description="For relative permits: the sponsoring family member",
 			),
+			f(
+				"contract_sb",
+				"Section Break",
+				"Contract Salary (MOHRE)",
+				depends_on="eval:doc.check_profile=='MOHRE Employment Contract'",
+				description="Monthly amounts as registered in the MOHRE contract. Pay below them is warned on the Salary Structure Assignment",
+			),
+			f("contract_basic", "Currency", "Basic Wage"),
+			f("contract_housing", "Currency", "Housing Allowance"),
+			f("cb_contract", "Column Break"),
+			f("contract_transport", "Currency", "Transport Allowance"),
+			f("contract_other", "Currency", "Other Allowance"),
+			f("contract_total", "Currency", "Total Wage", read_only=1),
 			f("file_sb", "Section Break", "Scan"),
 			f(
 				"file",

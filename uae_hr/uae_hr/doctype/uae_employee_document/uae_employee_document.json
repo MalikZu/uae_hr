@@ -31,6 +31,13 @@
   "cb3",
   "designation_on_document",
   "sponsor_name",
+  "contract_sb",
+  "contract_basic",
+  "contract_housing",
+  "cb_contract",
+  "contract_transport",
+  "contract_other",
+  "contract_total",
   "file_sb",
   "file",
   "verify_sb",
@@ -217,6 +224,47 @@
    "label": "Sponsor Name"
   },
   {
+   "depends_on": "eval:doc.check_profile=='MOHRE Employment Contract'",
+   "description": "Monthly amounts as registered in the MOHRE contract. Pay below them is warned on the Salary Structure Assignment",
+   "fieldname": "contract_sb",
+   "fieldtype": "Section Break",
+   "label": "Contract Salary (MOHRE)"
+  },
+  {
+   "fieldname": "contract_basic",
+   "fieldtype": "Currency",
+   "label": "Basic Wage",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
+  },
+  {
+   "fieldname": "contract_housing",
+   "fieldtype": "Currency",
+   "label": "Housing Allowance",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
+  },
+  {
+   "fieldname": "cb_contract",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_transport",
+   "fieldtype": "Currency",
+   "label": "Transport Allowance",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
+  },
+  {
+   "fieldname": "contract_other",
+   "fieldtype": "Currency",
+   "label": "Other Allowance",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
+  },
+  {
+   "fieldname": "contract_total",
+   "fieldtype": "Currency",
+   "label": "Total Wage",
+   "read_only": 1
+  },
+  {
    "fieldname": "file_sb",
    "fieldtype": "Section Break",
    "label": "Scan"
@@ -265,7 +313,7 @@
    "label": "Notes"
   }
  ],
- "modified": "2026-10-16 01:56:06.130777",
+ "modified": "2026-10-16 02:01:45.270976",
  "modified_by": "Administrator",
  "module": "UAE HR",
  "name": "UAE Employee Document",

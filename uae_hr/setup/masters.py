@@ -52,7 +52,7 @@ DOCUMENT_TYPES = [
 		False,
 	),
 	("Work Permit", "Work Permit", 1, {"expiry_date": "uae_work_permit_expiry"}, True),
-	("MOHRE Employment Contract", "", 1, {}, False),
+	("MOHRE Employment Contract", "MOHRE Employment Contract", 1, {}, False),
 	("Health Insurance", "", 1, {}, False),
 	("Degree Certificate", "", 0, {}, False),
 	("Visa Cancellation", "", 0, {}, False),

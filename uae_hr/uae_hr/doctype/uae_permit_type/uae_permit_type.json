@@ -1,0 +1,118 @@
+{
+ "autoname": "field:permit_type_name",
+ "creation": "2026-10-15 01:58:03.664526",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "permit_type_name",
+  "legal_reference",
+  "enabled",
+  "cb1",
+  "min_age",
+  "max_age",
+  "sb1",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "permit_type_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Permit Type",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Article that creates this permit type, e.g. CR 6(1)(a)",
+   "fieldname": "legal_reference",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Legal Reference"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Leave 0 when the general minimum applies (CR 7(1): 18)",
+   "fieldname": "min_age",
+   "fieldtype": "Int",
+   "label": "Minimum Age"
+  },
+  {
+   "description": "0 = no maximum",
+   "fieldname": "max_age",
+   "fieldtype": "Int",
+   "label": "Maximum Age"
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "modified": "2026-10-15 01:58:03.664526",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Permit Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAE PRO"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "legal_reference",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "permit_type_name",
+ "track_changes": 1
+}

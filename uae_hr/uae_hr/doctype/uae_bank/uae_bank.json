@@ -1,0 +1,127 @@
+{
+ "autoname": "field:bank_name",
+ "creation": "2026-10-15 01:58:03.669454",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_name",
+  "short_name",
+  "enabled",
+  "cb1",
+  "bank_code",
+  "swift_code",
+  "wps_routing_code",
+  "sb1",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "short_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Short Name"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The 3 digits after AE and the check digits in a UAE IBAN (AEkk BBB ...)",
+   "fieldname": "bank_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "IBAN Bank Code",
+   "length": 3,
+   "unique": 1
+  },
+  {
+   "fieldname": "swift_code",
+   "fieldtype": "Data",
+   "label": "SWIFT / BIC",
+   "length": 11
+  },
+  {
+   "description": "9-digit routing code used in WPS salary files. Take it from your WPS agent bank",
+   "fieldname": "wps_routing_code",
+   "fieldtype": "Data",
+   "label": "WPS Routing Code",
+   "length": 9
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "modified": "2026-10-15 01:58:03.669454",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Bank",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAE PRO"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "short_name,bank_code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

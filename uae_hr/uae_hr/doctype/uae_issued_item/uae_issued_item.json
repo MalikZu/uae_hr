@@ -1,0 +1,84 @@
+{
+ "creation": "2026-10-15 01:58:03.670732",
+ "custom": 0,
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_type",
+  "description",
+  "serial_no",
+  "mobile_number",
+  "cb1",
+  "issued_on",
+  "returned_on",
+  "undertaking"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Type",
+   "options": "UAE Issued Item Type",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "columns": 2,
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial / Asset No"
+  },
+  {
+   "description": "For SIM cards",
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "issued_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issued On"
+  },
+  {
+   "columns": 2,
+   "fieldname": "returned_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Returned On"
+  },
+  {
+   "fieldname": "undertaking",
+   "fieldtype": "Attach",
+   "label": "Signed Undertaking"
+  }
+ ],
+ "istable": 1,
+ "modified": "2026-10-15 01:58:03.670732",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Issued Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

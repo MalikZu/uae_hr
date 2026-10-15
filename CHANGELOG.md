@@ -2,6 +2,15 @@
 
 Each entry names the article behind the change. Versions follow semantic versioning.
 
+## 0.1.1 (2026-10-15)
+
+Fixes found while building a company layer on 0.1.0.
+
+- UAE Employee Document allows Data Import, so the Documents sheet from the Excel split can be imported;
+  System Manager, HR Manager and HR User get the import right, as on Employee.
+- Tests no longer assume out-of-the-box reminder days: the reminder and notification tests set them in setUp,
+  so the suite passes on a site where document types have their own reminder days.
+
 ## 0.1.0 (2026-10-15)
 
 First version: records, documents, reminders, pay components and checks for workers already employed.

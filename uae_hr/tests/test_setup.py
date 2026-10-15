@@ -296,3 +296,36 @@ class TestPayAgainstContract(UAETestCase):
 		reset_warnings()
 		self.ssa(emp.name, uae_basic=1000)
 		self.assertNotIn("basic_below_contract", warnings())
+
+
+class TestBankSeed(UAETestCase):
+	SAMPLE = (
+		("901", "Invented Test Bank One", "ITB1", "TESTAEAA", "invented for the test"),
+		("902", "Invented Test Bank Two", "ITB2", "TESTAEBBXXX", "invented for the test"),
+	)
+
+	def test_inserts_missing_by_code_and_keeps_edits(self):
+		from uae_hr.setup.banks import seed_banks
+
+		frappe.get_doc({"doctype": "UAE Bank", "bank_name": "Site's Own Name", "bank_code": "902"}).insert()
+		seed_banks(self.SAMPLE)
+		self.assertEqual(frappe.db.get_value("UAE Bank", {"bank_code": "901"}, "swift_code"), "TESTAEAA")
+		# code 902 already existed under the site's own name: left alone
+		self.assertEqual(
+			frappe.get_all("UAE Bank", filters={"bank_code": "902"}, pluck="name"), ["Site's Own Name"]
+		)
+		before = frappe.db.get_value("UAE Bank", {"bank_code": "901"}, "modified")
+		seed_banks(self.SAMPLE)
+		self.assertEqual(frappe.db.get_value("UAE Bank", {"bank_code": "901"}, "modified"), before)
+
+	def test_shipped_rows_are_valid_and_sourced(self):
+		import re
+
+		from uae_hr.setup.banks import BANKS
+
+		codes = [b[0] for b in BANKS]
+		self.assertEqual(len(codes), len(set(codes)))
+		for code, name, _short, swift, source in BANKS:
+			self.assertRegex(code, r"^\d{3}$", name)
+			self.assertRegex(swift, r"^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$", name)
+			self.assertTrue(source, name)

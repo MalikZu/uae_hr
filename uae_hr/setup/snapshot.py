@@ -21,6 +21,7 @@ def fingerprint(dump=None):
 		("UAE Document Type", {}),
 		("UAE Permit Type", {}),
 		("UAE Issued Item Type", {}),
+		("UAE Bank", {}),
 		("Salary Component", {}),
 		("Role", {"name": "UAE PRO"}),
 		("DocType", {"module": "UAE HR"}),

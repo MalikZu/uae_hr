@@ -1,0 +1,113 @@
+{
+ "autoname": "field:establishment_name",
+ "creation": "2026-10-16 01:59:20.265305",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "establishment_name",
+  "mohre_establishment_number",
+  "emirate",
+  "cb1",
+  "trade_license_number",
+  "company",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "establishment_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Establishment Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "mohre_establishment_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "MOHRE Establishment Number"
+  },
+  {
+   "fieldname": "emirate",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Emirate",
+   "options": "\nAbu Dhabi\nDubai\nSharjah\nAjman\nUmm Al Quwain\nRas Al Khaimah\nFujairah"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trade_license_number",
+   "fieldtype": "Data",
+   "label": "Trade Licence Number"
+  },
+  {
+   "description": "The ERP company, when this establishment is one of yours",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "modified": "2026-10-16 01:59:20.265305",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Establishment",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAE PRO"
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "mohre_establishment_number,emirate",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

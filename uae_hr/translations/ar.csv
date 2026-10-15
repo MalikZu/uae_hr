@@ -93,6 +93,7 @@ Designation differs from the employee's other permit documents,المهنة تخ
 Designation on Document,المهنة في المستند
 Designation {0} differs from {1},المهنة {0} تختلف عن {1}
 Details,التفاصيل
+Disabled,معطّل
 Disciplinary Warning (CR 24),الإنذار التأديبي (CR 24)
 Disciplinary fines cap (% of wage),الحد الأقصى للغرامات التأديبية (% من الأجر)
 Disciplinary time limits,المهل التأديبية
@@ -128,6 +129,7 @@ Enabled,مُفعّل
 End of Service,نهاية الخدمة
 End of service,نهاية الخدمة
 Entry Permit,إذن الدخول
+Establishment Name,اسم المنشأة
 Everything CR 10(1) asks for is on the record.,كل ما تتطلبه CR 10(1) مسجل.
 Experience Certificate,شهادة خبرة
 Experience Certificate (DL 13(11)),شهادة الخبرة (DL 13(11))
@@ -255,6 +257,7 @@ Link the document to an Employee or a Job Applicant,اربط المستند بم
 Listed as missing on the contract readiness check for employees on these permit types,يظهر كناقص في فحص جاهزية العقد للموظفين على هذه الأنواع من التصاريح
 MOHRE Employment Contract,عقد العمل لدى الوزارة
 MOHRE Establishment ID,رقم المنشأة لدى الوزارة
+MOHRE Establishment Number,رقم المنشأة لدى الوزارة
 MOHRE Person Code,الرقم الشخصي لدى الوزارة
 MOHRE occupation exactly as on the work permit. The internal job title stays in Designation,المهنة لدى الوزارة كما في تصريح العمل حرفياً. يبقى المسمى الوظيفي الداخلي في حقل المسمى
 MOHRE person code is empty; WPS payroll needs it,الرقم الشخصي لدى الوزارة فارغ، ويحتاجه صرف الرواتب عبر نظام حماية الأجور
@@ -407,6 +410,7 @@ Superseded By,استُبدل بـ
 Temporary Work Permit,تصريح عمل مؤقت
 Termination procedures,إجراءات إنهاء العقد
 The 3 digits after AE and the check digits in a UAE IBAN (AEkk BBB ...),الأرقام الثلاثة بعد AE ورقمي التحقق في الآيبان الإماراتي (AEkk BBB ...)
+"The ERP company, when this establishment is one of yours",الشركة في النظام، إذا كانت هذه المنشأة إحدى منشآتك
 The IBAN bank code is 3 digits,رمز البنك في الآيبان 3 أرقام
 "The IBAN belongs to {0}, but the bank is set to {1}",الآيبان يخص {0}، لكن البنك المحدد {1}
 "The IBAN belongs to {0}, not {1}",الآيبان يخص {0} وليس {1}
@@ -429,6 +433,7 @@ This document is not verified yet,لم يتم التحقق من هذا المس�
 Tools,أدوات
 Total Service,مدة الخدمة
 Total Wage,إجمالي الأجر
+Trade Licence Number,رقم الرخصة التجارية
 Transfer Work Permit,تصريح عمل انتقال
 Transport Allowance,بدل المواصلات
 UAE,الإمارات
@@ -439,6 +444,7 @@ UAE Document Type,نوع المستند
 UAE Document Type Permit,التصريح المرتبط بنوع المستند
 UAE Documents and Letters,المستندات والخطابات
 UAE Employee Document,مستند الموظف
+UAE Establishment,المنشأة
 UAE HR,الموارد البشرية - الإمارات
 UAE HR Letter,خطاب الموارد البشرية
 UAE HR Settings,إعدادات الموارد البشرية - الإمارات

@@ -232,6 +232,33 @@ write(
 	)
 )
 
+# The establishment that sponsors the visa. Often not the ERP company: a worker can hold a visa
+# from one establishment and work for another.
+write(
+	dt(
+		"UAE Establishment",
+		[
+			f("establishment_name", "Data", "Establishment Name", reqd=1, unique=1, in_list_view=1),
+			f("mohre_establishment_number", "Data", "MOHRE Establishment Number", in_list_view=1),
+			f("emirate", "Select", "Emirate", options=EMIRATES, in_list_view=1, in_standard_filter=1),
+			f("cb1", "Column Break"),
+			f("trade_license_number", "Data", "Trade Licence Number"),
+			f(
+				"company",
+				"Link",
+				"Company",
+				options="Company",
+				description="The ERP company, when this establishment is one of yours",
+			),
+			f("disabled", "Check", "Disabled"),
+		],
+		autoname="field:establishment_name",
+		search_fields="mohre_establishment_number,emirate",
+		naming_rule="By fieldname",
+		permissions=master_perms(),
+	)
+)
+
 write(
 	dt(
 		"UAE Issued Item Type",

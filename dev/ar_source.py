@@ -491,6 +491,12 @@ AR = {
 	"Verified document": "مستند مُتحقق منه",
 	"Already recorded": "مسجل مسبقاً",
 	"{0} {1} with this expiry date is already recorded on {2}. Open that record to change it, or check the number and expiry date: a renewal has a new expiry date": "{0} {1} بتاريخ الانتهاء هذا مسجل مسبقاً في {2}. افتح ذلك السجل لتعديله، أو راجع الرقم وتاريخ الانتهاء: للتجديد تاريخ انتهاء جديد",
+	"Disabled": "معطّل",
+	"Establishment Name": "اسم المنشأة",
+	"MOHRE Establishment Number": "رقم المنشأة لدى الوزارة",
+	"The ERP company, when this establishment is one of yours": "الشركة في النظام، إذا كانت هذه المنشأة إحدى منشآتك",
+	"Trade Licence Number": "رقم الرخصة التجارية",
+	"UAE Establishment": "المنشأة",
 }
 
 CITE_AR = {

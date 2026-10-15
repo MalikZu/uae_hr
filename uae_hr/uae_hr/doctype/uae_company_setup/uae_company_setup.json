@@ -1,0 +1,95 @@
+{
+ "creation": "2026-10-15 01:58:03.673053",
+ "custom": 0,
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "jurisdiction",
+  "emirate",
+  "mohre_establishment_id",
+  "cb1",
+  "wps_agent",
+  "wps_routing_code",
+  "health_insurance_regulator",
+  "pension_fund"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "default": "Mainland (MOHRE)",
+   "description": "DIFC and ADGM have their own employment laws: the app's checks are switched off for those companies",
+   "fieldname": "jurisdiction",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Jurisdiction",
+   "options": "Mainland (MOHRE)\nFree zone under the federal law\nDIFC (not covered)\nADGM (not covered)",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "emirate",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Emirate",
+   "options": "\nAbu Dhabi\nDubai\nSharjah\nAjman\nUmm Al Quwain\nRas Al Khaimah\nFujairah"
+  },
+  {
+   "columns": 2,
+   "fieldname": "mohre_establishment_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "MOHRE Establishment ID"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wps_agent",
+   "fieldtype": "Link",
+   "label": "WPS Agent Bank",
+   "options": "UAE Bank"
+  },
+  {
+   "fetch_from": "wps_agent.wps_routing_code",
+   "fieldname": "wps_routing_code",
+   "fieldtype": "Data",
+   "label": "WPS Agent Routing Code",
+   "read_only": 1
+  },
+  {
+   "description": "Set per emirate, e.g. the emirate's health authority",
+   "fieldname": "health_insurance_regulator",
+   "fieldtype": "Data",
+   "label": "Health Insurance Regulator"
+  },
+  {
+   "fieldname": "pension_fund",
+   "fieldtype": "Data",
+   "label": "Pension Fund for UAE Nationals"
+  }
+ ],
+ "istable": 1,
+ "modified": "2026-10-15 01:58:03.673053",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Company Setup",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

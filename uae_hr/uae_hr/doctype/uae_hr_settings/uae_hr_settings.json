@@ -1,0 +1,714 @@
+{
+ "creation": "2026-10-15 01:58:03.673470",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "notice_html",
+  "companies_sb",
+  "companies",
+  "reminders_sb",
+  "default_reminder_days",
+  "cb_rem",
+  "copy_hr_manager",
+  "law_sb",
+  "amendment_reference",
+  "law_probation_sb",
+  "probation_max_months",
+  "probation_employer_notice_days",
+  "law_probation_cb",
+  "probation_move_notice_months",
+  "probation_leave_notice_days",
+  "law_notice_sb",
+  "notice_min_days",
+  "notice_max_days",
+  "job_search_days_per_week",
+  "absence_dismissal_intermittent_days",
+  "absence_dismissal_consecutive_days",
+  "law_notice_cb",
+  "absconding_report_days",
+  "final_settlement_days",
+  "death_dues_days",
+  "non_compete_max_years",
+  "accommodation_vacate_days",
+  "law_records_sb",
+  "file_retention_years",
+  "warning_charge_days",
+  "warning_penalty_days",
+  "law_records_cb",
+  "suspension_max_days",
+  "investigation_suspension_max_days",
+  "work_regulations_threshold",
+  "law_leave_sb",
+  "annual_leave_days",
+  "annual_leave_first_year_days_per_month",
+  "annual_leave_carry_forward_pct",
+  "maternity_leave_days",
+  "maternity_full_pay_days",
+  "maternity_half_pay_days",
+  "sick_leave_days",
+  "sick_full_pay_days",
+  "law_leave_cb",
+  "sick_half_pay_days",
+  "bereavement_spouse_days",
+  "bereavement_relative_days",
+  "parental_leave_working_days",
+  "parental_leave_window_months",
+  "study_leave_working_days",
+  "study_leave_min_service_years",
+  "law_hours_sb",
+  "max_daily_hours",
+  "max_weekly_hours",
+  "ramadan_reduction_hours",
+  "max_overtime_hours_per_day",
+  "law_hours_cb",
+  "max_hours_per_3_weeks",
+  "overtime_premium_pct",
+  "night_overtime_premium_pct",
+  "rest_day_premium_pct",
+  "law_gratuity_sb",
+  "gratuity_first_years",
+  "gratuity_days_first_years",
+  "gratuity_days_after",
+  "law_gratuity_cb",
+  "gratuity_min_service_years",
+  "gratuity_cap_years",
+  "law_wages_sb",
+  "overpayment_deduction_pct",
+  "fine_deduction_pct",
+  "court_debt_deduction_pct",
+  "law_wages_cb",
+  "damage_deduction_days_per_month",
+  "total_deduction_pct",
+  "law_calendar_sb",
+  "year_days",
+  "month_days",
+  "law_calendar_cb",
+  "min_worker_age",
+  "juvenile_min_age"
+ ],
+ "fields": [
+  {
+   "fieldname": "notice_html",
+   "fieldtype": "HTML",
+   "options": "<div class='alert alert-warning'><b>Not legal advice.</b> UAE HR encodes Federal Decree-Law No. 33 of 2021 and Cabinet Resolution No. 1 of 2022 as published in English by MOHRE. The Arabic text prevails (DL 66), and the Cabinet may change any period, percentage or value (DL 70(7)). Check anything that matters with a qualified adviser. Every value below defaults to the law; you may make it more generous to workers.</div>"
+  },
+  {
+   "fieldname": "companies_sb",
+   "fieldtype": "Section Break",
+   "label": "Companies"
+  },
+  {
+   "description": "A company not listed here is treated as mainland if its country is United Arab Emirates, and is ignored otherwise",
+   "fieldname": "companies",
+   "fieldtype": "Table",
+   "label": "Companies",
+   "options": "UAE Company Setup"
+  },
+  {
+   "fieldname": "reminders_sb",
+   "fieldtype": "Section Break",
+   "label": "Expiry Reminders"
+  },
+  {
+   "default": "60,30,7",
+   "description": "Used for document types with no reminder days of their own",
+   "fieldname": "default_reminder_days",
+   "fieldtype": "Data",
+   "label": "Default Reminder Days"
+  },
+  {
+   "fieldname": "cb_rem",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Reminders go to role UAE PRO; tick to also send them to HR Manager",
+   "fieldname": "copy_hr_manager",
+   "fieldtype": "Check",
+   "label": "Copy HR Manager"
+  },
+  {
+   "fieldname": "law_sb",
+   "fieldtype": "Section Break",
+   "label": "Law Parameters"
+  },
+  {
+   "description": "Required when a value below is less favourable to workers than the 2022 text, or when a value without a direction changes: name the resolution that changed it (DL 70(7))",
+   "fieldname": "amendment_reference",
+   "fieldtype": "Small Text",
+   "label": "Amendment Reference"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_probation_sb",
+   "fieldtype": "Section Break",
+   "label": "Probation"
+  },
+  {
+   "default": "6",
+   "description": "Law default 6. DL 9(1): \"a probationary period not exceeding (6) six months\"",
+   "fieldname": "probation_max_months",
+   "fieldtype": "Int",
+   "label": "Maximum probation (months)",
+   "non_negative": 1
+  },
+  {
+   "default": "14",
+   "description": "Law default 14. DL 9(1): \"in writing fourteen (14) days at least before the date specified\"",
+   "fieldname": "probation_employer_notice_days",
+   "fieldtype": "Int",
+   "label": "Employer notice to end probation (days)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_probation_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Law default 1. DL 9(3): \"notify the original employer of the same in writing within not less than one month\" (used from v0.4)",
+   "fieldname": "probation_move_notice_months",
+   "fieldtype": "Int",
+   "label": "Worker notice, resigning in probation to join another UAE employer (months)",
+   "non_negative": 1
+  },
+  {
+   "default": "14",
+   "description": "Law default 14. DL 9(4): \"notify the employer of the same in writing not less than fourteen (14) days\" (used from v0.4)",
+   "fieldname": "probation_leave_notice_days",
+   "fieldtype": "Int",
+   "label": "Worker notice, resigning in probation to leave the UAE (days)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_notice_sb",
+   "fieldtype": "Section Break",
+   "label": "Notice and termination"
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 43(1): \"not less than (30) thirty days and not more than (90) ninety days\"",
+   "fieldname": "notice_min_days",
+   "fieldtype": "Int",
+   "label": "Minimum notice period (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "90",
+   "description": "Law default 90. DL 43(1): \"not less than (30) thirty days and not more than (90) ninety days\"",
+   "fieldname": "notice_max_days",
+   "fieldtype": "Int",
+   "label": "Maximum notice period (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "1",
+   "description": "Law default 1. DL 43(5): \"one working day without pay per week, in order to search for another job\" (used from v0.4)",
+   "fieldname": "job_search_days_per_week",
+   "fieldtype": "Int",
+   "label": "Unpaid job-search days per week during employer notice",
+   "non_negative": 1
+  },
+  {
+   "default": "20",
+   "description": "Law default 20. DL 44(8): \"more than (20) twenty intermittent days during one year\" (used from v0.4)",
+   "fieldname": "absence_dismissal_intermittent_days",
+   "fieldtype": "Int",
+   "label": "Dismissal for absence: intermittent days in a year (more than)",
+   "non_negative": 1
+  },
+  {
+   "default": "7",
+   "description": "Law default 7. DL 44(8): \"or more than (7) seven consecutive days\" (used from v0.4)",
+   "fieldname": "absence_dismissal_consecutive_days",
+   "fieldtype": "Int",
+   "label": "Dismissal for absence: consecutive days (more than)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_notice_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "7",
+   "description": "Law default 7. DL 50(3), CR 28(1): \"The absence from work shall have exceeded 7 consecutive days\" (used from v0.4)",
+   "fieldname": "absconding_report_days",
+   "fieldtype": "Int",
+   "label": "Absence report to the Ministry after consecutive days (more than)",
+   "non_negative": 1
+  },
+  {
+   "default": "14",
+   "description": "Law default 14. DL 53: \"within (14) fourteen days from the end date of the contract term\" (used from v0.4)",
+   "fieldname": "final_settlement_days",
+   "fieldtype": "Int",
+   "label": "Final settlement paid within (days of contract end)",
+   "non_negative": 1
+  },
+  {
+   "default": "10",
+   "description": "Law default 10. DL 15(1): \"within a period not exceeding (10) ten days from the date of death\" (used from v0.4)",
+   "fieldname": "death_dues_days",
+   "fieldtype": "Int",
+   "label": "Dues on a worker's death paid within (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. DL 10(1), CR 12(1): \"shall not be more than two years from the expiry date of the contract\" (used from v0.4)",
+   "fieldname": "non_compete_max_years",
+   "fieldtype": "Int",
+   "label": "Maximum non-compete after contract end (years)",
+   "non_negative": 1
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 16(10): \"within a period not exceeding (30) thirty days from the date of end of his service\" (used from v0.4)",
+   "fieldname": "accommodation_vacate_days",
+   "fieldtype": "Int",
+   "label": "Worker vacates employer accommodation within (days)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_records_sb",
+   "fieldtype": "Section Break",
+   "label": "Records and discipline"
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. DL 13(1): \"shall not be less than two years after the date of the worker's end of service\"",
+   "fieldname": "file_retention_years",
+   "fieldtype": "Int",
+   "label": "Keep the worker file after end of service (years)",
+   "non_negative": 1
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. CR 24(4): \"detected more than (30) thirty days ago\"",
+   "fieldname": "warning_charge_days",
+   "fieldtype": "Int",
+   "label": "Charge a violation within (days of detection)",
+   "non_negative": 1
+  },
+  {
+   "default": "60",
+   "description": "Law default 60. CR 24(4): \"no disciplinary sanction may be imposed more than (60) days after\"",
+   "fieldname": "warning_penalty_days",
+   "fieldtype": "Int",
+   "label": "Impose a penalty within (days of the investigation ending)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_records_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "14",
+   "description": "Law default 14. DL 39(1)(d): \"Suspension from work for a period not exceeding (14) fourteen days\" (used from v0.4)",
+   "fieldname": "suspension_max_days",
+   "fieldtype": "Int",
+   "label": "Maximum unpaid suspension as a penalty (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 40(1): \"for a period not exceeding (30) thirty days\" (used from v0.4)",
+   "fieldname": "investigation_suspension_max_days",
+   "fieldtype": "Int",
+   "label": "Maximum suspension pending investigation (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "50",
+   "description": "Law default 50. DL 13(3), CR 14: \"establishments that employ 50 or more workers\" (used from v0.4)",
+   "fieldname": "work_regulations_threshold",
+   "fieldtype": "Int",
+   "label": "Work regulations mandatory from (workers)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_leave_sb",
+   "fieldtype": "Section Break",
+   "label": "Leave"
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 29(1)(a): \"Thirty days for each year of extended service\" (used from v0.3)",
+   "fieldname": "annual_leave_days",
+   "fieldtype": "Int",
+   "label": "Annual leave per year of service (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. DL 29(1)(b): \"Two days for each month if his service term is more than six months\" (used from v0.3)",
+   "fieldname": "annual_leave_first_year_days_per_month",
+   "fieldtype": "Int",
+   "label": "Annual leave between 6 and 12 months of service (days per month)",
+   "non_negative": 1
+  },
+  {
+   "default": "50",
+   "description": "Law default 50. DL 29(5): \"may carry forward not more than half of the annual leave\" (used from v0.3)",
+   "fieldname": "annual_leave_carry_forward_pct",
+   "fieldtype": "Percent",
+   "label": "Annual leave carry-forward cap (% of annual leave)",
+   "non_negative": 1
+  },
+  {
+   "default": "60",
+   "description": "Law default 60. DL 30(1): \"a maternity leave of (60) sixty days\" (used from v0.3)",
+   "fieldname": "maternity_leave_days",
+   "fieldtype": "Int",
+   "label": "Maternity leave (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "45",
+   "description": "Law default 45. DL 30(1): \"The first (45) forty-five days with full wage\" (used from v0.3)",
+   "fieldname": "maternity_full_pay_days",
+   "fieldtype": "Int",
+   "label": "Maternity leave on full wage (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "15",
+   "description": "Law default 15. DL 30(1): \"The following (15) fifteen days with half wage\" (used from v0.3)",
+   "fieldname": "maternity_half_pay_days",
+   "fieldtype": "Int",
+   "label": "Maternity leave on half wage (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "90",
+   "description": "Law default 90. DL 31(3). (used from v0.3)",
+   "fieldname": "sick_leave_days",
+   "fieldtype": "Int",
+   "label": "Sick leave per year after probation (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "15",
+   "description": "Law default 15. DL 31(3)(a): \"The first (15) fifteen days with full pay\" (used from v0.3)",
+   "fieldname": "sick_full_pay_days",
+   "fieldtype": "Int",
+   "label": "Sick leave on full pay (days)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_leave_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 31(3)(b): \"The following (30) thirty days with half pay\" (used from v0.3)",
+   "fieldname": "sick_half_pay_days",
+   "fieldtype": "Int",
+   "label": "Sick leave on half pay (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "5",
+   "description": "Law default 5. DL 32(1)(a): \"(5) five days, in case of death of the husband or wife\" (used from v0.3)",
+   "fieldname": "bereavement_spouse_days",
+   "fieldtype": "Int",
+   "label": "Bereavement leave, spouse (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "3",
+   "description": "Law default 3. DL 32(1)(a): \"(3) three days in case of death of the mother, father\" (used from v0.3)",
+   "fieldname": "bereavement_relative_days",
+   "fieldtype": "Int",
+   "label": "Bereavement leave, parent, child, sibling, grandchild, grandparent (days)",
+   "non_negative": 1
+  },
+  {
+   "default": "5",
+   "description": "Law default 5. DL 32(1)(b): \"A parental leave for a period of (5) five working days\" (used from v0.3)",
+   "fieldname": "parental_leave_working_days",
+   "fieldtype": "Int",
+   "label": "Parental leave (working days)",
+   "non_negative": 1
+  },
+  {
+   "default": "6",
+   "description": "Law default 6. DL 32(1)(b): \"within (6) six months from the date of the child birth\" (used from v0.3)",
+   "fieldname": "parental_leave_window_months",
+   "fieldtype": "Int",
+   "label": "Parental leave taken within (months of the birth)",
+   "non_negative": 1
+  },
+  {
+   "default": "10",
+   "description": "Law default 10. DL 32(2): \"a study leave for a period of (10) ten working days per year\" (used from v0.3)",
+   "fieldname": "study_leave_working_days",
+   "fieldtype": "Int",
+   "label": "Study leave per year (working days)",
+   "non_negative": 1
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. DL 32(2): \"the service term at the employer is not less than two years\" (used from v0.3)",
+   "fieldname": "study_leave_min_service_years",
+   "fieldtype": "Int",
+   "label": "Study leave after service of (years)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_hours_sb",
+   "fieldtype": "Section Break",
+   "label": "Working hours and overtime"
+  },
+  {
+   "default": "8",
+   "description": "Law default 8. DL 17(1): \"(8) eight hours per day or (48) forty-eight hours per week\" (used from v0.3)",
+   "fieldname": "max_daily_hours",
+   "fieldtype": "Int",
+   "label": "Maximum normal hours per day",
+   "non_negative": 1
+  },
+  {
+   "default": "48",
+   "description": "Law default 48. DL 17(1): \"(8) eight hours per day or (48) forty-eight hours per week\" (used from v0.3)",
+   "fieldname": "max_weekly_hours",
+   "fieldtype": "Int",
+   "label": "Maximum normal hours per week",
+   "non_negative": 1
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. CR 15(2): \"reduced by two hours during the holy month of Ramadan\" (used from v0.3)",
+   "fieldname": "ramadan_reduction_hours",
+   "fieldtype": "Int",
+   "label": "Ramadan reduction of daily hours",
+   "non_negative": 1
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. DL 19(1). (used from v0.3)",
+   "fieldname": "max_overtime_hours_per_day",
+   "fieldtype": "Int",
+   "label": "Maximum overtime per day (hours)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_hours_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "144",
+   "description": "Law default 144. CR 15(3): \"shall not exceed (144) one hundred and forty four hours every (3) three weeks\" (used from v0.3)",
+   "fieldname": "max_hours_per_3_weeks",
+   "fieldtype": "Int",
+   "label": "Maximum total hours per 3 weeks",
+   "non_negative": 1
+  },
+  {
+   "default": "25",
+   "description": "Law default 25. DL 19(2): \"an increase of not less than (25 %) twenty five percent\" (used from v0.3)",
+   "fieldname": "overtime_premium_pct",
+   "fieldtype": "Percent",
+   "label": "Overtime premium on basic wage (%)",
+   "non_negative": 1
+  },
+  {
+   "default": "50",
+   "description": "Law default 50. DL 19(3): \"between 10 pm and 4 am … plus an increase of not less than (50 %) fifty percent of that wage\" (used from v0.3)",
+   "fieldname": "night_overtime_premium_pct",
+   "fieldtype": "Percent",
+   "label": "Overtime premium 22:00-04:00 on basic wage (%)",
+   "non_negative": 1
+  },
+  {
+   "default": "50",
+   "description": "Law default 50. DL 19(4), DL 28(2): \"not less than (50 %) fifty percent of the basic wage for that day\" (used from v0.3)",
+   "fieldname": "rest_day_premium_pct",
+   "fieldtype": "Percent",
+   "label": "Weekend or public-holiday work premium on basic wage (%)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_gratuity_sb",
+   "fieldtype": "Section Break",
+   "label": "End of service"
+  },
+  {
+   "default": "5",
+   "description": "Law default 5. DL 51(2)(a): \"for each year of the first five years of service\" (used from v0.4)",
+   "fieldname": "gratuity_first_years",
+   "fieldtype": "Int",
+   "label": "Gratuity: years paid at the lower rate",
+   "non_negative": 1
+  },
+  {
+   "default": "21",
+   "description": "Law default 21. DL 51(2)(a): \"A wage of (21) twenty-one days for each year\" (used from v0.4)",
+   "fieldname": "gratuity_days_first_years",
+   "fieldtype": "Int",
+   "label": "Gratuity: days of basic wage per year, first years",
+   "non_negative": 1
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 51(2)(b): \"A wage of (30) thirty days for each year exceeding such period\" (used from v0.4)",
+   "fieldname": "gratuity_days_after",
+   "fieldtype": "Int",
+   "label": "Gratuity: days of basic wage per year, after that",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_gratuity_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Law default 1. DL 51(2)-(3): \"provided that he completed one year of continuous service\" (used from v0.4)",
+   "fieldname": "gratuity_min_service_years",
+   "fieldtype": "Int",
+   "label": "Gratuity: minimum continuous service (years)",
+   "non_negative": 1
+  },
+  {
+   "default": "2",
+   "description": "Law default 2. DL 51(6): \"in its entirety does not exceed two years' wage\" (used from v0.4)",
+   "fieldname": "gratuity_cap_years",
+   "fieldtype": "Int",
+   "label": "Gratuity: cap (years of wage)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_wages_sb",
+   "fieldtype": "Section Break",
+   "label": "Wage deductions"
+  },
+  {
+   "default": "20",
+   "description": "Law default 20. DL 25(1)(b): \"does not exceed (20%) twenty percent of the wage\" (used from v0.5)",
+   "fieldname": "overpayment_deduction_pct",
+   "fieldtype": "Percent",
+   "label": "Overpayment recovery cap (% of wage)",
+   "non_negative": 1
+  },
+  {
+   "default": "5",
+   "description": "Law default 5. DL 25(1)(f): \"shall not exceed (5%) five percent of the wage\" (used from v0.5)",
+   "fieldname": "fine_deduction_pct",
+   "fieldtype": "Percent",
+   "label": "Disciplinary fines cap (% of wage)",
+   "non_negative": 1
+  },
+  {
+   "default": "25",
+   "description": "Law default 25. DL 25(1)(g): \"without exceeding a quarter of the wage payable to the worker\" (used from v0.5)",
+   "fieldname": "court_debt_deduction_pct",
+   "fieldtype": "Percent",
+   "label": "Court-judgment debt cap (% of wage, alimony excepted)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_wages_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "5",
+   "description": "Law default 5. DL 25(1)(h): \"do not exceed the wage of (5) five days per month\" (used from v0.5)",
+   "fieldname": "damage_deduction_days_per_month",
+   "fieldtype": "Int",
+   "label": "Damage deduction cap (days' wage per month)",
+   "non_negative": 1
+  },
+  {
+   "default": "50",
+   "description": "Law default 50. DL 25(2): \"may not exceed (50%) fifty percent of the wage\" (used from v0.5)",
+   "fieldname": "total_deduction_pct",
+   "fieldtype": "Percent",
+   "label": "All deductions combined cap (% of wage)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "law_calendar_sb",
+   "fieldtype": "Section Break",
+   "label": "Calendar and age"
+  },
+  {
+   "default": "365",
+   "description": "Law default 365. DL 67: \"shall include (365) three hundred and sixty-five days\" (used from v0.4)",
+   "fieldname": "year_days",
+   "fieldtype": "Int",
+   "label": "Days in a year for calculations",
+   "non_negative": 1
+  },
+  {
+   "default": "30",
+   "description": "Law default 30. DL 67: \"the month represents (30) thirty days\" (used from v0.4)",
+   "fieldname": "month_days",
+   "fieldtype": "Int",
+   "label": "Days in a month for calculations",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "law_calendar_cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "18",
+   "description": "Law default 18. CR 7(1): \"the worker should be at least 18 years old\" (used from v0.2)",
+   "fieldname": "min_worker_age",
+   "fieldtype": "Int",
+   "label": "Minimum age for a standard work permit",
+   "non_negative": 1
+  },
+  {
+   "default": "15",
+   "description": "Law default 15. DL 1, CR 6(1)(g): \"a person who has reached 15 years of age but is not over 18 years\" (used from v0.2)",
+   "fieldname": "juvenile_min_age",
+   "fieldtype": "Int",
+   "label": "Minimum age for a juvenile permit",
+   "non_negative": 1
+  }
+ ],
+ "issingle": 1,
+ "modified": "2026-10-15 01:58:03.673470",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE HR Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "HR User"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

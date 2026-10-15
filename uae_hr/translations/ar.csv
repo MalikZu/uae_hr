@@ -537,6 +537,7 @@ violation,المخالفة
 "{0} errors, {1} warnings",{0} أخطاء، {1} تنبيهات
 {0} is not a date (use YYYY-MM-DD),{0} ليس تاريخاً (استخدم YYYY-MM-DD)
 {0} is not a valid SWIFT / BIC code,{0} ليس رمز سويفت صحيحاً
+{0} is not one of: {1},{0} ليست من القيم: {1}
 {0} items missing before the MOHRE contract can be prepared.,{0} بنود ناقصة قبل إعداد العقد لدى الوزارة.
 {0} items still to return:,{0} عهد لم تُعد بعد:
 {0} must be greater than zero,يجب أن تكون {0} أكبر من صفر

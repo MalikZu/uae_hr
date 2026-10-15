@@ -526,6 +526,7 @@ AR = {
 	"Issued Items to Return": "العهد الواجب إعادتها",
 	"Issued items not returned yet: {0}": "عهد لم تُعد بعد: {0}",
 	"{0} items still to return:": "{0} عهد لم تُعد بعد:",
+	"{0} is not one of: {1}": "{0} ليست من القيم: {1}",
 }
 
 CITE_AR = {

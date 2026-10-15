@@ -18,6 +18,7 @@ from frappe.utils import getdate
 
 from uae_hr import checks
 from uae_hr.law import get_param
+from uae_hr.setup.custom_fields import EMIRATES, ENGAGEMENT_TYPES, PAYMENT_METHODS
 
 SHEETS = {
 	"Employees": {
@@ -48,6 +49,10 @@ SHEETS = {
 			("uae_account_name", "Account Name"),
 			("uae_salary_card_no", "Salary Card Number"),
 			("uae_salary_agent", "Salary Card Agent"),
+			("uae_visa_establishment", "Visa Establishment"),
+			("uae_visa_emirate", "Visa Emirate"),
+			("uae_engagement_type", "Engagement Type"),
+			("uae_payment_method", "Payment Method"),
 		],
 	},
 	"Documents": {
@@ -66,6 +71,10 @@ SHEETS = {
 			("passport_number", "Passport Number on Document"),
 			("designation_on_document", "Designation on Document"),
 			("sponsor_name", "Sponsor Name"),
+			("contract_basic", "Basic Wage"),
+			("contract_housing", "Housing Allowance"),
+			("contract_transport", "Transport Allowance"),
+			("contract_other", "Other Allowance"),
 			("notes", "Notes"),
 		],
 	},
@@ -106,12 +115,24 @@ LINKS = {
 	"uae_skill_category": "UAE Skill Category",
 	"uae_bank": "UAE Bank",
 	"uae_salary_agent": "UAE Bank",
+	"uae_visa_establishment": "UAE Establishment",
 	"uae_contract_language": "Language",
 	"document_type": "UAE Document Type",
 	"item_type": "UAE Issued Item Type",
 	"salary_structure": "Salary Structure",
 	"company": "Company",
 	"currency": "Currency",
+}
+
+
+def _options(text):
+	return [o for o in text.split("\n") if o]
+
+
+SELECTS = {
+	"uae_engagement_type": _options(ENGAGEMENT_TYPES),
+	"uae_payment_method": _options(PAYMENT_METHODS),
+	"uae_visa_emirate": _options(EMIRATES),
 }
 DATES = {"date_of_birth", "issue_date", "expiry_date", "issued_on", "returned_on", "from_date"}
 
@@ -212,6 +233,7 @@ def check(path, write_report=True):
 	_check_documents(data["Documents"], employees, rep)
 	_check_items(data["Issued Items"], rep)
 	_check_salary(data["Salary"], rep)
+	_check_pay_against_contracts(data["Salary"], data["Documents"], rep)
 	errors = sum(1 for i in rep.items if i["level"] == "error")
 	result = {"errors": errors, "warnings": len(rep.items) - errors, "items": rep.items}
 	for i in rep.items:
@@ -312,6 +334,21 @@ def _check_employees(rows, rep):
 				_("Accommodation is Provided or Allowance in wage"),
 				"uae_accommodation",
 			)
+		for field, options in SELECTS.items():
+			if r.get(field) and r[field] not in options:
+				rep.add(
+					"Employees",
+					n,
+					"error",
+					_("{0} is not one of: {1}").format(r[field], ", ".join(options)),
+					field,
+				)
+		rep.findings(
+			"Employees",
+			n,
+			checks.check_engagement(r.get("uae_engagement_type"), r.get("uae_payment_method")),
+			"uae_payment_method",
+		)
 		if company and r.get("salary_mode") == "Bank" and not r.get("iban"):
 			rep.add("Employees", n, "warning", _("Salary mode is Bank but there is no IBAN"), "iban")
 
@@ -328,6 +365,9 @@ def _check_documents(rows, employees, rep):
 			continue
 		profile, has_expiry = frappe.db.get_value("UAE Document Type", dtype, ["check_profile", "has_expiry"])
 		issue, expiry = _date(r.get("issue_date")), _date(r.get("expiry_date"))
+		for field in ("contract_basic", "contract_housing", "contract_transport", "contract_other"):
+			if _float(r.get(field)) < 0:
+				rep.add("Documents", n, "error", _("Contract amounts cannot be negative"), field)
 		if has_expiry and not expiry:
 			rep.add("Documents", n, "error", _("{0} needs an expiry date").format(dtype), "expiry_date")
 		if issue not in (None, "invalid") and expiry not in (None, "invalid") and expiry <= issue:
@@ -413,6 +453,26 @@ def _check_salary(rows, rep):
 		rep.findings("Salary", r["_row"], checks.check_pay_split(*parts), "uae_basic")
 		if not parts[0]:
 			rep.add("Salary", r["_row"], "error", _("Basic wage is empty"), "uae_basic")
+
+
+def _check_pay_against_contracts(salary_rows, document_rows, rep):
+	"""A Salary row below the MOHRE contract amounts given in the Documents sheet (DL 22(1))."""
+	contracts = {}
+	for d in document_rows:
+		if d.get("document_type") and _profile(d["document_type"]) == "MOHRE Employment Contract":
+			parts = [
+				_float(d.get(f))
+				for f in ("contract_basic", "contract_housing", "contract_transport", "contract_other")
+			]
+			contracts[d.get("employee")] = (parts[0], sum(parts))
+	for r in salary_rows:
+		if r.get("employee") not in contracts:
+			continue
+		parts = [_float(r.get(f)) for f in ("uae_basic", "uae_housing", "uae_transport", "uae_other")]
+		basic, total = contracts[r["employee"]]
+		rep.findings(
+			"Salary", r["_row"], checks.check_pay_vs_contract(parts[0], sum(parts), basic, total), "uae_basic"
+		)
 
 
 def split(path, out_dir):

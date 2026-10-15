@@ -237,3 +237,78 @@ class TestImporterRenewal(UAETestCase):
 			i["row"] for i in result["items"] if i["field"] == "document_number" and i["level"] == "error"
 		]
 		self.assertEqual(dups, [4])
+
+
+class TestImporterNewFields(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def setUp(self):
+		super().setUp()
+		d = tempfile.mkdtemp()
+		self.path = os.path.join(d, "import.xlsx")
+		importer.make_template(self.path)
+		self.emp = make_employee()
+
+	def fill(self, sheet, rows):
+		TestImporter.fill(self, sheet, rows)
+
+	def test_template_has_the_new_columns(self):
+		from openpyxl import load_workbook
+
+		wb = load_workbook(self.path)
+		emp_cols = [c.value for c in wb["Employees"][1]]
+		for label in ("Visa Establishment", "Visa Emirate", "Engagement Type", "Payment Method"):
+			self.assertIn(label, emp_cols)
+		doc_cols = [c.value for c in wb["Documents"][1]]
+		for label in ("Basic Wage", "Housing Allowance", "Transport Allowance", "Other Allowance"):
+			self.assertIn(label, doc_cols)
+
+	def test_new_fields_are_checked(self):
+		self.fill(
+			"Employees",
+			[
+				{
+					"name": self.emp.name,
+					"uae_engagement_type": "Salaried",
+					"uae_visa_emirate": "Atlantis",
+					"uae_visa_establishment": "No Such Sponsor",
+					"uae_payment_method": "Barter",
+				}
+			],
+		)
+		self.fill(
+			"Documents",
+			[
+				{
+					"employee": self.emp.name,
+					"document_type": "MOHRE Employment Contract",
+					"document_number": "C1",
+					"expiry_date": "2028-01-01",
+					"contract_basic": 5000,
+					"contract_housing": -10,
+				}
+			],
+		)
+		self.fill("Salary", [{"employee": self.emp.name, "uae_basic": 4000}])
+		result = importer.check(self.path, write_report=False)
+		errors = {(i["sheet"], i["field"]) for i in result["items"] if i["level"] == "error"}
+		for expected in (
+			("Employees", "uae_visa_emirate"),
+			("Employees", "uae_visa_establishment"),
+			("Employees", "uae_payment_method"),
+			("Documents", "contract_housing"),
+		):
+			self.assertIn(expected, errors)
+		warns = {(i["sheet"], i["field"]) for i in result["items"] if i["level"] == "warning"}
+		self.assertIn(("Salary", "uae_basic"), warns)  # below the contract basic
+
+	def test_salaried_without_payment_method_warns(self):
+		self.fill("Employees", [{"name": self.emp.name, "uae_engagement_type": "Salaried"}])
+		result = importer.check(self.path, write_report=False)
+		self.assertIn(
+			("Employees", "uae_payment_method", "warning"),
+			{(i["sheet"], i["field"], i["level"]) for i in result["items"]},
+		)

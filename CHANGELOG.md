@@ -2,7 +2,7 @@
 
 Each entry names the article behind the change. Versions follow semantic versioning.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-10-15)
 
 First version: records, documents, reminders, pay components and checks for workers already employed.
 

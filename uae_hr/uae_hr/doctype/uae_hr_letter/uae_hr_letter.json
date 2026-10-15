@@ -1,0 +1,280 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2026-10-15 01:58:03.672614",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "employee",
+  "employee_name",
+  "company",
+  "cb1",
+  "letter_type",
+  "issue_date",
+  "addressed_to",
+  "issued_by",
+  "experience_sb",
+  "service_start_date",
+  "service_end_date",
+  "total_service",
+  "cb2",
+  "job_title",
+  "last_wage",
+  "currency",
+  "termination_reason",
+  "warning_sb",
+  "violation",
+  "violation_detected_on",
+  "cb3",
+  "charged_on",
+  "investigation_closed_on",
+  "other_sb",
+  "remarks",
+  "signed_copy",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "UAE-LTR-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Reference Series",
+   "no_copy": 1,
+   "options": "UAE-LTR-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "letter_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Letter Type",
+   "options": "Salary Certificate\nSalary Transfer Letter\nSalary Revision\nEmployment Certificate\nExperience Certificate\nWarning\nNOC\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Issue Date",
+   "reqd": 1
+  },
+  {
+   "description": "e.g. To whom it may concern, a bank, an embassy",
+   "fieldname": "addressed_to",
+   "fieldtype": "Data",
+   "label": "Addressed To"
+  },
+  {
+   "default": "__user",
+   "fieldname": "issued_by",
+   "fieldtype": "Link",
+   "label": "Issued By",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.letter_type=='Experience Certificate'",
+   "fieldname": "experience_sb",
+   "fieldtype": "Section Break",
+   "label": "Experience Certificate (DL 13(11))"
+  },
+  {
+   "fieldname": "service_start_date",
+   "fieldtype": "Date",
+   "label": "Start of Service",
+   "mandatory_depends_on": "eval:doc.letter_type=='Experience Certificate'"
+  },
+  {
+   "fieldname": "service_end_date",
+   "fieldtype": "Date",
+   "label": "End of Service",
+   "mandatory_depends_on": "eval:doc.letter_type=='Experience Certificate'"
+  },
+  {
+   "fieldname": "total_service",
+   "fieldtype": "Data",
+   "label": "Total Service",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job Title",
+   "mandatory_depends_on": "eval:doc.letter_type=='Experience Certificate'"
+  },
+  {
+   "fieldname": "last_wage",
+   "fieldtype": "Currency",
+   "label": "Last Wage",
+   "mandatory_depends_on": "eval:doc.letter_type=='Experience Certificate'",
+   "options": "currency"
+  },
+  {
+   "default": "AED",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "description": "DL 13(11): the certificate is free and must not contain anything harmful to the worker",
+   "fieldname": "termination_reason",
+   "fieldtype": "Small Text",
+   "label": "Reason for End of Service",
+   "mandatory_depends_on": "eval:doc.letter_type=='Experience Certificate'"
+  },
+  {
+   "depends_on": "eval:doc.letter_type=='Warning'",
+   "fieldname": "warning_sb",
+   "fieldtype": "Section Break",
+   "label": "Disciplinary Warning (CR 24)"
+  },
+  {
+   "fieldname": "violation",
+   "fieldtype": "Small Text",
+   "label": "Violation",
+   "mandatory_depends_on": "eval:doc.letter_type=='Warning'"
+  },
+  {
+   "fieldname": "violation_detected_on",
+   "fieldtype": "Date",
+   "label": "Violation Detected On",
+   "mandatory_depends_on": "eval:doc.letter_type=='Warning'"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "CR 24(3): the worker is told the charge in writing and heard before any penalty",
+   "fieldname": "charged_on",
+   "fieldtype": "Date",
+   "label": "Written Charge Given On",
+   "mandatory_depends_on": "eval:doc.letter_type=='Warning'"
+  },
+  {
+   "fieldname": "investigation_closed_on",
+   "fieldtype": "Date",
+   "label": "Investigation Closed On",
+   "mandatory_depends_on": "eval:doc.letter_type=='Warning'"
+  },
+  {
+   "fieldname": "other_sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "signed_copy",
+   "fieldtype": "Attach",
+   "label": "Signed Copy"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "UAE HR Letter",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2026-10-15 01:58:03.672614",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE HR Letter",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "employee_name,letter_type",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

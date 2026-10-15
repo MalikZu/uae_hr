@@ -434,6 +434,7 @@ The 3 digits after AE and the check digits in a UAE IBAN (AEkk BBB ...),الأر
 The IBAN bank code is 3 digits,رمز البنك في الآيبان 3 أرقام
 "The IBAN belongs to {0}, but the bank is set to {1}",الآيبان يخص {0}، لكن البنك المحدد {1}
 "The IBAN belongs to {0}, not {1}",الآيبان يخص {0} وليس {1}
+"The IBAN is from {0}, which no longer operates under that name. Ask the worker for the current IBAN",الآيبان صادر عن {0}، الذي لم يعد يعمل بهذا الاسم. اطلب من العامل الآيبان الحالي
 The WPS routing code is 9 digits,رمز التوجيه في نظام حماية الأجور 9 أرقام
 The charge date is before the violation was detected,تاريخ الاتهام يسبق تاريخ اكتشاف المخالفة
 The charge was given {0} days after the violation was detected; the limit is {1} days,وُجه الاتهام بعد {0} يوماً من اكتشاف المخالفة؛ والحد {1} يوماً

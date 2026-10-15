@@ -48,6 +48,17 @@ def sync_bank(doc, findings):
 		if parts and checks.iban_checksum_ok(doc.iban):
 			bank_code, account = parts
 			bank = frappe.db.get_value("UAE Bank", {"bank_code": bank_code}, "name")
+			if bank and not frappe.db.get_value("UAE Bank", bank, "enabled"):
+				# merged banks are kept, disabled, so an old IBAN still decodes
+				findings.append(
+					checks.Finding(
+						checks.WARN,
+						"iban_bank_merged",
+						_(
+							"The IBAN is from {0}, which no longer operates under that name. Ask the worker for the current IBAN"
+						).format(bank),
+					)
+				)
 			if bank and not doc.uae_bank:
 				doc.uae_bank = bank
 			elif bank and doc.uae_bank != bank:

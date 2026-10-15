@@ -219,3 +219,22 @@ class TestExitChecklist(UAETestCase):
 		pos = order.index("uae_exit_items_html")
 		tab = [name for i, name in tabs if i < pos][-1]
 		self.assertEqual(tab, "exit")
+
+
+class TestSeededBanks(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def test_adcb_iban_decodes_to_adcb_not_investbank(self):
+		adcb = frappe.db.get_value("UAE Bank", {"bank_code": "003"}, "name")
+		emp = make_employee(salary_mode="Bank", iban="AE37 0030 0123 4567 8901 234")
+		self.assertEqual(emp.uae_bank, adcb)
+		self.assertNotEqual(emp.uae_bank, frappe.db.get_value("UAE Bank", {"bank_code": "030"}, "name"))
+		self.assertIn("ADCB", emp.bank_name)
+
+	def test_merged_bank_iban_decodes_and_warns(self):
+		emp = make_employee(salary_mode="Bank", iban="AE540450012345678901234")
+		self.assertEqual(emp.uae_bank, frappe.db.get_value("UAE Bank", {"bank_code": "045"}, "name"))
+		self.assertIn("iban_bank_merged", warnings())

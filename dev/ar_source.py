@@ -527,6 +527,7 @@ AR = {
 	"Issued items not returned yet: {0}": "عهد لم تُعد بعد: {0}",
 	"{0} items still to return:": "{0} عهد لم تُعد بعد:",
 	"{0} is not one of: {1}": "{0} ليست من القيم: {1}",
+	"The IBAN is from {0}, which no longer operates under that name. Ask the worker for the current IBAN": "الآيبان صادر عن {0}، الذي لم يعد يعمل بهذا الاسم. اطلب من العامل الآيبان الحالي",
 }
 
 CITE_AR = {

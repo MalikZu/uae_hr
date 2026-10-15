@@ -14,6 +14,8 @@ Access Card,بطاقة دخول
 Accommodation,السكن
 Accommodation is Provided or Allowance in wage,السكن إما مُوفَّر أو بدل ضمن الأجر
 Account Name,اسم الحساب
+Actual pay is below the MOHRE contract: basic wage {0} is less than {1} in {2},الأجر الفعلي أقل مما في عقد الوزارة: الأجر الأساسي {0} أقل من {1} في {2}
+Actual pay is below the MOHRE contract: total wage {0} is less than {1} in {2},الأجر الفعلي أقل مما في عقد الوزارة: إجمالي الأجر {0} أقل من {1} في {2}
 Add a row under Education,أضف سطراً في قسم التعليم
 Add an Address linked to the company,أضف عنواناً مرتبطاً بالشركة
 Addressed To,موجه إلى
@@ -43,7 +45,6 @@ Bank,البنك
 Bank Name,اسم البنك
 Bank account number {0} is not the account inside the IBAN ({1}),رقم الحساب {0} لا يطابق الحساب الوارد في الآيبان ({1})
 Banks,البنوك
-Base {0} is neither the basic wage nor the total of the UAE components ({1}),الأساس {0} لا يساوي الأجر الأساسي ولا مجموع مكونات الأجر ({1})
 Basic,الأجر الأساسي
 Basic Wage,الأجر الأساسي
 Basic wage is empty,الأجر الأساسي فارغ
@@ -526,6 +527,7 @@ last wage,آخر أجر
 law,القانون
 reason for end of service,سبب انتهاء الخدمة
 start of service,بداية الخدمة
+the contract,العقد
 violation,المخالفة
 "{0} errors, {1} warnings",{0} أخطاء، {1} تنبيهات
 {0} is not a date (use YYYY-MM-DD),{0} ليس تاريخاً (استخدم YYYY-MM-DD)

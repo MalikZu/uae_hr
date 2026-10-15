@@ -171,3 +171,18 @@ class TestOtherRules(UnitTestCase):
 	def test_person_code(self):
 		self.assertEqual(checks.check_person_code("12345678901234"), [])
 		self.assertEqual(codes(checks.check_person_code("1234")), ["person_code"])
+
+
+class TestPayAgainstContract(UnitTestCase):
+	def test_below_contract(self):
+		self.assertEqual(
+			codes(checks.check_pay_vs_contract(4000, 6000, 5000, 6000)), ["basic_below_contract"]
+		)
+		self.assertEqual(
+			codes(checks.check_pay_vs_contract(5000, 5500, 5000, 6000)), ["total_below_contract"]
+		)
+		self.assertEqual(checks.check_pay_vs_contract(5000, 6000, 5000, 6000), [])
+		self.assertEqual(checks.check_pay_vs_contract(5000, 6000, 0, 0), [])
+
+	def test_only_warns(self):
+		self.assertFalse(checks.blocks(checks.check_pay_vs_contract(0, 0, 5000, 6000)))

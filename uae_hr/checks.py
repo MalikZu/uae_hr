@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from datetime import date
 
 from frappe import _
-from frappe.utils import add_months, date_diff, getdate
+from frappe.utils import add_months, date_diff, flt, getdate
 
 BLOCK = "block"
 WARN = "warn"
@@ -414,3 +414,31 @@ def check_engagement(engagement_type, payment_method) -> list[Finding]:
 			)
 		]
 	return []
+
+
+def check_pay_vs_contract(basic, total, contract_basic, contract_total, contract=None) -> list[Finding]:
+	"""Actual pay below the wage registered in the MOHRE contract. DL 22(1): the wage is set in the contract."""
+	out = []
+	if flt(contract_basic) and flt(basic) < flt(contract_basic):
+		out.append(
+			Finding(
+				WARN,
+				"basic_below_contract",
+				_("Actual pay is below the MOHRE contract: basic wage {0} is less than {1} in {2}").format(
+					flt(basic), flt(contract_basic), contract or _("the contract")
+				),
+				"DL 22(1)",
+			)
+		)
+	if flt(contract_total) and flt(total) < flt(contract_total):
+		out.append(
+			Finding(
+				WARN,
+				"total_below_contract",
+				_("Actual pay is below the MOHRE contract: total wage {0} is less than {1} in {2}").format(
+					flt(total), flt(contract_total), contract or _("the contract")
+				),
+				"DL 22(1)",
+			)
+		)
+	return out

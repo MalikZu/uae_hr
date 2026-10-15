@@ -244,3 +244,55 @@ class TestSalaryAssignment(UAETestCase):
 			)
 		)
 		self.assertIn("no_basic", warnings())
+
+
+class TestPayAgainstContract(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def ssa(self, emp, **amounts):
+		from uae_hr.salary import validate_assignment
+
+		doc = frappe.new_doc("Salary Structure Assignment")
+		doc.update({"employee": emp, "company": MAINLAND, **amounts})
+		validate_assignment(doc)
+		return doc
+
+	def test_empty_base_is_the_four_parts(self):
+		emp = make_employee()
+		self.assertEqual(
+			self.ssa(emp.name, uae_basic=5000, uae_housing=2000, uae_transport=500, uae_other=100).base, 7600
+		)
+
+	def test_non_zero_base_is_kept(self):
+		emp = make_employee()
+		self.assertEqual(self.ssa(emp.name, uae_basic=5000, uae_housing=2000, base=8000).base, 8000)
+
+	def test_pay_below_the_contract_warns(self):
+		from uae_hr.tests.utils import reset_warnings, warnings
+
+		emp = make_employee()
+		make_document(
+			emp.name, "MOHRE Employment Contract", contract_basic=5000, contract_housing=2000
+		).verify()
+		reset_warnings()
+		self.ssa(emp.name, uae_basic=4500, uae_housing=2500)
+		self.assertIn("basic_below_contract", warnings())
+		self.assertNotIn("total_below_contract", warnings())
+		reset_warnings()
+		self.ssa(emp.name, uae_basic=5000, uae_housing=1500)
+		self.assertEqual(warnings(), ["total_below_contract"])
+		reset_warnings()
+		self.ssa(emp.name, uae_basic=5000, uae_housing=2000)
+		self.assertEqual(warnings(), [])
+
+	def test_unverified_contract_is_ignored(self):
+		from uae_hr.tests.utils import reset_warnings, warnings
+
+		emp = make_employee()
+		make_document(emp.name, "MOHRE Employment Contract", contract_basic=9000)
+		reset_warnings()
+		self.ssa(emp.name, uae_basic=1000)
+		self.assertNotIn("basic_below_contract", warnings())

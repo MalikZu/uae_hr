@@ -432,7 +432,6 @@ AR = {
 	"An official document cannot be an issued item: the employer may not withhold the worker's official documents. Keep a scan as a UAE Employee Document instead": "لا يمكن أن تكون الوثيقة الرسمية عهدة: لا يجوز لصاحب العمل حجز الوثائق الرسمية للعامل. احفظ نسخة ممسوحة كمستند موظف بدلاً من ذلك",
 	"Allowances are set but the basic wage is empty. Gratuity, overtime and leave pay are calculated on the basic wage": "البدلات محددة لكن الأجر الأساسي فارغ. تُحسب مكافأة نهاية الخدمة والعمل الإضافي وبدل الإجازة على الأجر الأساسي",
 	"Pay components cannot be negative": "لا يمكن أن تكون مكونات الأجر سالبة",
-	"Base {0} is neither the basic wage nor the total of the UAE components ({1})": "الأساس {0} لا يساوي الأجر الأساسي ولا مجموع مكونات الأجر ({1})",
 	"The IBAN belongs to {0}, but the bank is set to {1}": "الآيبان يخص {0}، لكن البنك المحدد {1}",
 	"The IBAN belongs to {0}, not {1}": "الآيبان يخص {0} وليس {1}",
 	"No UAE Bank has IBAN bank code {0}. Add it to the UAE Bank list": "لا يوجد بنك برمز الآيبان {0}. أضفه إلى قائمة البنوك",
@@ -518,6 +517,9 @@ AR = {
 	"Contract Salary (MOHRE)": "الأجر في العقد (الوزارة)",
 	"Contract amounts cannot be negative": "لا يمكن أن تكون مبالغ العقد سالبة",
 	"Monthly amounts as registered in the MOHRE contract. Pay below them is warned on the Salary Structure Assignment": "المبالغ الشهرية كما سُجلت في عقد العمل لدى الوزارة. يظهر تنبيه في تعيين هيكل الراتب إذا كان الأجر أقل منها",
+	"Actual pay is below the MOHRE contract: basic wage {0} is less than {1} in {2}": "الأجر الفعلي أقل مما في عقد الوزارة: الأجر الأساسي {0} أقل من {1} في {2}",
+	"Actual pay is below the MOHRE contract: total wage {0} is less than {1} in {2}": "الأجر الفعلي أقل مما في عقد الوزارة: إجمالي الأجر {0} أقل من {1} في {2}",
+	"the contract": "العقد",
 }
 
 CITE_AR = {

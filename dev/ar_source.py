@@ -441,7 +441,6 @@ AR = {
 	"Link the document to an Employee or a Job Applicant": "اربط المستند بموظف أو بمتقدم للوظيفة",
 	"{0} needs an expiry date": "{0} يحتاج إلى تاريخ انتهاء",
 	"The expiry date must be after the issue date": "يجب أن يكون تاريخ الانتهاء بعد تاريخ الإصدار",
-	"{0} {1} is already recorded for this employee in {2}": "{0} {1} مسجل مسبقاً لهذا الموظف في {2}",
 	"Only an HR Manager can verify documents": "التحقق من المستندات لمدير الموارد البشرية فقط",
 	"Only an unverified document can be verified; this one is {0}": "لا يُتحقق إلا من مستند غير مُتحقق منه؛ وهذا المستند {0}",
 	"Link the document to an Employee before verifying it": "اربط المستند بموظف قبل التحقق منه",
@@ -490,6 +489,8 @@ AR = {
 	"This document is not verified yet": "لم يتم التحقق من هذا المستند بعد",
 	"This document is {0}, so {1} can no longer change. An HR Manager can Reopen it, correct it and verify it again": "هذا المستند {0}، لذا لا يمكن تغيير {1}. يمكن لمدير الموارد البشرية إعادة فتحه وتصحيحه ثم التحقق منه مرة أخرى",
 	"Verified document": "مستند مُتحقق منه",
+	"Already recorded": "مسجل مسبقاً",
+	"{0} {1} with this expiry date is already recorded on {2}. Open that record to change it, or check the number and expiry date: a renewal has a new expiry date": "{0} {1} بتاريخ الانتهاء هذا مسجل مسبقاً في {2}. افتح ذلك السجل لتعديله، أو راجع الرقم وتاريخ الانتهاء: للتجديد تاريخ انتهاء جديد",
 }
 
 CITE_AR = {

@@ -21,6 +21,7 @@ All deductions combined cap (% of wage),الحد الأقصى لمجموع ال�
 Allowance in wage,بدل ضمن الأجر
 "Allowances are set but the basic wage is empty. Gratuity, overtime and leave pay are calculated on the basic wage",البدلات محددة لكن الأجر الأساسي فارغ. تُحسب مكافأة نهاية الخدمة والعمل الإضافي وبدل الإجازة على الأجر الأساسي
 Already expired on {0},منتهي منذ {0}
+Already recorded,مسجل مسبقاً
 Always stored as a private file. The original stays with the worker: DL 13(2) forbids withholding official documents,تُحفظ دائماً كملف خاص. يبقى الأصل مع العامل: تحظر DL 13(2) حجز الوثائق الرسمية
 Amended From,معدَّل من
 Amendment Reference,مرجع التعديل
@@ -509,4 +510,4 @@ violation,المخالفة
 {0} was already employed by this company with a probation period ({1}). A worker may be put on probation only once by the same employer,سبق أن عمل {0} لدى هذه الشركة مع فترة تجربة ({1}). لا يجوز تعيين العامل تحت التجربة أكثر من مرة لدى صاحب العمل نفسه
 "{0} years, {1} months, {2} days",{0} سنوات، {1} أشهر، {2} أيام
 {0} {1} does not exist,{0} {1} غير موجود
-{0} {1} is already recorded for this employee in {2},{0} {1} مسجل مسبقاً لهذا الموظف في {2}
+"{0} {1} with this expiry date is already recorded on {2}. Open that record to change it, or check the number and expiry date: a renewal has a new expiry date",{0} {1} بتاريخ الانتهاء هذا مسجل مسبقاً في {2}. افتح ذلك السجل لتعديله، أو راجع الرقم وتاريخ الانتهاء: للتجديد تاريخ انتهاء جديد

@@ -195,3 +195,45 @@ class TestImporter(UAETestCase):
 		self.assertEqual([w for w in preview.warnings if w.get("type") != "info"], [])
 		mapped = [c.df["fieldname"] for c in preview.columns if c.get("df") and not c.skip_import]
 		self.assertEqual(sorted(mapped), sorted(["employee", "document_type", "document_number", "notes"]))
+
+
+class TestImporterRenewal(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def test_renewal_rows_are_not_duplicates(self):
+		d = tempfile.mkdtemp()
+		path = os.path.join(d, "import.xlsx")
+		importer.make_template(path)
+		emp = make_employee()
+		TestImporter.fill(
+			frappe._dict(path=path),
+			"Documents",
+			[
+				{
+					"employee": emp.name,
+					"document_type": "Emirates ID",
+					"document_number": EID_1990,
+					"expiry_date": "2027-01-01",
+				},
+				{
+					"employee": emp.name,
+					"document_type": "Emirates ID",
+					"document_number": EID_1990,
+					"expiry_date": "2030-01-01",
+				},
+				{
+					"employee": emp.name,
+					"document_type": "Emirates ID",
+					"document_number": EID_1990,
+					"expiry_date": "2030-01-01",
+				},
+			],
+		)
+		result = importer.check(path, write_report=False)
+		dups = [
+			i["row"] for i in result["items"] if i["field"] == "document_number" and i["level"] == "error"
+		]
+		self.assertEqual(dups, [4])

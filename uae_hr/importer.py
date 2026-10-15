@@ -334,7 +334,8 @@ def _check_documents(rows, employees, rep):
 			rep.add("Documents", n, "error", _("The expiry date must be after the issue date"), "expiry_date")
 		if expiry not in (None, "invalid") and expiry < getdate():
 			rep.add("Documents", n, "warning", _("Already expired on {0}").format(expiry), "expiry_date")
-		key = (r.get("employee"), dtype, _str(r.get("document_number")))
+		# a renewal may keep the number (Emirates ID), so the expiry date is part of the key
+		key = (r.get("employee"), dtype, _str(r.get("document_number")), str(expiry))
 		if key[2] and key in seen:
 			rep.add(
 				"Documents", n, "error", _("Same document as row {0}").format(seen[key]), "document_number"

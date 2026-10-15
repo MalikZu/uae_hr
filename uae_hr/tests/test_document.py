@@ -259,7 +259,9 @@ class TestVerifiedDocumentLock(UAETestCase):
 				{"doctype": "User", "email": user, "first_name": "PRO", "roles": [{"role": "UAE PRO"}]}
 			).insert(ignore_permissions=True)
 		with self.set_user(user):
-			self.assertRaises(frappe.PermissionError, frappe.get_doc("UAE Employee Document", doc.name).reopen)
+			self.assertRaises(
+				frappe.PermissionError, frappe.get_doc("UAE Employee Document", doc.name).reopen
+			)
 
 	def test_reopened_older_document_does_not_take_over(self):
 		old = make_document(self.emp.name, "Passport", document_number="O1", expiry_date="2027-01-01")
@@ -282,3 +284,49 @@ class TestVerifiedDocumentLock(UAETestCase):
 		meta = frappe.get_meta("UAE Employee Document")
 		in_form = {f.fieldname for f in meta.fields if f.read_only_depends_on}
 		self.assertEqual(in_form, set(LOCKED_FIELDS))
+
+
+class TestRenewal(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def setUp(self):
+		super().setUp()
+		self.emp = make_employee()
+
+	def test_renewal_keeps_the_number(self):
+		"""An Emirates ID renewal keeps the EID number and gets a new expiry date."""
+		old = make_document(self.emp.name, "Emirates ID", document_number=EID_1990, expiry_date="2027-03-01")
+		old.verify()
+		new = make_document(self.emp.name, "Emirates ID", document_number=EID_1990, expiry_date="2030-03-01")
+		new.verify()
+		self.assertEqual(frappe.db.get_value("UAE Employee Document", old.name, "status"), "Superseded")
+		self.assertEqual(
+			str(frappe.db.get_value("Employee", self.emp.name, "uae_emirates_id_expiry")), "2030-03-01"
+		)
+
+	def test_same_number_and_expiry_is_a_duplicate_and_says_where(self):
+		first = make_document(self.emp.name, "Passport", document_number="D1", expiry_date="2031-05-05")
+		with self.assertRaises(frappe.DuplicateEntryError) as ctx:
+			make_document(self.emp.name, "Passport", document_number="D1", expiry_date="2031-05-05")
+		self.assertIn(first.name, str(ctx.exception))
+
+	def test_cancelled_record_does_not_block(self):
+		first = make_document(self.emp.name, "Passport", document_number="D2", expiry_date="2031-05-05")
+		first.cancel_document("entered by mistake")
+		self.assertTrue(
+			make_document(self.emp.name, "Passport", document_number="D2", expiry_date="2031-05-05").name
+		)
+
+	def test_no_expiry_type_still_refuses_repeats(self):
+		make_document(self.emp.name, "NDA", document_number="N9", expiry_date=None)
+		self.assertRaises(
+			frappe.DuplicateEntryError,
+			make_document,
+			self.emp.name,
+			"NDA",
+			document_number="N9",
+			expiry_date=None,
+		)

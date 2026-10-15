@@ -15,7 +15,7 @@ verifies it again.
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import getdate, now_datetime, today
+from frappe.utils import get_link_to_form, getdate, now_datetime, today
 
 from uae_hr import checks
 from uae_hr.law import get_param
@@ -82,6 +82,11 @@ class UAEEmployeeDocument(Document):
 			)
 
 	def validate_duplicate(self):
+		"""Refuse the same document entered twice, not a renewal.
+
+		A renewal can keep its number (an Emirates ID renewal keeps the EID number), so only an
+		Unverified or Current record with the same number and the same expiry date is a duplicate.
+		"""
 		if not (self.employee and self.document_number):
 			return
 		dup = frappe.db.get_value(
@@ -90,17 +95,20 @@ class UAEEmployeeDocument(Document):
 				"employee": self.employee,
 				"document_type": self.document_type,
 				"document_number": self.document_number,
-				"status": ("!=", "Cancelled"),
+				"expiry_date": self.expiry_date or ("is", "not set"),
+				"status": ("in", ("Unverified", "Current")),
 				"name": ("!=", self.name or ""),
 			},
 			"name",
 		)
 		if dup:
 			frappe.throw(
-				_("{0} {1} is already recorded for this employee in {2}").format(
-					_(self.document_type), self.document_number, frappe.bold(dup)
-				),
+				_(
+					"{0} {1} with this expiry date is already recorded on {2}. Open that record to change it, "
+					"or check the number and expiry date: a renewal has a new expiry date"
+				).format(_(self.document_type), self.document_number, get_link_to_form(self.doctype, dup)),
 				frappe.DuplicateEntryError,
+				title=_("Already recorded"),
 			)
 
 	def on_update(self):

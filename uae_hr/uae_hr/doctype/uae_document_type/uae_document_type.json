@@ -1,0 +1,145 @@
+{
+ "autoname": "field:document_type_name",
+ "creation": "2026-10-15 01:58:03.671655",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type_name",
+  "enabled",
+  "check_profile",
+  "cb1",
+  "has_expiry",
+  "reminder_days",
+  "sb1",
+  "field_map",
+  "sb2",
+  "required_for_permit_types",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "description": "Which built-in checks run for this type (Emirates ID format, passport number on a visa, ...)",
+   "fieldname": "check_profile",
+   "fieldtype": "Select",
+   "label": "Checks",
+   "options": "\nPassport\nEntry Permit\nResidence Visa\nEmirates ID\nWork Permit"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "has_expiry",
+   "fieldtype": "Check",
+   "label": "Has Expiry Date"
+  },
+  {
+   "depends_on": "has_expiry",
+   "description": "Days before expiry to remind the PRO, comma separated, e.g. 60,30,7. Empty = the default in UAE HR Settings",
+   "fieldname": "reminder_days",
+   "fieldtype": "Data",
+   "label": "Reminder Days"
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break",
+   "label": "Mirror to Employee"
+  },
+  {
+   "description": "When a document of this type is verified, these Employee fields are set from it. Mirrored fields are never typed by hand",
+   "fieldname": "field_map",
+   "fieldtype": "Table",
+   "label": "Field Map",
+   "options": "UAE Document Field Map"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Required For"
+  },
+  {
+   "description": "Listed as missing on the contract readiness check for employees on these permit types",
+   "fieldname": "required_for_permit_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Required for Permit Types",
+   "options": "UAE Document Type Permit"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "modified": "2026-10-15 01:58:03.671655",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Document Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User"
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAE PRO",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

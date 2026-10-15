@@ -1,0 +1,43 @@
+{
+ "creation": "2026-10-15 01:58:03.671064",
+ "custom": 0,
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_field",
+  "employee_field"
+ ],
+ "fields": [
+  {
+   "columns": 4,
+   "fieldname": "document_field",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Document Field",
+   "options": "document_number\nissue_date\nexpiry_date\nissuing_country\nissuing_emirate\nplace_of_issue\nname_on_document\ndesignation_on_document\nsponsor_name\ndate_of_birth",
+   "reqd": 1
+  },
+  {
+   "columns": 4,
+   "description": "Fieldname on Employee that mirrors this value when the document is verified",
+   "fieldname": "employee_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Field",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2026-10-15 01:58:03.671064",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE Document Field Map",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

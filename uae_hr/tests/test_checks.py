@@ -186,3 +186,18 @@ class TestPayAgainstContract(UnitTestCase):
 
 	def test_only_warns(self):
 		self.assertFalse(checks.blocks(checks.check_pay_vs_contract(0, 0, 5000, 6000)))
+
+
+class TestExitClearance(UnitTestCase):
+	def test_unreturned(self):
+		rows = [
+			{"item_type": "Laptop", "serial_no": "X1"},
+			{"item_type": "PPE", "returned_on": "2026-01-01"},
+			{},
+		]
+		f = checks.check_unreturned_items(rows)
+		self.assertEqual(codes(f), ["unreturned_items"])
+		self.assertIn("Laptop X1", f[0].message)
+		self.assertEqual(
+			checks.check_unreturned_items([{"item_type": "PPE", "returned_on": "2026-01-01"}]), []
+		)

@@ -163,6 +163,9 @@ def get_custom_fields():
 			options="UAE Issued Item",
 			description="Company property in the worker's hands. Official documents are never listed here (DL 13(2))",
 		),
+		# On the standard Exit tab, under Leave Encashment. No Section Break: Frappe walks a break
+		# inserted near the end of a tab past the hidden tree fields and out of the tab.
+		cf("uae_exit_items_html", "HTML", "Issued Items to Return", insert_after="encashment_date"),
 	]
 	prev = None
 	for d in employee:

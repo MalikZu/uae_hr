@@ -522,6 +522,10 @@ AR = {
 	"the contract": "العقد",
 	"Lists what CR 10(1) requires in the contract that this record is still missing": "يعرض ما تتطلبه CR 10(1) في العقد ولا يزال ناقصاً في هذا السجل",
 	"Save the employee first.": "احفظ سجل الموظف أولاً.",
+	"All issued items are returned.": "أُعيدت جميع العهد المسلَّمة.",
+	"Issued Items to Return": "العهد الواجب إعادتها",
+	"Issued items not returned yet: {0}": "عهد لم تُعد بعد: {0}",
+	"{0} items still to return:": "{0} عهد لم تُعد بعد:",
 }
 
 CITE_AR = {

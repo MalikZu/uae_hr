@@ -442,3 +442,22 @@ def check_pay_vs_contract(basic, total, contract_basic, contract_total, contract
 			)
 		)
 	return out
+
+
+# ---------------------------------------------------------------- exit clearance
+
+
+def unreturned_items(rows) -> list:
+	return [r for r in rows if r.get("item_type") and not r.get("returned_on")]
+
+
+def check_unreturned_items(rows) -> list[Finding]:
+	"""On exit, company property still with the worker. A warning: the clearance is the employer's to chase."""
+	items = unreturned_items(rows)
+	if not items:
+		return []
+	names = ", ".join(
+		" ".join(str(x) for x in (r.get("item_type"), r.get("serial_no") or r.get("description")) if x)
+		for r in items
+	)
+	return [Finding(WARN, "unreturned_items", _("Issued items not returned yet: {0}").format(names))]

@@ -180,3 +180,42 @@ class TestReadinessInTab(UAETestCase):
 		next_tabs = [i for i, f in enumerate(meta.fields) if f.fieldtype == "Tab Break" and i > tab]
 		if next_tabs:
 			self.assertLess(order.index("uae_contract_readiness"), next_tabs[0])
+
+
+class TestExitChecklist(UAETestCase):
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def test_leaving_with_unreturned_items_warns(self):
+		emp = make_employee(
+			uae_issued_items=[
+				{"item_type": "Laptop", "serial_no": "LT-001", "issued_on": "2025-01-05"},
+				{"item_type": "SIM Card", "issued_on": "2025-01-05", "returned_on": "2025-12-01"},
+			]
+		)
+		reset_warnings()
+		emp.status, emp.relieving_date = "Left", "2026-01-31"
+		emp.save()
+		found = [f for f in frappe.flags.uae_hr_warnings or [] if f.code == "unreturned_items"]
+		self.assertEqual(len(found), 1)
+		self.assertIn("LT-001", found[0].message)
+		self.assertNotIn("SIM Card", found[0].message)
+
+	def test_all_returned_is_quiet(self):
+		emp = make_employee(
+			uae_issued_items=[{"item_type": "Laptop", "issued_on": "2025-01-05", "returned_on": "2025-12-01"}]
+		)
+		reset_warnings()
+		emp.status, emp.relieving_date = "Left", "2026-01-31"
+		emp.save()
+		self.assertNotIn("unreturned_items", warnings())
+
+	def test_section_is_on_the_exit_tab(self):
+		meta = frappe.get_meta("Employee")
+		order = [f.fieldname for f in meta.fields]
+		tabs = [(i, f.fieldname) for i, f in enumerate(meta.fields) if f.fieldtype == "Tab Break"]
+		pos = order.index("uae_exit_items_html")
+		tab = [name for i, name in tabs if i < pos][-1]
+		self.assertEqual(tab, "exit")

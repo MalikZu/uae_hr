@@ -11,6 +11,7 @@ frappe.ui.form.on("Employee", {
 		uae_hr_show_readiness(frm);
 	},
 	refresh(frm) {
+		uae_hr_render_exit_items(frm);
 		if (frm.is_new()) return;
 		frappe.call({
 			method: "uae_hr.employee.get_form_context",
@@ -66,3 +67,35 @@ function uae_hr_show_readiness(frm) {
 		},
 	});
 }
+
+// Exit tab: company property still with the worker (rows of Issued Items with no Returned On).
+function uae_hr_render_exit_items(frm) {
+	const field = frm.get_field("uae_exit_items_html");
+	if (!field) return;
+	const open = (frm.doc.uae_issued_items || []).filter((r) => r.item_type && !r.returned_on);
+	const head = `<label class="control-label">${__("Issued Items to Return")}</label>`;
+	if (!open.length) {
+		field.$wrapper.html(`${head}<p class="text-muted">${__("All issued items are returned.")}</p>`);
+		return;
+	}
+	const rows = open
+		.map(
+			(r) =>
+				`<tr><td>${frappe.utils.escape_html(r.item_type)}</td><td>${frappe.utils.escape_html(
+					r.serial_no || r.description || ""
+				)}</td><td>${r.issued_on ? frappe.datetime.str_to_user(r.issued_on) : ""}</td></tr>`
+		)
+		.join("");
+	field.$wrapper.html(
+		`${head}<p>${__("{0} items still to return:", [open.length])}</p>
+		<table class="table table-sm"><thead><tr><th>${__("Item Type")}</th><th>${__("Serial / Asset No")}</th><th>${__(
+			"Issued On"
+		)}</th></tr></thead><tbody>${rows}</tbody></table>`
+	);
+}
+
+frappe.ui.form.on("UAE Issued Item", {
+	returned_on: uae_hr_render_exit_items,
+	item_type: uae_hr_render_exit_items,
+	uae_issued_items_remove: uae_hr_render_exit_items,
+});

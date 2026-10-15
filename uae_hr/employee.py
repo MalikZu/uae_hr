@@ -34,6 +34,8 @@ def validate(doc, method=None):
 	findings += checks.check_nominee(doc.uae_death_nominee, doc.uae_death_nominee_relation)
 	findings += check_probation_once(doc)
 	findings += checks.check_engagement(doc.uae_engagement_type, doc.uae_payment_method)
+	if doc.status == "Left" and (doc.is_new() or doc.has_value_changed("status")):
+		findings += checks.check_unreturned_items(doc.get("uae_issued_items") or [])
 	apply_findings(findings)
 
 

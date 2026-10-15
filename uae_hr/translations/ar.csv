@@ -21,6 +21,7 @@ Add an Address linked to the company,أضف عنواناً مرتبطاً بال
 Addressed To,موجه إلى
 Ajman,عجمان
 All deductions combined cap (% of wage),الحد الأقصى لمجموع الاقتطاعات (% من الأجر)
+All issued items are returned.,أُعيدت جميع العهد المسلَّمة.
 Allowance in wage,بدل ضمن الأجر
 "Allowances are set but the basic wage is empty. Gratuity, overtime and leave pay are calculated on the basic wage",البدلات محددة لكن الأجر الأساسي فارغ. تُحسب مكافأة نهاية الخدمة والعمل الإضافي وبدل الإجازة على الأجر الأساسي
 Already expired on {0},منتهي منذ {0}
@@ -186,7 +187,9 @@ Investigation Closed On,تاريخ انتهاء التحقيق
 Issue Date,تاريخ الإصدار
 Issued By,أصدره
 Issued Items,العهد المسلَّمة
+Issued Items to Return,العهد الواجب إعادتها
 Issued On,تاريخ التسليم
+Issued items not returned yet: {0},عهد لم تُعد بعد: {0}
 Issuing Country,دولة الإصدار
 Issuing Emirate,إمارة الإصدار
 Item Type,نوع العهدة
@@ -535,6 +538,7 @@ violation,المخالفة
 {0} is not a date (use YYYY-MM-DD),{0} ليس تاريخاً (استخدم YYYY-MM-DD)
 {0} is not a valid SWIFT / BIC code,{0} ليس رمز سويفت صحيحاً
 {0} items missing before the MOHRE contract can be prepared.,{0} بنود ناقصة قبل إعداد العقد لدى الوزارة.
+{0} items still to return:,{0} عهد لم تُعد بعد:
 {0} must be greater than zero,يجب أن تكون {0} أكبر من صفر
 {0} needs an expiry date,{0} يحتاج إلى تاريخ انتهاء
 {0} verified.,تم التحقق من {0}.

@@ -9,6 +9,14 @@ frappe.ui.form.on("UAE Employee Document", {
 				frm.call("verify").then(() => frm.reload_doc())
 			).addClass("btn-primary");
 		}
+		if (frm.doc.status !== "Unverified" && frappe.user.has_role(["HR Manager", "System Manager"])) {
+			frm.add_custom_button(__("Reopen"), () =>
+				frappe.confirm(
+					__("Reopen this document so it can be corrected? The Employee keeps its current values until you verify it again."),
+					() => frm.call("reopen").then(() => frm.reload_doc())
+				)
+			);
+		}
 		if (frm.doc.status !== "Cancelled") {
 			frm.add_custom_button(__("Mark Cancelled"), () => {
 				frappe.prompt(

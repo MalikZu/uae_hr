@@ -484,6 +484,12 @@ AR = {
 	"Designation differs from the employee's other permit documents": "المهنة تختلف عن مستندات التصاريح الأخرى للموظف",
 	"Basic wage is empty": "الأجر الأساسي فارغ",
 	"law": "القانون",
+	"Only an HR Manager can reopen documents": "إعادة فتح المستندات لمدير الموارد البشرية فقط",
+	"Reopen": "إعادة فتح",
+	"Reopen this document so it can be corrected? The Employee keeps its current values until you verify it again.": "إعادة فتح هذا المستند لتصحيحه؟ يحتفظ سجل الموظف بقيمه الحالية حتى تتحقق من المستند مرة أخرى.",
+	"This document is not verified yet": "لم يتم التحقق من هذا المستند بعد",
+	"This document is {0}, so {1} can no longer change. An HR Manager can Reopen it, correct it and verify it again": "هذا المستند {0}، لذا لا يمكن تغيير {1}. يمكن لمدير الموارد البشرية إعادة فتحه وتصحيحه ثم التحقق منه مرة أخرى",
+	"Verified document": "مستند مُتحقق منه",
 }
 
 CITE_AR = {

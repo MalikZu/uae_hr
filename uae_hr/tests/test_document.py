@@ -203,3 +203,82 @@ class TestEmployeeDocument(UAETestCase):
 			}
 		).insert(ignore_permissions=True)
 		self.assertTrue(f.is_private)
+
+
+class TestVerifiedDocumentLock(UAETestCase):
+	"""A verified document cannot drift from the Employee mirror: it is locked until reopened."""
+
+	@classmethod
+	def setUpClass(cls):
+		super().setUpClass()
+		make_company(MAINLAND)
+
+	def setUp(self):
+		super().setUp()
+		self.emp = make_employee()
+
+	def test_verified_identity_is_locked(self):
+		doc = make_document(self.emp.name, "Passport", document_number="L100", expiry_date="2031-01-01")
+		doc.verify()
+		doc.reload()
+		doc.document_number = "L101"
+		self.assertRaises(frappe.ValidationError, doc.save)
+		doc.reload()
+		doc.expiry_date = "2032-01-01"
+		self.assertRaises(frappe.ValidationError, doc.save)
+
+	def test_notes_and_scan_stay_editable(self):
+		doc = make_document(self.emp.name)
+		doc.verify()
+		doc.reload()
+		doc.notes = "renewal started"
+		doc.save()
+		self.assertEqual(doc.notes, "renewal started")
+
+	def test_reopen_then_correct_then_verify(self):
+		doc = make_document(self.emp.name, "Passport", document_number="R200", expiry_date="2031-01-01")
+		doc.verify()
+		doc.reload()
+		doc.reopen()
+		self.assertEqual((doc.status, doc.verified_by, doc.verified_on), ("Unverified", None, None))
+		# mirrors untouched until verified again
+		self.assertEqual(frappe.db.get_value("Employee", self.emp.name, "passport_number"), "R200")
+		doc.reload()
+		doc.document_number = "R201"
+		doc.save()
+		self.assertEqual(frappe.db.get_value("Employee", self.emp.name, "passport_number"), "R200")
+		doc.verify()
+		self.assertEqual(frappe.db.get_value("Employee", self.emp.name, "passport_number"), "R201")
+
+	def test_only_hr_manager_reopens(self):
+		doc = make_document(self.emp.name)
+		doc.verify()
+		user = "uae.pro.test@example.com"
+		if not frappe.db.exists("User", user):
+			frappe.get_doc(
+				{"doctype": "User", "email": user, "first_name": "PRO", "roles": [{"role": "UAE PRO"}]}
+			).insert(ignore_permissions=True)
+		with self.set_user(user):
+			self.assertRaises(frappe.PermissionError, frappe.get_doc("UAE Employee Document", doc.name).reopen)
+
+	def test_reopened_older_document_does_not_take_over(self):
+		old = make_document(self.emp.name, "Passport", document_number="O1", expiry_date="2027-01-01")
+		old.verify()
+		new = make_document(self.emp.name, "Passport", document_number="O2", expiry_date="2035-01-01")
+		new.verify()
+		old.reload()
+		old.reopen()
+		old.reload()
+		old.place_of_issue = "Corrected"
+		old.save()
+		old.verify()
+		self.assertEqual((old.status, old.superseded_by), ("Superseded", new.name))
+		self.assertEqual(frappe.db.get_value("UAE Employee Document", new.name, "status"), "Current")
+		self.assertEqual(frappe.db.get_value("Employee", self.emp.name, "passport_number"), "O2")
+
+	def test_lock_list_matches_the_form(self):
+		from uae_hr.uae_hr.doctype.uae_employee_document.uae_employee_document import LOCKED_FIELDS
+
+		meta = frappe.get_meta("UAE Employee Document")
+		in_form = {f.fieldname for f in meta.fields if f.read_only_depends_on}
+		self.assertEqual(in_form, set(LOCKED_FIELDS))

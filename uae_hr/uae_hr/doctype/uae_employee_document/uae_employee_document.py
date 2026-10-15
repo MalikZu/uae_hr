@@ -6,6 +6,10 @@
 Lifecycle: Unverified -> (Verify) Current -> Superseded when a newer one of the same type is verified,
 Expired when the expiry date passes (daily job), Cancelled by hand. Verifying copies the mapped
 values onto the Employee; those Employee fields are read-only and never typed by hand.
+
+Once verified, the identity of a document is locked: changing it would leave the Employee mirror
+showing the old values. To correct one, an HR Manager reopens it (back to Unverified), edits it and
+verifies it again.
 """
 
 import frappe
@@ -19,12 +23,25 @@ from uae_hr.utils import apply_findings, has_role, reminder_days_for
 
 VERIFIERS = ("HR Manager",)
 LIVE = ("Current", "Expired")
+# read-only once the document leaves Unverified (also read_only_depends_on in the doctype JSON)
+LOCKED_FIELDS = (
+	"employee",
+	"document_type",
+	"document_number",
+	"issue_date",
+	"expiry_date",
+	"place_of_issue",
+	"name_on_document",
+	"date_of_birth",
+	"passport_number",
+)
 
 
 class UAEEmployeeDocument(Document):
 	def validate(self):
 		if not self.employee and not self.job_applicant:
 			frappe.throw(_("Link the document to an Employee or a Job Applicant"))
+		self.validate_lock()
 		dtype = frappe.get_cached_doc("UAE Document Type", self.document_type)
 		self.check_profile = dtype.check_profile
 		self.has_expiry = dtype.has_expiry
@@ -42,6 +59,27 @@ class UAEEmployeeDocument(Document):
 		if self.check_profile == "Emirates ID":
 			findings += checks.check_emirates_id(self.document_number, self.date_of_birth)
 		apply_findings(findings)
+
+	def validate_lock(self):
+		before = self.get_doc_before_save()
+		if not before or before.status == "Unverified":
+			return
+		mapped = {
+			r.document_field
+			for r in frappe.get_cached_doc("UAE Document Type", before.document_type).field_map
+		}
+		changed = [
+			self.meta.get_label(f)
+			for f in sorted(set(LOCKED_FIELDS) | mapped)
+			if self.meta.has_field(f) and _norm(self.get(f)) != _norm(before.get(f))
+		]
+		if changed:
+			frappe.throw(
+				_(
+					"This document is {0}, so {1} can no longer change. An HR Manager can Reopen it, correct it and verify it again"
+				).format(_(before.status), ", ".join(_(c) for c in changed)),
+				title=_("Verified document"),
+			)
 
 	def validate_duplicate(self):
 		if not (self.employee and self.document_number):
@@ -104,6 +142,14 @@ class UAEEmployeeDocument(Document):
 		if not self.employee:
 			frappe.throw(_("Link the document to an Employee before verifying it"))
 		findings = self.cross_check()
+		newer = self.newer_live_document()
+		if newer:
+			# a reopened older document must not take over from a newer one
+			self.status, self.superseded_by = "Superseded", newer
+			self.verified_by, self.verified_on = frappe.session.user, now_datetime()
+			self.save()
+			apply_findings(findings, title=_("Verified, with warnings"))
+			return [f.text() for f in findings]
 		for old in frappe.get_all(
 			"UAE Employee Document",
 			filters={
@@ -126,6 +172,33 @@ class UAEEmployeeDocument(Document):
 		self.mirror()
 		apply_findings(findings, title=_("Verified, with warnings"))
 		return [f.text() for f in findings]
+
+	def newer_live_document(self):
+		if not self.expiry_date:
+			return None
+		return frappe.db.get_value(
+			"UAE Employee Document",
+			{
+				"employee": self.employee,
+				"document_type": self.document_type,
+				"status": ("in", LIVE),
+				"expiry_date": (">", self.expiry_date),
+				"name": ("!=", self.name),
+			},
+			"name",
+		)
+
+	@frappe.whitelist()
+	def reopen(self):
+		"""Back to Unverified so a mistake can be corrected. Mirrors keep their values until it is verified again."""
+		if not has_role(*VERIFIERS):
+			frappe.throw(_("Only an HR Manager can reopen documents"), frappe.PermissionError)
+		if self.status == "Unverified":
+			frappe.throw(_("This document is not verified yet"))
+		self.status = "Unverified"
+		self.verified_by = None
+		self.verified_on = None
+		self.save()
 
 	@frappe.whitelist()
 	def cancel_document(self, reason=None):
@@ -212,6 +285,12 @@ class UAEEmployeeDocument(Document):
 					)
 				)
 		return out
+
+
+def _norm(value):
+	if value in (None, ""):
+		return None
+	return str(value).strip()
 
 
 def current_value(employee, check_profile, field):

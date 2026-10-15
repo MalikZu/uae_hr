@@ -99,7 +99,31 @@ def dt(name, fields, **kw):
 	return d
 
 
+# Fields that turn read-only once a document leaves Unverified. Must match LOCKED_FIELDS in
+# uae_employee_document.py; a test checks the two agree.
+LOCKS = {
+	"UAE Employee Document": (
+		(
+			"employee",
+			"document_type",
+			"document_number",
+			"issue_date",
+			"expiry_date",
+			"place_of_issue",
+			"name_on_document",
+			"date_of_birth",
+			"passport_number",
+		),
+		"eval:doc.status && doc.status!='Unverified'",
+	),
+}
+
+
 def write(doc):
+	fields_locked, condition = LOCKS.get(doc["name"], ((), None))
+	for x in doc["fields"]:
+		if x["fieldname"] in fields_locked:
+			x["read_only_depends_on"] = condition
 	folder = BASE / doc["name"].lower().replace(" ", "_")
 	folder.mkdir(parents=True, exist_ok=True)
 	(folder / "__init__.py").touch()

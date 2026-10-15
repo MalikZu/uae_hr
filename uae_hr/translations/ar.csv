@@ -301,6 +301,7 @@ Notice and termination,الإشعار وإنهاء العقد
 Notice of {0} days is outside the legal range of {1} to {2} days,إشعار مدته {0} يوماً خارج النطاق القانوني من {1} إلى {2} يوماً
 Notice period,فترة الإشعار
 "Occupation as printed; must match across work permit, residence visa and Emirates ID",المهنة كما هي مطبوعة؛ يجب أن تتطابق في تصريح العمل والإقامة والهوية
+Only an HR Manager can reopen documents,إعادة فتح المستندات لمدير الموارد البشرية فقط
 Only an HR Manager can verify documents,التحقق من المستندات لمدير الموارد البشرية فقط
 Only an unverified document can be verified; this one is {0},لا يُتحقق إلا من مستند غير مُتحقق منه؛ وهذا المستند {0}
 Other,أخرى
@@ -343,6 +344,8 @@ Remarks,ملاحظات
 Reminder Days,أيام التذكير
 "Reminder days are whole numbers separated by commas, e.g. 60,30,7","أيام التذكير أعداد صحيحة مفصولة بفواصل، مثل 60,30,7"
 Reminders go to role UAE PRO; tick to also send them to HR Manager,تُرسل التذكيرات إلى دور مندوب العلاقات الحكومية؛ اختر هذا لإرسالها أيضاً إلى مدير الموارد البشرية
+Reopen,إعادة فتح
+Reopen this document so it can be corrected? The Employee keeps its current values until you verify it again.,إعادة فتح هذا المستند لتصحيحه؟ يحتفظ سجل الموظف بقيمه الحالية حتى تتحقق من المستند مرة أخرى.
 Required For,مطلوب لـ
 Required for Permit Types,مطلوب لأنواع التصاريح
 "Required when a value below is less favourable to workers than the 2022 text, or when a value without a direction changes: name the resolution that changed it (DL 70(7))",مطلوب إذا كانت إحدى القيم أدناه أقل فائدة للعامل من نص 2022، أو إذا تغيرت قيمة لا اتجاه لها: اذكر القرار الذي عدّلها (DL 70(7))
@@ -419,6 +422,8 @@ The warning is issued {0} days after the investigation closed; the limit is {1} 
 The worker may name in writing a family member to receive their rights on death (DL 15(2)),يجوز للعامل أن يحدد كتابياً أحد أفراد أسرته لاستلام مستحقاته عند الوفاة (DL 15(2))
 "The {0} carries passport {1}, but the current passport is {2}",يحمل {0} رقم الجواز {1}، بينما الجواز الساري هو {2}
 "These values are less favourable to workers than the law, or change a value the law fixes. Name the resolution that amended them in Amendment Reference:",هذه القيم أقل فائدة للعامل من القانون، أو تغيّر قيمة يحددها القانون. اذكر القرار الذي عدّلها في حقل مرجع التعديل:
+This document is not verified yet,لم يتم التحقق من هذا المستند بعد
+"This document is {0}, so {1} can no longer change. An HR Manager can Reopen it, correct it and verify it again",هذا المستند {0}، لذا لا يمكن تغيير {1}. يمكن لمدير الموارد البشرية إعادة فتحه وتصحيحه ثم التحقق منه مرة أخرى
 "This employee has left but has no relieving date, so the {0}-year retention period cannot be checked",ترك هذا الموظف العمل دون تاريخ إخلاء طرف، فلا يمكن التحقق من مدة الحفظ البالغة {0} سنوات
 Tools,أدوات
 Total Service,مدة الخدمة
@@ -455,6 +460,7 @@ Vehicle,مركبة
 Verification,التحقق
 Verified By,تحقق منه
 Verified On,تاريخ التحقق
+Verified document,مستند مُتحقق منه
 "Verified, with warnings",تم التحقق، مع تنبيهات
 Verify,تحقق
 Violation,المخالفة

@@ -48,6 +48,7 @@
    "in_standard_filter": 1,
    "label": "Employee",
    "options": "Employee",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'",
    "search_index": 1
   },
   {
@@ -85,6 +86,7 @@
    "in_standard_filter": 1,
    "label": "Document Type",
    "options": "UAE Document Type",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'",
    "reqd": 1
   },
   {
@@ -133,12 +135,14 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Document Number",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'",
    "search_index": 1
   },
   {
    "fieldname": "issue_date",
    "fieldtype": "Date",
-   "label": "Issue Date"
+   "label": "Issue Date",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
   },
   {
    "fieldname": "expiry_date",
@@ -146,6 +150,7 @@
    "in_list_view": 1,
    "label": "Expiry Date",
    "mandatory_depends_on": "eval:doc.has_expiry",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'",
    "search_index": 1
   },
   {
@@ -167,7 +172,8 @@
   {
    "fieldname": "place_of_issue",
    "fieldtype": "Data",
-   "label": "Place of Issue"
+   "label": "Place of Issue",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
   },
   {
    "fieldname": "holder_sb",
@@ -177,19 +183,22 @@
   {
    "fieldname": "name_on_document",
    "fieldtype": "Data",
-   "label": "Name on Document"
+   "label": "Name on Document",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
   },
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of Birth"
+   "label": "Date of Birth",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
   },
   {
    "depends_on": "eval:['Entry Permit','Residence Visa'].includes(doc.check_profile)",
    "description": "Checked against the employee's current passport",
    "fieldname": "passport_number",
    "fieldtype": "Data",
-   "label": "Passport Number on Document"
+   "label": "Passport Number on Document",
+   "read_only_depends_on": "eval:doc.status && doc.status!='Unverified'"
   },
   {
    "fieldname": "cb3",
@@ -256,7 +265,7 @@
    "label": "Notes"
   }
  ],
- "modified": "2026-10-15 10:19:48.390213",
+ "modified": "2026-10-16 01:56:06.130777",
  "modified_by": "Administrator",
  "module": "UAE HR",
  "name": "UAE Employee Document",

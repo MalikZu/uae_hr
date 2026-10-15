@@ -1,0 +1,113 @@
+{
+ "app": "uae_hr",
+ "creation": "2026-10-15 12:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "file",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "home",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Home",
+   "link_to": "UAE HR",
+   "link_type": "Workspace",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "file-text",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Employee Documents",
+   "link_to": "UAE Employee Document",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "calendar-clock",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Expiring Documents",
+   "link_to": "Expiring Documents",
+   "link_type": "Report",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "mail",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "HR Letters",
+   "link_to": "UAE HR Letter",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "list",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Document Types",
+   "link_to": "UAE Document Type",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "badge",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Permit Types",
+   "link_to": "UAE Permit Type",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "landmark",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Banks",
+   "link_to": "UAE Bank",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "settings",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Settings",
+   "link_to": "UAE HR Settings",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-10-15 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE HR",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "UAE HR"
+}

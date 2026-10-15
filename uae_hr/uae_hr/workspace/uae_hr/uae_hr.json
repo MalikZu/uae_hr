@@ -1,0 +1,203 @@
+{
+ "app": "uae_hr",
+ "charts": [],
+ "content": "[{\"id\": \"uaehr_h1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>UAE HR</b></span>\", \"col\": 12}}, {\"id\": \"uaehr_s0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Expiring Documents\", \"col\": 3}}, {\"id\": \"uaehr_s1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Unverified Documents\", \"col\": 3}}, {\"id\": \"uaehr_s2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee Documents\", \"col\": 3}}, {\"id\": \"uaehr_s3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"HR Letters\", \"col\": 3}}, {\"id\": \"uaehr_sp\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"uaehr_c0\", \"type\": \"card\", \"data\": {\"card_name\": \"Documents\", \"col\": 4}}, {\"id\": \"uaehr_c1\", \"type\": \"card\", \"data\": {\"card_name\": \"People\", \"col\": 4}}, {\"id\": \"uaehr_c2\", \"type\": \"card\", \"data\": {\"card_name\": \"Masters\", \"col\": 4}}, {\"id\": \"uaehr_c3\", \"type\": \"card\", \"data\": {\"card_name\": \"Settings\", \"col\": 4}}]",
+ "creation": "2026-10-15 12:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "UAE HR",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Documents",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE Employee Document",
+   "link_count": 0,
+   "link_to": "UAE Employee Document",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Expiring Documents",
+   "link_count": 0,
+   "link_to": "Expiring Documents",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE Document Type",
+   "link_count": 0,
+   "link_to": "UAE Document Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "People",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee",
+   "link_count": 0,
+   "link_to": "Employee",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE HR Letter",
+   "link_count": 0,
+   "link_to": "UAE HR Letter",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE Permit Type",
+   "link_count": 0,
+   "link_to": "UAE Permit Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE Skill Category",
+   "link_count": 0,
+   "link_to": "UAE Skill Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE Bank",
+   "link_count": 0,
+   "link_to": "UAE Bank",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE Issued Item Type",
+   "link_count": 0,
+   "link_to": "UAE Issued Item Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UAE HR Settings",
+   "link_count": 0,
+   "link_to": "UAE HR Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  }
+ ],
+ "modified": "2026-10-15 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "UAE HR",
+ "name": "UAE HR",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 50.0,
+ "shortcuts": [
+  {
+   "label": "Expiring Documents",
+   "link_to": "Expiring Documents",
+   "type": "Report",
+   "color": "Orange",
+   "doc_view": ""
+  },
+  {
+   "label": "Unverified Documents",
+   "link_to": "UAE Employee Document",
+   "type": "DocType",
+   "color": "Grey",
+   "doc_view": "List",
+   "stats_filter": "{\"status\":\"Unverified\"}"
+  },
+  {
+   "label": "Employee Documents",
+   "link_to": "UAE Employee Document",
+   "type": "DocType",
+   "color": "Blue",
+   "doc_view": "List"
+  },
+  {
+   "label": "HR Letters",
+   "link_to": "UAE HR Letter",
+   "type": "DocType",
+   "color": "Blue",
+   "doc_view": "List"
+  }
+ ],
+ "title": "UAE HR",
+ "type": "Workspace"
+}

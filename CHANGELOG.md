@@ -2,6 +2,29 @@
 
 Each entry names the article behind the change. Versions follow semantic versioning.
 
+## 0.1.2 (unreleased)
+
+Fixes and additions from the first HR test.
+
+- A verified UAE Employee Document is locked (identity, dates, names, birth date, passport number, contract pay and
+  every mirrored field), so the Employee mirror cannot drift. **Reopen** (HR Manager) puts it back to Unverified;
+  the mirror keeps its values until it is verified again. A reopened older document cannot take over from a newer
+  one when re-verified.
+- Renewals: the duplicate check refuses only an Unverified or Current record with the same number **and** expiry
+  date, so a renewal that keeps its number (an Emirates ID) can be recorded. The message links the existing record.
+- New master **UAE Establishment** (the visa sponsor) and Employee fields `uae_visa_establishment`,
+  `uae_visa_emirate`, `uae_engagement_type`, `uae_payment_method`; a salaried worker with no payment method is
+  warned (CR 16(1)(b)).
+- MOHRE contract salary (`contract_basic`, `contract_housing`, `contract_transport`, `contract_other`,
+  `contract_total`) on the MOHRE Employment Contract document, with its own check profile; a patch sets the profile
+  on earlier sites.
+- Salary Structure Assignment: an empty base becomes the sum of the four parts (a set base is kept); pay below the
+  Current MOHRE contract is warned (DL 22(1)). The "base is neither basic nor total" warning is removed.
+- Contract Readiness also from a button inside the Employee UAE tab.
+- Exit tab lists unreturned issued items; setting the status to Left with items out is warned.
+- UAE Bank seeding by IBAN bank code, insert-only, from verified sources.
+- Import workbook and checker cover the new fields.
+
 ## 0.1.1 (2026-10-15)
 
 Fixes found while building a company layer on 0.1.0.

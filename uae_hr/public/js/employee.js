@@ -2,6 +2,14 @@
 // License: GNU General Public License v3. See LICENSE
 
 frappe.ui.form.on("Employee", {
+	// the same check from the button inside the UAE tab, where HR looks for it
+	uae_contract_readiness(frm) {
+		if (frm.is_new()) {
+			frappe.msgprint(__("Save the employee first."));
+			return;
+		}
+		uae_hr_show_readiness(frm);
+	},
 	refresh(frm) {
 		if (frm.is_new()) return;
 		frappe.call({

@@ -520,6 +520,8 @@ AR = {
 	"Actual pay is below the MOHRE contract: basic wage {0} is less than {1} in {2}": "الأجر الفعلي أقل مما في عقد الوزارة: الأجر الأساسي {0} أقل من {1} في {2}",
 	"Actual pay is below the MOHRE contract: total wage {0} is less than {1} in {2}": "الأجر الفعلي أقل مما في عقد الوزارة: إجمالي الأجر {0} أقل من {1} في {2}",
 	"the contract": "العقد",
+	"Lists what CR 10(1) requires in the contract that this record is still missing": "يعرض ما تتطلبه CR 10(1) في العقد ولا يزال ناقصاً في هذا السجل",
+	"Save the employee first.": "احفظ سجل الموظف أولاً.",
 }
 
 CITE_AR = {

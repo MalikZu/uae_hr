@@ -103,6 +103,12 @@ def get_custom_fields():
 			description="The employer provides accommodation or pays an allowance for it (DL 13(4))",
 		),
 		cf(
+			"uae_contract_readiness",
+			"Button",
+			"Contract Readiness",
+			description="Lists what CR 10(1) requires in the contract that this record is still missing",
+		),
+		cf(
 			"uae_nominee_sb",
 			"Section Break",
 			"Death Entitlements Nominee",

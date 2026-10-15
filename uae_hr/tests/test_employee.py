@@ -167,3 +167,16 @@ class TestEngagement(UAETestCase):
 		).insert()
 		emp = make_employee(uae_visa_establishment=est.name, uae_visa_emirate="Ajman")
 		self.assertEqual(emp.uae_visa_establishment, est.name)
+
+
+class TestReadinessInTab(UAETestCase):
+	def test_button_sits_in_the_uae_tab(self):
+		meta = frappe.get_meta("Employee")
+		field = meta.get_field("uae_contract_readiness")
+		self.assertEqual(field.fieldtype, "Button")
+		order = [f.fieldname for f in meta.fields]
+		tab = order.index("uae_tab")
+		self.assertGreater(order.index("uae_contract_readiness"), tab)
+		next_tabs = [i for i, f in enumerate(meta.fields) if f.fieldtype == "Tab Break" and i > tab]
+		if next_tabs:
+			self.assertLess(order.index("uae_contract_readiness"), next_tabs[0])

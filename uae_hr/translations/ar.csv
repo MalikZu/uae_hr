@@ -264,6 +264,7 @@ Letter Type,نوع الخطاب
 Link the document to an Employee before verifying it,اربط المستند بموظف قبل التحقق منه
 Link the document to an Employee or a Job Applicant,اربط المستند بموظف أو بمتقدم للوظيفة
 Listed as missing on the contract readiness check for employees on these permit types,يظهر كناقص في فحص جاهزية العقد للموظفين على هذه الأنواع من التصاريح
+Lists what CR 10(1) requires in the contract that this record is still missing,يعرض ما تتطلبه CR 10(1) في العقد ولا يزال ناقصاً في هذا السجل
 MOHRE Employment Contract,عقد العمل لدى الوزارة
 MOHRE Establishment ID,رقم المنشأة لدى الوزارة
 MOHRE Establishment Number,رقم المنشأة لدى الوزارة
@@ -386,6 +387,7 @@ Salary Revision,تعديل الراتب
 Salary Transfer Letter,خطاب تحويل راتب
 Salary mode is Bank but there is no IBAN,طريقة الصرف عبر البنك لكن لا يوجد آيبان
 Same document as row {0},المستند نفسه في السطر {0}
+Save the employee first.,احفظ سجل الموظف أولاً.
 Scan,النسخة الممسوحة
 Scan (private),النسخة الممسوحة (خاصة)
 Second Contract Language,لغة العقد الثانية
